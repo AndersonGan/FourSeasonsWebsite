@@ -1,703 +1,2847 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Four Seasons Restaurant — Fresh Chinese Food in Grants Pass, OR</title>
-<meta name="description" content="Four Seasons Restaurant in Grants Pass, Oregon. Fresh Chinese food made to order. Call (541) 479-6532 for pickup. 122 SE K St. Open Tue–Sat 12–9 PM.">
+
+<title>Four Seasons Restaurant — Chinese-American Kitchen, Grants Pass, OR</title>
+
+<meta name="description" content="Four Seasons Restaurant, 122 SE K St, Grants Pass. Chinese-American food cooked to order, no MSG. Call (541) 479-6532 or order online for pickup. Tue–Sat, noon–9.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
+
   :root {
-    --navy: #1e3a5f;
-    --navy-dark: #162c49;
-    --gold: #c8912a;
-    --gold-light: #e8b54d;
-    --red: #b03a2e;
-    --cream: #faf6ef;
-    --white: #ffffff;
-    --text: #2b2b2b;
-    --text-light: #5a5a5a;
-    --green: #2e7d32;
+
+    --paper: #f4efe3;
+
+    --paper-deep: #ebe4d2;
+
+    --ink: #181410;
+
+    --ink-soft: #56503f;
+
+    --cinnabar: #b0341b;
+
+    --lacquer: #14352c;
+
+    --line: #d9d0b9;
+
+    --line-dark: #b9ad8f;
+
+    --serif: 'Fraunces', Georgia, serif;
+
+    --sans: 'Libre Franklin', 'Helvetica Neue', Arial, sans-serif;
+
   }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
   html { scroll-behavior: smooth; }
+
   body {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 19px;
-    line-height: 1.65;
-    color: var(--text);
-    background: var(--cream);
+
+    font-family: var(--sans);
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+    color: var(--ink);
+
+    background: var(--paper);
+
+    -webkit-font-smoothing: antialiased;
+
   }
-  h1, h2, h3 { font-family: Georgia, serif; color: var(--navy); line-height: 1.25; }
-  h1 { font-size: 2.4rem; }
-  h2 { font-size: 1.9rem; margin-bottom: 0.5em; }
-  h3 { font-size: 1.35rem; margin-bottom: 0.4em; }
+
+  ::selection { background: var(--cinnabar); color: var(--paper); }
+
+
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.08; letter-spacing: -0.01em; }
+
   p { margin-bottom: 1em; }
-  a { color: var(--navy); }
 
-  /* ---------- Buttons ---------- */
+  a { color: var(--ink); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+  a:hover { color: var(--cinnabar); }
+
+  img { display: block; max-width: 100%; }
+
+
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
+
+
+
+  .kicker {
+
+    font-family: var(--sans); font-size: 11px; font-weight: 700;
+
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--cinnabar);
+
+    margin-bottom: 18px;
+
+  }
+
+  .kicker.ink { color: var(--ink-soft); }
+
+
+
   .btn {
-    display: inline-block;
-    min-height: 52px;
-    padding: 14px 28px;
-    font-size: 1.15rem;
-    font-weight: bold;
-    font-family: Georgia, serif;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: background 0.15s ease;
-  }
-  .btn-primary { background: var(--red); color: var(--white); }
-  .btn-primary:hover { background: #93291e; }
-  .btn-secondary { background: var(--white); color: var(--navy); border: 3px solid var(--navy); }
-  .btn-secondary:hover { background: #eef2f7; }
-  .btn-gold { background: var(--gold); color: var(--white); }
-  .btn-gold:hover { background: #a97a1f; }
-  .btn-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin: 1.2em 0; }
 
-  /* ---------- Header ---------- */
-  header {
-    position: sticky; top: 0; z-index: 100;
-    background: var(--white);
-    border-bottom: 3px solid var(--gold);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  }
-  .header-inner {
-    max-width: 1100px; margin: 0 auto; padding: 10px 20px;
-    display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
-  }
-  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-  .brand-mark {
-    width: 48px; height: 48px; border-radius: 50%;
-    background: var(--navy); color: var(--gold-light);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem; flex-shrink: 0;
-  }
-  .brand-name { font-size: 1.35rem; font-weight: bold; color: var(--navy); line-height: 1.15; }
-  .brand-sub { font-size: 0.85rem; color: var(--text-light); }
-  .header-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-  .call-btn {
-    background: var(--red); color: var(--white);
-    padding: 12px 20px; border-radius: 8px;
-    font-weight: bold; text-decoration: none; font-size: 1.1rem;
-    min-height: 48px; display: inline-flex; align-items: center;
-  }
-  .open-status { font-size: 1rem; font-weight: bold; }
-  .open-status.open { color: var(--green); }
-  .open-status.closed { color: var(--red); }
+    display: inline-block; font-family: var(--sans);
 
-  /* ---------- Nav ---------- */
-  nav { background: var(--navy); }
-  nav ul {
-    max-width: 1100px; margin: 0 auto; padding: 0 8px;
-    list-style: none; display: flex; flex-wrap: wrap; justify-content: center;
-  }
-  nav a {
-    display: block; padding: 14px 18px;
-    color: var(--white); text-decoration: none; font-size: 1.05rem;
-  }
-  nav a:hover, nav a.active { background: var(--navy-dark); color: var(--gold-light); }
+    font-size: 15px; font-weight: 600; letter-spacing: 0.02em;
 
-  /* ---------- Page sections ---------- */
+    padding: 15px 26px; min-height: 50px;
+
+    border: 1.5px solid var(--ink); border-radius: 0;
+
+    background: transparent; color: var(--ink);
+
+    text-decoration: none; cursor: pointer;
+
+    transition: background 0.15s, color 0.15s;
+
+  }
+
+  .btn:hover { background: var(--ink); color: var(--paper); }
+
+  .btn-solid { background: var(--ink); color: var(--paper); }
+
+  .btn-solid:hover { background: var(--cinnabar); border-color: var(--cinnabar); color: var(--paper); }
+
+  .btn-cinnabar { background: var(--cinnabar); border-color: var(--cinnabar); color: var(--paper); }
+
+  .btn-cinnabar:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
+  .btn-light { border-color: var(--paper); color: var(--paper); }
+
+  .btn-light:hover { background: var(--paper); color: var(--lacquer); }
+
+  .btn[disabled] { opacity: 0.45; cursor: not-allowed; }
+
+  .btn[disabled]:hover { background: transparent; color: var(--ink); }
+
+  .btn-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin: 26px 0 0; }
+
+  .arrow-link {
+
+    font-family: var(--sans); font-size: 15px; font-weight: 600;
+
+    text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 4px;
+
+    background: none; border: none; cursor: pointer; color: var(--ink);
+
+  }
+
+  .arrow-link:hover { color: var(--cinnabar); }
+
+
+
+  .topline {
+
+    background: var(--ink); color: var(--paper);
+
+    font-size: 12.5px; font-weight: 500; letter-spacing: 0.04em;
+
+    padding: 7px 0;
+
+  }
+
+  .topline .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  .topline a { color: var(--paper); }
+
+  .topline .status-open { color: #8fce9f; font-weight: 600; }
+
+  .topline .status-closed { color: #e8a08f; font-weight: 600; }
+
+
+
+  header.site { position: sticky; top: 0; z-index: 100; background: var(--paper); border-bottom: 1px solid var(--ink); }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; padding: 20px 0 14px; flex-wrap: wrap; }
+
+  .wordmark { text-decoration: none; }
+
+  .wordmark .name { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 1.9rem); font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+
+  .wordmark .name em { font-style: italic; font-weight: 500; color: var(--cinnabar); }
+
+  .wordmark .sub { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); margin-top: 2px; }
+
+  .mast-call { text-align: right; }
+
+  .mast-call .phone { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; text-decoration: none; }
+
+  .mast-call .note { font-size: 11.5px; color: var(--ink-soft); letter-spacing: 0.06em; text-transform: uppercase; }
+
+
+
+  nav.pages { border-top: 1px solid var(--line-dark); }
+
+  nav.pages ul { list-style: none; display: flex; gap: clamp(14px, 3vw, 34px); overflow-x: auto; }
+
+  nav.pages a {
+
+    display: block; padding: 12px 2px; text-decoration: none;
+
+    font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+
+    color: var(--ink-soft); border-bottom: 3px solid transparent; white-space: nowrap;
+
+  }
+
+  nav.pages a:hover { color: var(--ink); }
+
+  nav.pages a.active { color: var(--ink); border-bottom-color: var(--cinnabar); }
+
+
+
   .page { display: none; }
+
   .page.active { display: block; }
-  section { padding: 48px 20px; }
-  .container { max-width: 1100px; margin: 0 auto; }
-  .narrow { max-width: 760px; margin: 0 auto; }
 
-  /* ---------- Hero ---------- */
-  .hero {
-    background: linear-gradient(rgba(22,44,73,0.72), rgba(22,44,73,0.72)),
-      repeating-linear-gradient(45deg, #b03a2e 0, #b03a2e 20px, #a33227 20px, #a33227 40px);
-    color: var(--white);
-    text-align: center;
-    padding: 80px 20px;
+  section { padding: clamp(56px, 9vw, 104px) 0; }
+
+  .rule-top { border-top: 1px solid var(--line-dark); }
+
+
+
+  .hero { padding: clamp(48px, 7vw, 88px) 0 clamp(56px, 8vw, 96px); }
+
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(28px, 5vw, 72px); align-items: end; }
+
+  .hero h1 { font-size: clamp(2.6rem, 5.6vw, 4.6rem); font-weight: 560; max-width: 13ch; }
+
+  .hero h1 em { font-style: italic; font-weight: 500; color: var(--cinnabar); }
+
+  .hero .lede { font-size: clamp(1.05rem, 1.6vw, 1.2rem); color: var(--ink-soft); max-width: 44ch; margin-top: 22px; }
+
+  .hero-photo { position: relative; }
+
+  .hero-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+
+  .hero-photo::after { content: ""; position: absolute; inset: 14px -14px -14px 14px; border: 1.5px solid var(--ink); z-index: -1; }
+
+  .hero-caption { font-size: 12px; color: var(--ink-soft); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 22px; }
+
+
+
+  .facts { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+
+  .facts-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+
+  .fact { padding: 22px 26px 24px; border-left: 1px solid var(--line-dark); }
+
+  .fact:first-child { border-left: none; padding-left: 0; }
+
+  .fact .label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cinnabar); margin-bottom: 6px; }
+
+  .fact .value { font-family: var(--serif); font-size: 1.12rem; font-weight: 500; line-height: 1.35; }
+
+  .fact .value a { text-decoration: none; }
+
+  .fact .value a:hover { text-decoration: underline; }
+
+
+
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: clamp(30px, 5vw, 54px); flex-wrap: wrap; }
+
+  .sec-head h2 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); font-weight: 560; }
+
+  .sec-head .num { font-family: var(--serif); font-style: italic; color: var(--cinnabar); margin-right: 10px; font-weight: 500; }
+
+
+
+  .dish-row {
+
+    display: grid; grid-template-columns: 64px minmax(0, 5fr) minmax(0, 4fr);
+
+    gap: clamp(18px, 3.5vw, 44px); align-items: center;
+
+    padding: clamp(24px, 3.5vw, 36px) 0; border-top: 1px solid var(--line-dark);
+
   }
-  .hero h1 { color: var(--white); font-size: 2.7rem; margin-bottom: 0.4em; }
-  .hero p { font-size: 1.3rem; max-width: 640px; margin: 0 auto 1.2em; }
 
-  /* ---------- Trust strip ---------- */
-  .trust-strip {
-    background: var(--white); text-align: center;
-    padding: 20px; font-size: 1.2rem;
-    border-bottom: 1px solid #e5ddcf;
-  }
-  .stars { color: var(--gold); font-size: 1.4rem; letter-spacing: 3px; }
+  .dish-row:last-of-type { border-bottom: 1px solid var(--line-dark); }
 
-  /* ---------- Dish cards ---------- */
-  .dish-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px; margin: 1.5em 0;
-  }
-  .dish-card {
-    background: var(--white); border-radius: 10px; overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08); text-align: center;
-  }
-  .dish-photo {
-    height: 120px; display: flex; align-items: center; justify-content: center;
-    font-size: 3rem; background: linear-gradient(135deg, #f6e7c9, #efd9a7);
-  }
-  .dish-card h3 { padding: 14px 10px; font-size: 1.15rem; color: var(--navy); }
+  .dish-row .idx { font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--ink-soft); }
 
-  /* ---------- Catering band ---------- */
-  .catering-band { background: var(--gold); color: var(--white); text-align: center; }
-  .catering-band h2 { color: var(--white); }
-  .catering-band p { font-size: 1.2rem; max-width: 680px; margin: 0 auto 1.2em; }
-  .catering-band .btn-primary { background: var(--navy); }
-  .catering-band .btn-primary:hover { background: var(--navy-dark); }
+  .dish-row h3 { font-size: clamp(1.35rem, 2.4vw, 1.9rem); font-weight: 560; }
 
-  /* ---------- Reviews ---------- */
-  .quote-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin: 1.5em 0; }
-  .quote {
-    background: var(--white); border-left: 6px solid var(--gold);
-    padding: 24px; border-radius: 8px; font-size: 1.2rem; font-style: italic;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  .dish-row .price { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--cinnabar); margin-left: 12px; }
+
+  .dish-row .desc { color: var(--ink-soft); font-size: 15.5px; margin: 8px 0 0; max-width: 46ch; }
+
+  .dish-row img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+
+  .dish-row:nth-child(even) { grid-template-columns: 64px minmax(0, 4fr) minmax(0, 5fr); }
+
+  .dish-row:nth-child(even) .txt { order: 3; }
+
+  .dish-row:nth-child(even) img { order: 2; }
+
+  .after-dishes { margin-top: 34px; }
+
+
+
+  .pull { padding: clamp(64px, 10vw, 120px) 0; }
+
+  .pull blockquote {
+
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+
+    font-size: clamp(1.7rem, 3.8vw, 3rem); line-height: 1.22; max-width: 21ch;
+
   }
 
-  /* ---------- Visit / contact ---------- */
-  .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
-  .map-frame { width: 100%; height: 320px; border: 0; border-radius: 10px; }
-  .info-card { background: var(--white); border-radius: 10px; padding: 28px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
-  .info-card p { font-size: 1.15rem; }
-  .info-label { font-weight: bold; color: var(--navy); }
+  .pull blockquote::before { content: "“"; color: var(--cinnabar); }
 
-  /* ---------- Menu ---------- */
-  .menu-cat {
-    background: var(--white); border-radius: 10px; padding: 24px 28px;
-    margin-bottom: 18px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  .pull blockquote::after { content: "”"; color: var(--cinnabar); }
+
+  .pull cite { display: block; font-family: var(--sans); font-style: normal; font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); margin-top: 26px; }
+
+
+
+  .band { background: var(--lacquer); color: var(--paper); }
+
+  .band .kicker { color: #c8a45c; }
+
+  .band-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: clamp(28px, 5vw, 80px); align-items: center; }
+
+  .band h2 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); font-weight: 560; color: var(--paper); }
+
+  .band p { color: #cfd8cd; max-width: 52ch; }
+
+  .band .fine { font-size: 13px; color: #9db3a6; }
+
+
+
+  .visit-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+
+  .visit-info .row { padding: 18px 0; border-top: 1px solid var(--line-dark); }
+
+  .visit-info .row:last-child { border-bottom: 1px solid var(--line-dark); }
+
+  .visit-info .label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cinnabar); margin-bottom: 4px; }
+
+  .visit-info .value { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; }
+
+  .map-frame { width: 100%; height: 420px; border: 1.5px solid var(--ink); filter: grayscale(0.35) sepia(0.12); }
+
+
+
+  /* ---------- Menu page ---------- */
+
+  .menu-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
+
+  .menu-index { position: sticky; top: 132px; }
+
+  .menu-index .label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cinnabar); margin-bottom: 12px; }
+
+  .menu-index a {
+
+    display: block; padding: 6px 0; text-decoration: none;
+
+    font-size: 13.5px; font-weight: 600; color: var(--ink-soft);
+
+    border-bottom: 1px solid var(--line);
+
   }
-  .menu-cat h3 { border-bottom: 2px solid var(--gold); padding-bottom: 8px; }
-  .menu-item {
-    display: flex; justify-content: space-between; align-items: baseline; gap: 14px;
-    padding: 8px 0; border-bottom: 1px dotted #d8d0c0; font-size: 1.08rem;
+
+  .menu-index a:hover { color: var(--cinnabar); }
+
+  .menu-sec { padding: 34px 0 8px; }
+
+  .menu-sec h3 {
+
+    font-size: clamp(1.4rem, 2.2vw, 1.8rem); font-weight: 560;
+
+    padding-bottom: 12px; border-bottom: 1.5px solid var(--ink); margin-bottom: 6px;
+
   }
-  .menu-item:last-of-type { border-bottom: none; }
-  .menu-item .price { white-space: nowrap; font-weight: bold; color: var(--navy); }
-  .menu-item .desc { display: block; font-size: 0.92rem; color: var(--text-light); font-style: italic; }
-  .menu-note { font-size: 0.98rem; color: var(--text-light); font-style: italic; margin: 8px 0 0; }
-  .spice { color: var(--red); }
 
-  /* ---------- Catering form ---------- */
-  form { background: var(--white); border-radius: 10px; padding: 28px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
-  .form-row { margin-bottom: 18px; }
-  label { display: block; font-weight: bold; color: var(--navy); margin-bottom: 6px; font-size: 1.05rem; }
-  input, select, textarea {
-    width: 100%; padding: 14px; font-size: 1.1rem; font-family: Georgia, serif;
-    border: 2px solid #c9c2b4; border-radius: 8px; min-height: 48px;
+  .menu-sec h3 .sec-num { font-style: italic; font-weight: 500; color: var(--cinnabar); font-size: 0.75em; margin-right: 10px; }
+
+  .menu-sec h3 .sec-when { font-family: var(--sans); font-size: 0.5em; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+
+  .menu-sec .sec-note { font-size: 13px; color: var(--ink-soft); font-style: italic; padding: 8px 0 2px; }
+
+  .mi { display: flex; align-items: baseline; gap: 10px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+
+  .mi .nm { font-family: var(--serif); font-weight: 500; font-size: 1.04rem; }
+
+  .mi .nm .d { display: block; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); font-weight: 400; margin-top: 2px; }
+
+  .mi .dots { flex: 1; border-bottom: 1px dotted var(--line-dark); transform: translateY(-4px); min-width: 24px; }
+
+  .mi .pr { font-family: var(--serif); font-weight: 600; font-size: 1rem; white-space: nowrap; }
+
+  .sp { color: var(--cinnabar); font-size: 0.85em; }
+
+  .menu-topnote { font-size: 14px; color: var(--ink-soft); border: 1px solid var(--line-dark); padding: 14px 18px; margin: 26px 0 8px; }
+
+  .menu-topnote strong { color: var(--ink); }
+
+
+
+  .add-btn {
+
+    font-family: var(--sans); font-size: 13px; font-weight: 700;
+
+    border: 1.5px solid var(--ink); background: transparent; color: var(--ink);
+
+    min-width: 44px; min-height: 34px; padding: 4px 12px; cursor: pointer;
+
+    letter-spacing: 0.06em; flex-shrink: 0; align-self: center;
+
+    transition: background 0.12s, color 0.12s;
+
   }
-  input:focus, select:focus, textarea:focus { outline: 3px solid var(--gold-light); border-color: var(--gold); }
 
-  /* ---------- Footer ---------- */
-  footer { background: var(--navy); color: #dce4ee; padding: 40px 20px; text-align: center; font-size: 1.05rem; }
-  footer a { color: var(--gold-light); }
-  footer .foot-phone { font-size: 1.4rem; font-weight: bold; }
-  footer p { margin-bottom: 0.6em; }
+  .add-btn:hover { background: var(--cinnabar); border-color: var(--cinnabar); color: var(--paper); }
 
-  .center { text-align: center; }
-  .section-alt { background: #f2ecdf; }
 
-  @media (max-width: 720px) {
-    body { font-size: 18px; }
-    .hero h1 { font-size: 2rem; }
-    .visit-grid { grid-template-columns: 1fr; }
-    .header-inner { justify-content: center; text-align: center; }
-    nav a { padding: 12px 12px; font-size: 1rem; }
+
+  /* ---------- Cart drawer ---------- */
+
+  .cart-fab {
+
+    position: fixed; right: 18px; bottom: 18px; z-index: 300;
+
+    background: var(--ink); color: var(--paper); border: none; cursor: pointer;
+
+    font-family: var(--sans); font-size: 14px; font-weight: 700; letter-spacing: 0.06em;
+
+    padding: 16px 22px; display: none; align-items: center; gap: 10px;
+
+    box-shadow: 4px 4px 0 var(--cinnabar);
+
   }
+
+  .cart-fab.show { display: flex; }
+
+  .cart-fab:hover { background: var(--cinnabar); box-shadow: 4px 4px 0 var(--ink); }
+
+  .cart-fab .ct { background: var(--paper); color: var(--ink); font-size: 12px; padding: 1px 8px; }
+
+
+
+  .scrim { display: none; position: fixed; inset: 0; background: rgba(24,20,16,0.5); z-index: 400; }
+
+  .scrim.show { display: block; }
+
+  .drawer {
+
+    position: fixed; top: 0; right: 0; bottom: 0; width: min(440px, 100vw); z-index: 410;
+
+    background: var(--paper); border-left: 1.5px solid var(--ink);
+
+    transform: translateX(105%); transition: transform 0.22s ease;
+
+    display: flex; flex-direction: column;
+
+  }
+
+  .drawer.show { transform: translateX(0); }
+
+  .drawer-head { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1.5px solid var(--ink); }
+
+  .drawer-head h3 { font-size: 1.4rem; font-weight: 560; }
+
+  .drawer-close { background: none; border: none; font-size: 26px; cursor: pointer; color: var(--ink-soft); line-height: 1; }
+
+  .drawer-close:hover { color: var(--cinnabar); }
+
+  .drawer-body { flex: 1; overflow-y: auto; padding: 10px 24px; }
+
+  .cart-empty { color: var(--ink-soft); font-style: italic; padding: 30px 0; }
+
+  .cline { padding: 14px 0; border-bottom: 1px solid var(--line); }
+
+  .cline-top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+
+  .cline .nm { font-family: var(--serif); font-weight: 500; font-size: 1.02rem; }
+
+  .cline .amt { font-family: var(--serif); font-weight: 600; white-space: nowrap; }
+
+  .cline .mods { font-size: 12.5px; color: var(--ink-soft); font-style: italic; margin-top: 2px; }
+
+  .cline-ctl { display: flex; align-items: center; gap: 6px; margin-top: 8px; }
+
+  .qbtn { width: 32px; height: 32px; border: 1px solid var(--line-dark); background: transparent; font-size: 16px; font-weight: 700; cursor: pointer; color: var(--ink); }
+
+  .qbtn:hover { border-color: var(--cinnabar); color: var(--cinnabar); }
+
+  .qnum { min-width: 30px; text-align: center; font-weight: 700; font-size: 15px; }
+
+  .cline .rm { background: none; border: none; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); cursor: pointer; margin-left: auto; text-decoration: underline; text-underline-offset: 3px; }
+
+  .cline .rm:hover { color: var(--cinnabar); }
+
+  .drawer-foot { border-top: 1.5px solid var(--ink); padding: 18px 24px 22px; background: var(--paper-deep); }
+
+  .subtotal-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+
+  .subtotal-row .lbl { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); }
+
+  .subtotal-row .val { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; }
+
+  .drawer-foot .fine { font-size: 12px; color: var(--ink-soft); margin: 4px 0 12px; }
+
+  .drawer-foot .btn { width: 100%; text-align: center; }
+
+
+
+  .pickup-form .form-row { margin-bottom: 14px; }
+
+  .checkout-note { border: 1px dashed var(--line-dark); padding: 12px 14px; font-size: 13px; color: var(--ink-soft); margin: 14px 0; }
+
+
+
+  /* ---------- Config modal ---------- */
+
+  .cfg-overlay { display: none; position: fixed; inset: 0; background: rgba(24,20,16,0.5); z-index: 500; align-items: center; justify-content: center; padding: 18px; }
+
+  .cfg-overlay.show { display: flex; }
+
+  .cfg {
+
+    background: var(--paper); border: 1.5px solid var(--ink);
+
+    width: min(460px, 100%); max-height: 86vh; overflow-y: auto; padding: 26px;
+
+  }
+
+  .cfg h3 { font-size: 1.35rem; font-weight: 560; }
+
+  .cfg .base-note { font-size: 13px; color: var(--ink-soft); font-style: italic; margin: 4px 0 14px; }
+
+  .cfg-group { margin: 16px 0; }
+
+  .cfg-group .glabel { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cinnabar); margin-bottom: 8px; }
+
+  .cfg-opt { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid var(--line-dark); margin-bottom: 6px; cursor: pointer; font-size: 14.5px; }
+
+  .cfg-opt:hover { border-color: var(--ink); }
+
+  .cfg-opt input { width: auto; min-height: 0; accent-color: var(--cinnabar); }
+
+  .cfg-opt .up { margin-left: auto; font-family: var(--serif); font-weight: 600; font-size: 13.5px; color: var(--ink-soft); }
+
+  .cfg-qty { display: flex; align-items: center; gap: 8px; }
+
+  .cfg-note { font-size: 12.5px; color: var(--ink-soft); font-style: italic; margin-top: 6px; }
+
+  .cfg-actions { display: flex; gap: 10px; margin-top: 20px; }
+
+  .cfg-actions .btn { flex: 1; text-align: center; padding: 13px 10px; }
+
+  .pick-status { font-size: 13px; font-weight: 600; margin-top: 6px; }
+
+  .pick-status.ok { color: #1d6b34; }
+
+  .pick-status.bad { color: var(--cinnabar); }
+
+
+
+  form.catering { border: 1.5px solid var(--ink); padding: clamp(24px, 4vw, 40px); background: var(--paper); }
+
+  .form-row { margin-bottom: 20px; }
+
+  label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 7px; }
+
+  input, textarea, select {
+
+    width: 100%; padding: 13px 14px; min-height: 48px;
+
+    font-family: var(--sans); font-size: 16px; color: var(--ink);
+
+    background: #fbf8f0; border: 1px solid var(--line-dark); border-radius: 0;
+
+  }
+
+  input:focus, textarea:focus, select:focus { outline: 2px solid var(--cinnabar); outline-offset: -1px; border-color: var(--cinnabar); }
+
+
+
+  .quote-stack blockquote {
+
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+
+    font-size: clamp(1.3rem, 2.6vw, 1.9rem); line-height: 1.3;
+
+    padding: clamp(26px, 4vw, 40px) 0; border-top: 1px solid var(--line-dark);
+
+    max-width: 30ch;
+
+  }
+
+  .quote-stack blockquote:nth-child(even) { margin-left: auto; text-align: right; }
+
+  .quote-stack blockquote:last-of-type { border-bottom: 1px solid var(--line-dark); }
+
+  .quote-stack blockquote::before { content: "“"; color: var(--cinnabar); }
+
+  .quote-stack blockquote::after { content: "”"; color: var(--cinnabar); }
+
+
+
+  .prose { max-width: 62ch; font-size: clamp(1.02rem, 1.5vw, 1.15rem); color: var(--ink-soft); }
+
+  .prose strong { color: var(--ink); }
+
+
+
+  footer.site { background: var(--ink); color: #cfc8b8; padding: clamp(48px, 7vw, 80px) 0 40px; }
+
+  footer.site a { color: var(--paper); }
+
+  footer.site a:hover { color: #e0876f; }
+
+  .foot-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 3fr) minmax(0, 3fr); gap: clamp(28px, 5vw, 64px); }
+
+  .foot-name { font-family: var(--serif); font-size: 1.7rem; font-weight: 560; color: var(--paper); }
+
+  .foot-name em { font-style: italic; color: #e0876f; }
+
+  .foot-label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #8d8674; margin-bottom: 10px; }
+
+  .foot-grid p { font-size: 15px; margin-bottom: 6px; }
+
+  .foot-phone { font-family: var(--serif); font-size: 1.3rem; }
+
+  .foot-base { border-top: 1px solid #3a352b; margin-top: 44px; padding-top: 20px; font-size: 12.5px; color: #8d8674; display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+
+
+
+  @media (max-width: 880px) {
+
+    .hero-grid, .band-grid, .visit-grid { grid-template-columns: 1fr; }
+
+    .hero-photo { max-width: 520px; }
+
+    .facts-grid { grid-template-columns: 1fr; }
+
+    .fact { border-left: none; border-top: 1px solid var(--line-dark); padding: 16px 0; }
+
+    .fact:first-child { border-top: none; }
+
+    .menu-layout { grid-template-columns: 1fr; }
+
+    .menu-index { position: static; display: flex; flex-wrap: wrap; gap: 8px 16px; border-bottom: 1px solid var(--line-dark); padding-bottom: 16px; }
+
+    .menu-index .label { width: 100%; }
+
+    .menu-index a { border-bottom: none; padding: 2px 0; }
+
+    .dish-row, .dish-row:nth-child(even) { grid-template-columns: 1fr; gap: 14px; }
+
+    .dish-row .idx { display: none; }
+
+    .dish-row:nth-child(even) .txt { order: 0; }
+
+    .dish-row:nth-child(even) img { order: 0; }
+
+    .quote-stack blockquote:nth-child(even) { margin-left: 0; text-align: left; }
+
+    .foot-grid { grid-template-columns: 1fr; }
+
+    .mast-call { text-align: left; }
+
+  }
+
 </style>
+
 </head>
+
 <body>
 
-<!-- ===================== HEADER (sticky) ===================== -->
-<header>
-  <div class="header-inner">
-    <a class="brand" href="#home" onclick="showPage('home')">
-      <div class="brand-mark">四</div>
-      <div>
-        <div class="brand-name">Four Seasons Restaurant</div>
-        <div class="brand-sub">Grants Pass, Oregon</div>
-      </div>
-    </a>
-    <div class="header-right">
-      <span class="open-status" id="openStatus">Checking hours…</span>
-      <a class="call-btn" href="tel:+15414796532">📞 Call (541) 479-6532</a>
-    </div>
+
+
+<!-- ===================== TOPLINE + MASTHEAD ===================== -->
+
+<div class="topline">
+
+  <div class="wrap">
+
+    <span id="openStatus" class="status-closed">Checking today's hours…</span>
+
+    <span>122 SE K St, Grants Pass &nbsp;·&nbsp; <a href="tel:+15414796532">(541) 479-6532</a></span>
+
   </div>
-  <nav>
-    <ul>
-      <li><a href="#home" data-page="home" class="active" onclick="showPage('home')">Home</a></li>
-      <li><a href="#menu" data-page="menu" onclick="showPage('menu')">Menu</a></li>
-      <li><a href="#catering" data-page="catering" onclick="showPage('catering')">Catering</a></li>
-      <li><a href="#about" data-page="about" onclick="showPage('about')">About Us</a></li>
-      <li><a href="#reviews" data-page="reviews" onclick="showPage('reviews')">Reviews</a></li>
-      <li><a href="#contact" data-page="contact" onclick="showPage('contact')">Contact &amp; Directions</a></li>
-    </ul>
+
+</div>
+
+
+
+<header class="site">
+
+  <div class="wrap">
+
+    <div class="masthead">
+
+      <a class="wordmark" href="#home" onclick="showPage('home')">
+
+        <div class="name">Four <em>Seasons</em> Restaurant</div>
+
+        <div class="sub">Chinese-American Kitchen · Grants Pass, Oregon</div>
+
+      </a>
+
+      <div class="mast-call">
+
+        <a class="phone" href="tel:+15414796532">(541) 479-6532</a>
+
+        <div class="note">Call ahead — ready when you arrive</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <nav class="pages">
+
+    <div class="wrap">
+
+      <ul>
+
+        <li><a href="#home" data-page="home" class="active" onclick="showPage('home')">Home</a></li>
+
+        <li><a href="#menu" data-page="menu" onclick="showPage('menu')">Menu &amp; Ordering</a></li>
+
+        <li><a href="#catering" data-page="catering" onclick="showPage('catering')">Catering</a></li>
+
+        <li><a href="#about" data-page="about" onclick="showPage('about')">About</a></li>
+
+        <li><a href="#reviews" data-page="reviews" onclick="showPage('reviews')">Reviews</a></li>
+
+        <li><a href="#contact" data-page="contact" onclick="showPage('contact')">Contact &amp; Directions</a></li>
+
+      </ul>
+
+    </div>
+
   </nav>
+
 </header>
 
-<!-- ===================== HOME ===================== -->
+
+
 <main>
+
+<!-- ===================== HOME ===================== -->
+
 <div class="page active" id="page-home">
 
+
+
   <div class="hero">
-    <h1>Welcome to Four Seasons Restaurant</h1>
-    <p>Grants Pass' home for fresh Chinese food, made the way you like it. Call ahead and it'll be ready when you arrive.</p>
-    <div class="btn-row">
-      <a class="btn btn-primary" href="tel:+15414796532">Call (541) 479-6532 to Order</a>
-      <a class="btn btn-secondary" style="background:var(--white)" href="#menu" onclick="showPage('menu')">See Our Menu</a>
-    </div>
-  </div>
 
-  <div class="trust-strip">
-    <span class="stars">★★★★★</span>&nbsp; Loved by neighbors all over Grants Pass.
-    <a href="#reviews" onclick="showPage('reviews')">See what people are saying.</a>
-  </div>
+    <div class="wrap">
 
-  <section>
-    <div class="container center">
-      <h2>Some Grants Pass Favorites</h2>
-      <div class="dish-grid">
-        <div class="dish-card"><div class="dish-photo">🍊</div><h3>Orange Chicken<br><span style="color:var(--gold)">$18.00</span></h3></div>
-        <div class="dish-card"><div class="dish-photo">🍜</div><h3>Cashew Chicken Subgum Chow Mein<br><span style="color:var(--gold)">$16.25</span></h3></div>
-        <div class="dish-card"><div class="dish-photo">🍍</div><h3>Sweet &amp; Sour Chicken<br><span style="color:var(--gold)">$17.25</span></h3></div>
-        <div class="dish-card"><div class="dish-photo">🥦</div><h3>Broccoli Beef<br><span style="color:var(--gold)">$18.00</span></h3></div>
-        <div class="dish-card"><div class="dish-photo">🌶️</div><h3>General Tso's Chicken<br><span style="color:var(--gold)">$18.00</span></h3></div>
-      </div>
-      <p>Everything is cooked fresh after you order — that's why it tastes like it does.</p>
-      <a class="btn btn-secondary" href="#menu" onclick="showPage('menu')">See Full Menu</a>
-    </div>
-  </section>
+      <div class="hero-grid">
 
-  <section class="catering-band">
-    <div class="container">
-      <h2>Feeding a Crowd?</h2>
-      <p>Birthday, office lunch, holiday party, or family get-together — we can help. Call us and tell us what you're planning. We'll help you figure out the right amount of food and put together a menu everyone will enjoy.</p>
-      <a class="btn btn-primary" href="#catering" onclick="showPage('catering')">Ask About Catering</a>
-    </div>
-  </section>
+        <div>
 
-  <section>
-    <div class="narrow center">
-      <h2>Our Story</h2>
-      <p>Four Seasons has been part of Grants Pass for years, serving fresh, generous portions with a friendly smile. We treat every order like it's for our own family.</p>
-      <a href="#about" onclick="showPage('about')"><strong>Read More →</strong></a>
-    </div>
-  </section>
+          <div class="kicker">No MSG · Cooked to order · Pickup in about 15 minutes</div>
 
-  <section class="section-alt">
-    <div class="container center">
-      <h2>What Customers Are Saying</h2>
-      <div class="quote-grid">
-        <div class="quote">"Fresh, flavorful, and the portions are so generous."</div>
-        <div class="quote">"Friendly service every single time we come in."</div>
-        <div class="quote">"Our go-to for takeout in Grants Pass."</div>
-      </div>
-      <a class="btn btn-gold" href="https://www.google.com/search?q=Four+Seasons+Restaurant+Grants+Pass+OR+reviews" target="_blank" rel="noopener">Read All Our Reviews on Google</a>
-    </div>
-  </section>
+          <h1>Fresh Chinese food, <em>made when</em> you order it.</h1>
 
-  <section>
-    <div class="container">
-      <h2 class="center">Visit Us</h2>
-      <div class="visit-grid">
-        <iframe class="map-frame" title="Map to Four Seasons Restaurant"
-          src="https://www.google.com/maps?q=122+SE+K+St,+Grants+Pass,+OR+97526&output=embed"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="info-card">
-          <p><span class="info-label">Address:</span><br>122 SE K St, Grants Pass, OR 97526</p>
-          <p><span class="info-label">Hours:</span><br>Tuesday–Saturday, 12:00 PM – 9:00 PM<br>Closed Sunday and Monday</p>
-          <p><span class="info-label">Phone:</span><br><a href="tel:+15414796532">(541) 479-6532</a></p>
-          <div class="btn-row" style="justify-content:flex-start">
-            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&destination=122+SE+K+St,+Grants+Pass,+OR+97526" target="_blank" rel="noopener">Get Directions</a>
+          <p class="lede">Nothing at Four Seasons waits under a heat lamp. Order online or call it in, give the wok a quarter hour, and it's hot in the bag when you pull up on K Street.</p>
+
+          <div class="btn-row">
+
+            <a class="btn btn-solid" id="heroCta" href="#menu" onclick="showPage('menu')">Start a pickup order</a>
+
+            <a class="btn" href="tel:+15414796532">Call (541) 479-6532</a>
+
+            <a class="arrow-link" href="#menu" onclick="showPage('menu')">Read the menu →</a>
+
           </div>
+
         </div>
+
+        <figure class="hero-photo">
+
+          <img src="https://img.cdn4dd.com/cdn-cgi/image/fit=cover,width=900,height=1125,format=auto,quality=75/https://doordash-static.s3.amazonaws.com/media/store/header/988f7ba9-c46c-4a94-baca-835e4b07195f.jpg" alt="A spread of dishes from Four Seasons Restaurant">
+
+        </figure>
+
       </div>
+
+      <p class="hero-caption">Pictured: the kind of spread our Family Style Dinners were built for.</p>
+
     </div>
-  </section>
 
-</div>
+  </div>
 
-<!-- ===================== MENU ===================== -->
-<div class="page" id="page-menu">
+
+
+  <div class="facts">
+
+    <div class="wrap">
+
+      <div class="facts-grid">
+
+        <div class="fact">
+
+          <div class="label">Hours</div>
+
+          <div class="value">Tuesday–Saturday, Noon–9 PM<br>Closed Sunday &amp; Monday</div>
+
+        </div>
+
+        <div class="fact">
+
+          <div class="label">Find Us</div>
+
+          <div class="value">122 SE K St, Grants Pass — <a href="https://www.google.com/maps/dir/?api=1&destination=122+SE+K+St,+Grants+Pass,+OR+97526" target="_blank" rel="noopener">directions</a></div>
+
+        </div>
+
+        <div class="fact">
+
+          <div class="label">Lunch Menu</div>
+
+          <div class="value">Noon to 4 PM, from $14.25 — <a href="#menu" onclick="showPage('menu')">see it</a></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
   <section>
-    <div class="narrow">
-      <h1 class="center">Our Menu</h1>
-      <p class="center">Everything below is made fresh when you order. Call ahead and we'll have it ready for pickup.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="tel:+15414796532">Call (541) 479-6532 to Order Pickup</a>
-      </div>
-      <p class="center menu-note">Dishes marked <span class="spice">🌶️</span> can be made mild, medium, or spicy — just tell us when you order.</p>
 
-      <div class="menu-cat"><h3>Appetizers</h3>
-        <div class="menu-item"><span>Spring Rolls (3 pc)</span><span class="price">$9.75</span></div>
-        <div class="menu-item"><span>Fried Wonton</span><span class="price">$9.75</span></div>
-        <div class="menu-item"><span>Crab Puffs</span><span class="price">$10.75</span></div>
-        <div class="menu-item"><span>Potstickers (8 pc)</span><span class="price">$11.75</span></div>
-        <div class="menu-item"><span>Fried Shrimp (10 pc / 15 pc)</span><span class="price">$12.00 / $14.25</span></div>
-        <div class="menu-item"><span>BBQ Pork</span><span class="price">$12.75</span></div>
-        <div class="menu-item"><span>Combo Appetizer</span><span class="price">$14.25</span></div>
+    <div class="wrap">
+
+      <div class="sec-head">
+
+        <h2><span class="num">01</span>What Grants Pass keeps ordering</h2>
+
+        <a class="arrow-link" href="#menu" onclick="showPage('menu')">Full menu →</a>
+
       </div>
 
-      <div class="menu-cat"><h3>Dim Sum</h3>
-        <div class="menu-item"><span>Sesame Balls (8 pc)</span><span class="price">$9.75</span></div>
-        <div class="menu-item"><span>Mini Steam Dumplings (6 pc)</span><span class="price">$10.00</span></div>
-        <div class="menu-item"><span>BBQ Pork Buns (4 pc)</span><span class="price">$10.25</span></div>
-        <div class="menu-item"><span>Shu Mai (8 pc)</span><span class="price">$10.25</span></div>
-        <div class="menu-item"><span>Shrimp Dumplings (8 pc)</span><span class="price">$11.25</span></div>
+
+
+      <div class="dish-row">
+
+        <div class="idx">№ 1</div>
+
+        <div class="txt">
+
+          <h3>Orange Chicken<span class="price">$18.00</span></h3>
+
+          <p class="desc">Crispy chicken in the chef's hot sauce, finished with a touch of orange peel. Ask for it mild, medium, or spicy.</p>
+
+        </div>
+
+        <img src="https://img.cdn4dd.com/p/fit=cover,width=600,height=450,format=auto,quality=70/media/photosV2/aa278756-f662-4f67-8af7-e5e54ee88c63-retina-large.jpg" alt="Orange Chicken" loading="lazy">
+
       </div>
 
-      <div class="menu-cat"><h3>Soup</h3>
-        <div class="menu-item"><span>Egg Flower Soup (Cup / Small / Large)</span><span class="price">$4.50 / $5.50 / $8.00</span></div>
-        <div class="menu-item"><span>Vegetable Soup</span><span class="price">$10.50</span></div>
-        <div class="menu-item"><span>BBQ Pork Noodle Soup</span><span class="price">$12.50</span></div>
-        <div class="menu-item"><span>Chicken Noodle Soup</span><span class="price">$12.50</span></div>
-        <div class="menu-item"><span>Wonton Soup <span class="desc">Shrimp, BBQ pork &amp; veggies</span></span><span class="price">$13.50</span></div>
+      <div class="dish-row">
+
+        <div class="idx">№ 2</div>
+
+        <div class="txt">
+
+          <h3>Cashew Chicken Subgum Chow Mein<span class="price">$16.25</span></h3>
+
+          <p class="desc">The house classic — served over crunchy noodles, or with pan-fried noodles for two dollars more.</p>
+
+        </div>
+
+        <img src="https://img.cdn4dd.com/p/fit=cover,width=600,height=450,format=auto,quality=70/media/ugc/644a1002-c514-4e43-aa01-308a9821a067-9a97dd85-05f0-4bf1-a13b-0090c139d2bf.jpg" alt="Cashew Chicken Subgum Chow Mein" loading="lazy">
+
       </div>
 
-      <div class="menu-cat"><h3>Chef's Specialties</h3>
-        <p class="menu-note">Served with steamed rice, or add pork fried rice for $2.00.</p>
-        <div class="menu-item"><span>General Tso's Chicken <span class="spice">🌶️</span><span class="desc">Chunks of chicken fried crispy, then cooked in our unique house sauce</span></span><span class="price">$18.00</span></div>
-        <div class="menu-item"><span>Orange Chicken <span class="spice">🌶️</span><span class="desc">Crispy chicken in the chef's special hot sauce with a touch of orange peel</span></span><span class="price">$18.00</span></div>
-        <div class="menu-item"><span>Sesame Chicken <span class="spice">🌶️</span><span class="desc">Mar Far Chicken cooked in our spicy Mandarin sauce</span></span><span class="price">$18.25</span></div>
-        <div class="menu-item"><span>Orange Shrimp <span class="spice">🌶️</span></span><span class="price">$19.00</span></div>
-        <div class="menu-item"><span>Kung Pao Deluxe <span class="spice">🌶️</span><span class="desc">Shrimp, beef &amp; chicken sautéed with veggies in spicy chef's sauce</span></span><span class="price">$19.25</span></div>
-        <div class="menu-item"><span>Four Treasure with Garlic Sauce <span class="spice">🌶️</span><span class="desc">Beef, shrimp, BBQ pork &amp; chicken in spicy Szechuan garlic sauce</span></span><span class="price">$20.00</span></div>
-        <div class="menu-item"><span>Chicken Three Styles <span class="desc">General Tso's, Sweet &amp; Sour, and Kung Pao Chicken</span></span><span class="price">$21.00</span></div>
-        <div class="menu-item"><span>Pad Thai <span class="desc">Chicken, pork, beef, or tofu $16.50 · Shrimp $18.25 — served with soft noodles</span></span><span class="price">$16.50+</span></div>
+      <div class="dish-row">
+
+        <div class="idx">№ 3</div>
+
+        <div class="txt">
+
+          <h3>Sweet &amp; Sour Chicken<span class="price">$17.25</span></h3>
+
+          <p class="desc">Battered to order, never from a warming tray — the difference you can hear when you bite in.</p>
+
+        </div>
+
+        <img src="https://img.cdn4dd.com/p/fit=cover,width=600,height=450,format=auto,quality=70/media/photosV2/f1d62cff-751b-46de-9d05-b6de77589e86-de9fdb99-42d4-4c73-9467-62965b53023a-retina-large.jpg" alt="Sweet and Sour Chicken" loading="lazy">
+
       </div>
 
-      <div class="menu-cat"><h3>Poultry</h3>
-        <p class="menu-note">Served with steamed rice, or add pork fried rice for $2.00.</p>
-        <div class="menu-item"><span>Mar Far Chicken (white meat)</span><span class="price">$17.00</span></div>
-        <div class="menu-item"><span>Broccoli Chicken</span><span class="price">$17.25</span></div>
-        <div class="menu-item"><span>Moo Goo Gai Pan</span><span class="price">$17.25</span></div>
-        <div class="menu-item"><span>Kung Pao Chicken <span class="spice">🌶️</span></span><span class="price">$17.25</span></div>
-        <div class="menu-item"><span>Curry Chicken <span class="spice">🌶️</span></span><span class="price">$17.25</span></div>
-        <div class="menu-item"><span>Mongolian Chicken <span class="spice">🌶️</span></span><span class="price">$17.25</span></div>
-        <div class="menu-item"><span>Lemon Chicken (white meat)</span><span class="price">$17.75</span></div>
-        <div class="menu-item"><span>Cashew Chicken</span><span class="price">$17.75</span></div>
-        <div class="menu-item"><span>Chicken with Pea Pods</span><span class="price">$18.25</span></div>
-        <div class="menu-item"><span>Szechwan Chicken <span class="spice">🌶️</span></span><span class="price">$18.25</span></div>
-        <div class="menu-item"><span>Mandarin Chicken <span class="spice">🌶️</span></span><span class="price">$18.25</span></div>
+      <div class="dish-row">
+
+        <div class="idx">№ 4</div>
+
+        <div class="txt">
+
+          <h3>Broccoli Beef<span class="price">$18.00</span></h3>
+
+          <p class="desc">Tender beef and fresh broccoli in brown sauce, with steamed rice on the side.</p>
+
+        </div>
+
+        <img src="https://img.cdn4dd.com/p/fit=cover,width=600,height=450,format=auto,quality=70/media/photosV2/de0db721-09d7-43ba-ac96-0605b8dd8fd5-retina-large.jpg" alt="Broccoli Beef" loading="lazy">
+
       </div>
 
-      <div class="menu-cat"><h3>Beef</h3>
-        <p class="menu-note">Served with steamed rice, or add pork fried rice for $2.00.</p>
-        <div class="menu-item"><span>Broccoli Beef</span><span class="price">$18.00</span></div>
-        <div class="menu-item"><span>Kung Pao Beef <span class="spice">🌶️</span></span><span class="price">$18.00</span></div>
-        <div class="menu-item"><span>Curry Beef <span class="spice">🌶️</span></span><span class="price">$18.00</span></div>
-        <div class="menu-item"><span>Beef with Pea Pods</span><span class="price">$19.00</span></div>
-        <div class="menu-item"><span>Szechwan Beef <span class="spice">🌶️</span></span><span class="price">$19.00</span></div>
-        <div class="menu-item"><span>Mongolian Beef</span><span class="price">$19.00</span></div>
+      <div class="dish-row">
+
+        <div class="idx">№ 5</div>
+
+        <div class="txt">
+
+          <h3>General Tso's Chicken<span class="price">$18.00</span></h3>
+
+          <p class="desc">Fried crispy, then tossed in our own house sauce. Tell us how much heat you want.</p>
+
+        </div>
+
+        <img src="https://img.cdn4dd.com/p/fit=cover,width=600,height=450,format=auto,quality=70/media/photosV2/24d9fb16-7a60-43d3-9ab1-8548b7f39be8-retina-large.jpg" alt="General Tso's Chicken" loading="lazy">
+
       </div>
 
-      <div class="menu-cat"><h3>Seafood</h3>
-        <p class="menu-note">Served with steamed rice, or add pork fried rice for $2.00.</p>
-        <div class="menu-item"><span>Kung Pao Shrimp <span class="spice">🌶️</span></span><span class="price">$18.75</span></div>
-        <div class="menu-item"><span>Curry Shrimp <span class="spice">🌶️</span></span><span class="price">$18.75</span></div>
-        <div class="menu-item"><span>Shrimp with Pea Pods</span><span class="price">$18.75</span></div>
-        <div class="menu-item"><span>Szechwan Shrimp <span class="spice">🌶️</span></span><span class="price">$19.75</span></div>
-        <div class="menu-item"><span>Happy Family <span class="desc">Scallops, shrimp, BBQ pork, chicken &amp; veggies in brown sauce</span></span><span class="price">$19.75</span></div>
-        <div class="menu-item"><span>Walnut Shrimp</span><span class="price">$21.50</span></div>
+
+
+      <div class="after-dishes">
+
+        <a class="btn" href="#menu" onclick="showPage('menu')">See the full menu</a>
+
       </div>
 
-      <div class="menu-cat"><h3>Sweet &amp; Sour</h3>
-        <p class="menu-note">Served with steamed rice, or add pork fried rice for $2.00.</p>
-        <div class="menu-item"><span>Sweet &amp; Sour Pork</span><span class="price">$16.25</span></div>
-        <div class="menu-item"><span>Sweet &amp; Sour Chicken</span><span class="price">$17.25</span></div>
-        <div class="menu-item"><span>Sweet &amp; Sour Shrimp</span><span class="price">$18.50</span></div>
-        <div class="menu-item"><span>Sweet &amp; Sour Combo</span><span class="price">$19.25</span></div>
-      </div>
-
-      <div class="menu-cat"><h3>Vegetarian</h3>
-        <p class="menu-note">Served with steamed rice, or add pork fried rice for $2.00.</p>
-        <div class="menu-item"><span>Sauteed Broccoli</span><span class="price">$16.25</span></div>
-        <div class="menu-item"><span>Mixed Vegetable Deluxe</span><span class="price">$16.25</span></div>
-        <div class="menu-item"><span>Sauteed Pea Pods</span><span class="price">$16.50</span></div>
-        <div class="menu-item"><span>Sesame Tofu with Vegetables <span class="spice">🌶️</span></span><span class="price">$17.25</span></div>
-        <div class="menu-item"><span>Mongolian Tofu with Vegetables <span class="spice">🌶️</span></span><span class="price">$17.25</span></div>
-        <div class="menu-item"><span>Home Style Tofu with Vegetables <span class="spice">🌶️</span><span class="desc">Cooked in black bean sauce</span></span><span class="price">$17.25</span></div>
-        <div class="menu-item"><span>Vegetable Lo Mein</span><span class="price">$17.25</span></div>
-      </div>
-
-      <div class="menu-cat"><h3>Chow Mein</h3>
-        <p class="menu-note">Served with crunchy noodles — add pan fried noodles for $2.00. Crunchy noodles can be substituted for steamed rice.</p>
-        <div class="menu-item"><span>Vegetable Chow Mein</span><span class="price">$14.50</span></div>
-        <div class="menu-item"><span>Pork Chow Mein</span><span class="price">$15.25</span></div>
-        <div class="menu-item"><span>Cashew Chicken Subgum Chow Mein</span><span class="price">$16.25</span></div>
-        <div class="menu-item"><span>Chicken Chow Mein (white meat)</span><span class="price">$17.00</span></div>
-        <div class="menu-item"><span>Beef Chow Mein</span><span class="price">$17.25</span></div>
-        <div class="menu-item"><span>Shrimp Chow Mein</span><span class="price">$18.00</span></div>
-      </div>
-
-      <div class="menu-cat"><h3>Fried Rice</h3>
-        <div class="menu-item"><span>Egg Fried Rice</span><span class="price">$13.50</span></div>
-        <div class="menu-item"><span>Pork Fried Rice</span><span class="price">$14.25</span></div>
-        <div class="menu-item"><span>Vegetable Fried Rice</span><span class="price">$15.25</span></div>
-        <div class="menu-item"><span>Chicken Fried Rice</span><span class="price">$15.50</span></div>
-        <div class="menu-item"><span>Beef Fried Rice</span><span class="price">$16.00</span></div>
-        <div class="menu-item"><span>Shrimp Fried Rice</span><span class="price">$17.00</span></div>
-        <div class="menu-item"><span>House Special Fried Rice</span><span class="price">$17.50</span></div>
-        <div class="menu-item"><span>Steamed Rice (Cup / Bowl)</span><span class="price">$5.00 / $6.00</span></div>
-      </div>
-
-      <div class="menu-cat"><h3>Lo Mein &amp; Chow Fun</h3>
-        <p class="menu-note">Served with steamed rice, or add pork fried rice for $2.00.</p>
-        <div class="menu-item"><span>Garlic Pan Fried Noodle <span class="desc">Onion &amp; bean sprouts in stir fry</span></span><span class="price">$13.50</span></div>
-        <div class="menu-item"><span>Beef, Chicken, or BBQ Pork Lo Mein</span><span class="price">$17.50</span></div>
-        <div class="menu-item"><span>Beef Chow Fun</span><span class="price">$18.25</span></div>
-        <div class="menu-item"><span>Shrimp Lo Mein</span><span class="price">$19.00</span></div>
-        <div class="menu-item"><span>House Special Lo Mein <span class="desc">Shrimp, chicken, BBQ pork, veggies &amp; soft noodles</span></span><span class="price">$19.25</span></div>
-        <div class="menu-item"><span>House Special Chow Mein <span class="spice">🌶️</span><span class="desc">Scallop, shrimp, chicken, BBQ pork &amp; pan-fried noodles in spicy house sauce</span></span><span class="price">$19.25</span></div>
-        <div class="menu-item"><span>Hong Kong Chow Mai <span class="desc">Shrimp, chicken, BBQ pork, egg, veggies &amp; rice noodles, Hong Kong style</span></span><span class="price">$19.25</span></div>
-        <div class="menu-item"><span>Singapore Chow Mai <span class="spice">🌶️</span><span class="desc">Shrimp, BBQ pork, egg, veggies &amp; rice noodles with curry flavor</span></span><span class="price">$19.25</span></div>
-        <div class="menu-item"><span>Chef's Special Chow Fun <span class="spice">🌶️</span><span class="desc">Beef, shrimp, BBQ pork &amp; rice noodles in the chef's special spicy sauce</span></span><span class="price">$19.25</span></div>
-      </div>
-
-      <div class="menu-cat"><h3>Dinner Special Combos</h3>
-        <div class="menu-item"><span>No. 1 — Pork Chow Mein (crunchy noodles), Pork Fried Rice, Sweet &amp; Sour Pork</span><span class="price">$16.00</span></div>
-        <div class="menu-item"><span>No. 2 — Fried Shrimp, Pork Fried Rice, Mar Far Chicken</span><span class="price">$16.75</span></div>
-        <div class="menu-item"><span>No. 3 — Pork Chow Mein (crunchy noodles), Pork Fried Rice, Fried Shrimp, Sweet &amp; Sour Chicken</span><span class="price">$18.00</span></div>
-        <div class="menu-item"><span>No. 4 — Chicken Chow Mein (crunchy noodles), Pork Fried Rice, Fried Shrimp, Mar Far Chicken</span><span class="price">$18.00</span></div>
-        <div class="menu-item"><span>No. 5 — Pork Fried Rice, Spring Roll, Sweet &amp; Sour Pork, Fried Shrimp</span><span class="price">$17.75</span></div>
-        <div class="menu-item"><span>No. 6 — Broccoli Beef, Pork Fried Rice, Sweet &amp; Sour Pork, Fried Shrimp</span><span class="price">$18.25</span></div>
-        <div class="menu-item"><span>No. 7 — Kung Pao Chicken <span class="spice">🌶️</span>, Pork Fried Rice, Sweet &amp; Sour Pork, Fried Shrimp</span><span class="price">$18.25</span></div>
-        <div class="menu-item"><span>No. 8 — Broccoli Chicken, Pork Fried Rice, BBQ Pork, Mar Far Chicken</span><span class="price">$18.25</span></div>
-        <div class="menu-item"><span>Deluxe Special — Fried Shrimp, BBQ Pork, Cashew Chicken Subgum Chow Mein (crunchy noodles), Spring Roll, Pork Fried Rice</span><span class="price">$19.00</span></div>
-      </div>
-
-      <div class="menu-cat"><h3>Choice Combinations</h3>
-        <div class="menu-item"><span>2 items</span><span class="price">$13.25</span></div>
-        <div class="menu-item"><span>3 items</span><span class="price">$14.25</span></div>
-        <div class="menu-item"><span>4 items</span><span class="price">$15.25</span></div>
-        <p class="menu-note">Choose from: Pork Fried Rice · Pork Chow Mein w/ crunchy noodles · Spring Roll · Mar Far Chicken · Sweet &amp; Sour Pork · Crab Meat Puffs · Chicken Chow Mein w/ crunchy noodles · Sweet &amp; Sour Chicken · Cashew Subgum Chicken Chow Mein w/ crunchy noodles · BBQ Pork (extra $1.00) · Fried Shrimp (extra $1.00). Pan fried noodles $2.00 extra on chow mein dishes.</p>
-      </div>
-
-      <div class="menu-cat"><h3>Family Style Dinners</h3>
-        <p class="menu-note">For two or more people. All styles start with Spring Rolls, BBQ Pork &amp; Crab Puffs.</p>
-        <div class="menu-item"><span>Style A <span class="desc">Cashew Chicken, Pork Fried Rice, Sweet &amp; Sour Pork, Fried Shrimp — 4+ people also includes Orange Chicken</span></span><span class="price">$18.50 / person</span></div>
-        <div class="menu-item"><span>Style B <span class="desc">Broccoli Beef, Mar Far Chicken, Pork Fried Rice, Fried Shrimp</span></span><span class="price">$19.25 / person</span></div>
-        <div class="menu-item"><span>Style C <span class="desc">Mongolian Chicken 🌶️, Sweet &amp; Sour Chicken, Szechwan Shrimp 🌶️, Pork Fried Rice — 4+ people also includes General Tso's Chicken</span></span><span class="price">$20.25 / person</span></div>
-        <div class="menu-item"><span>Style D <span class="desc">Pork Fried Rice, Mar Far Chicken, Sweet &amp; Sour Pork, Cashew Subgum Chicken Chow Mein w/ pan fried noodles — 3+ people also includes Fried Shrimp</span></span><span class="price">$18.25 / person</span></div>
-      </div>
-
-      <div class="menu-cat"><h3>Lunch Menu <span style="font-weight:normal; font-size:1rem">(Noon to 4 PM)</span></h3>
-        <p class="menu-note">Lunch specialties are served with Pork Fried Rice and a choice of a Spring Roll (1 pc) or Crab Puffs (2 pc).</p>
-        <div class="menu-item"><span>L1. Chicken or Beef with Pea Pods</span><span class="price">$15.25</span></div>
-        <div class="menu-item"><span>L2. Broccoli Beef or Chicken</span><span class="price">$15.00</span></div>
-        <div class="menu-item"><span>L3. Moo Goo Gai Pan</span><span class="price">$15.00</span></div>
-        <div class="menu-item"><span>L4. Curry Chicken or Beef <span class="spice">🌶️</span></span><span class="price">$15.00</span></div>
-        <div class="menu-item"><span>L5. Cashew Chicken</span><span class="price">$15.00</span></div>
-        <div class="menu-item"><span>L6. Kung Pao Chicken or Beef <span class="spice">🌶️</span></span><span class="price">$15.00</span></div>
-        <div class="menu-item"><span>L8. Kung Pao Shrimp <span class="spice">🌶️</span></span><span class="price">$16.50</span></div>
-        <div class="menu-item"><span>L9. Mongolian Beef or Chicken <span class="spice">🌶️</span></span><span class="price">$15.25</span></div>
-        <div class="menu-item"><span>L10. Chicken or Beef with Garlic Sauce <span class="spice">🌶️</span></span><span class="price">$15.00</span></div>
-        <div class="menu-item"><span>L10. Green Pepper Beef or Chicken</span><span class="price">$15.00</span></div>
-        <div class="menu-item"><span>L11. Mandarin Chicken <span class="spice">🌶️</span></span><span class="price">$15.25</span></div>
-        <div class="menu-item"><span>L12. General Tso's Chicken <span class="spice">🌶️</span></span><span class="price">$15.25</span></div>
-        <div class="menu-item"><span>L13. Orange Chicken <span class="spice">🌶️</span></span><span class="price">$15.25</span></div>
-        <div class="menu-item"><span>L14. Sesame Chicken <span class="spice">🌶️</span></span><span class="price">$15.25</span></div>
-        <div class="menu-item"><span>L15. Mixed Vegetable Deluxe</span><span class="price">$14.25</span></div>
-        <div class="menu-item"><span>L16. Sesame Tofu with Vegetable <span class="spice">🌶️</span></span><span class="price">$15.00</span></div>
-        <div class="menu-item"><span>L17. Mongolian Tofu with Vegetable <span class="spice">🌶️</span></span><span class="price">$15.00</span></div>
-        <div class="menu-item"><span>L18. Home Style Tofu with Vegetable <span class="spice">🌶️</span></span><span class="price">$15.00</span></div>
-        <p class="menu-note" style="margin-top:16px"><strong>Lunch Lo Mein &amp; Chow Mein</strong> (served with soft noodles):</p>
-        <div class="menu-item"><span>Vegetable Lo Mein</span><span class="price">$14.50</span></div>
-        <div class="menu-item"><span>Beef, Chicken, or BBQ Pork Lo Mein</span><span class="price">$15.25</span></div>
-        <div class="menu-item"><span>House Chow Mein <span class="spice">🌶️</span><span class="desc">Chicken, BBQ pork &amp; shrimp</span></span><span class="price">$16.50</span></div>
-        <div class="menu-item"><span>Shrimp Lo Mein</span><span class="price">$16.75</span></div>
-      </div>
-
-      <div class="menu-cat"><h3>Drinks</h3>
-        <div class="menu-item"><span>Hot Tea (per cup)</span><span class="price">$1.00</span></div>
-        <div class="menu-item"><span>Fountain Drinks <span class="desc">Pepsi, Diet Pepsi, Dr. Pepper, Mt. Dew, Starry, Lemonade, Iced Tea, Root Beer — one free refill</span></span><span class="price">$3.50</span></div>
-        <div class="menu-item"><span>Beer <span class="desc">Budweiser, Bud Light, Coors Light</span></span><span class="price">$5.75</span></div>
-        <div class="menu-item"><span>Imported Beer <span class="desc">Heineken, Corona, Tsingtao, Chang</span></span><span class="price">$6.75</span></div>
-        <div class="menu-item"><span>Wine <span class="desc">Chardonnay, Merlot, Blush, Burgundy</span></span><span class="price">Glass $6.50 · Half Carafe $10.50</span></div>
-      </div>
-
-      <p class="center menu-note">Prices current as of July 2026 and subject to change.</p>
-
-      <div class="btn-row">
-        <a class="btn btn-primary" href="tel:+15414796532">Call (541) 479-6532 to Order Pickup</a>
-        <a class="btn btn-secondary" href="#catering" onclick="showPage('catering')">Ask About Catering</a>
-      </div>
     </div>
+
   </section>
+
+
+
+  <div class="pull rule-top">
+
+    <div class="wrap">
+
+      <blockquote>Our go-to for takeout in Grants Pass.</blockquote>
+
+      <cite>From our Google reviews — <a href="https://www.google.com/search?q=Four+Seasons+Restaurant+Grants+Pass+OR+reviews" target="_blank" rel="noopener">read the rest</a></cite>
+
+    </div>
+
+  </div>
+
+
+
+  <section class="band">
+
+    <div class="wrap">
+
+      <div class="band-grid">
+
+        <div>
+
+          <div class="kicker">Catering &amp; Family Style</div>
+
+          <h2>Feeding a crowd is what the wok is for.</h2>
+
+          <p>Office lunches, birthdays, church gatherings, holiday tables. Our Family Style Dinners run $18.25 to $20.25 a person — appetizers included — and larger parties unlock an extra dish on the house. Tell us the headcount; we'll figure out the food.</p>
+
+          <p class="fine">Every family dinner starts with spring rolls, BBQ pork, and crab puffs.</p>
+
+        </div>
+
+        <div>
+
+          <div class="btn-row">
+
+            <a class="btn btn-light" href="#catering" onclick="showPage('catering')">Plan your event</a>
+
+            <a class="btn btn-cinnabar" href="tel:+15414796532">Call to talk it through</a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <section>
+
+    <div class="wrap">
+
+      <div class="visit-grid">
+
+        <div class="visit-info">
+
+          <div class="kicker">Visit Us</div>
+
+          <h2 style="font-size:clamp(1.9rem,3.6vw,2.9rem); font-weight:560; margin-bottom:26px;">On K Street, downtown Grants Pass.</h2>
+
+          <div class="row">
+
+            <div class="label">Address</div>
+
+            <div class="value">122 SE K St, Grants Pass, OR 97526</div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="label">Phone</div>
+
+            <div class="value"><a href="tel:+15414796532" style="text-decoration:none">(541) 479-6532</a></div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="label">Hours</div>
+
+            <div class="value">Tue–Sat, 12:00 PM – 9:00 PM · Closed Sun &amp; Mon</div>
+
+          </div>
+
+          <div class="btn-row">
+
+            <a class="btn btn-solid" href="https://www.google.com/maps/dir/?api=1&destination=122+SE+K+St,+Grants+Pass,+OR+97526" target="_blank" rel="noopener">Get directions</a>
+
+          </div>
+
+        </div>
+
+        <iframe class="map-frame" title="Map to Four Seasons Restaurant"
+
+          src="https://www.google.com/maps?q=122+SE+K+St,+Grants+Pass,+OR+97526&output=embed"
+
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
 </div>
+
+
+
+<!-- ===================== MENU + ORDERING ===================== -->
+
+<div class="page" id="page-menu">
+
+  <section style="padding-top: clamp(40px, 6vw, 72px);">
+
+    <div class="wrap">
+
+      <div class="kicker">The Menu · No MSG in anything</div>
+
+      <h1 style="font-size:clamp(2.2rem,4.6vw,3.6rem); font-weight:560; max-width:16ch;">Cooked after you order. Priced like a neighborhood place.</h1>
+
+      <div class="btn-row" id="menuCtas">
+
+        <button class="btn btn-solid" onclick="openCart()">View your order</button>
+
+        <a class="btn" href="tel:+15414796532">Or call (541) 479-6532</a>
+
+      </div>
+
+      <div class="menu-topnote">
+
+        <strong id="orderHint">Add items below to build a pickup order.</strong>
+
+        Dishes marked <span class="sp">🌶</span> can be made <strong>no spice, mild, medium, spicy, or extra spicy (+$1)</strong> — your call.
+
+        In-store prices shown, current as of July 2026.
+
+      </div>
+
+
+
+      <div class="menu-layout" style="margin-top:34px;">
+
+        <aside class="menu-index" id="menuIndex">
+
+          <div class="label">Index</div>
+
+        </aside>
+
+        <div id="menuRoot"></div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+
 
 <!-- ===================== CATERING ===================== -->
+
 <div class="page" id="page-catering">
-  <section>
-    <div class="narrow">
-      <h1 class="center">Let Us Cater Your Next Event</h1>
-      <p>From office lunches to family holidays, we make it easy to feed a group without anyone having to cook. Tell us how many people, what you like, and when you need it — we'll take it from there.</p>
-      <p><strong>Popular for:</strong> birthdays, retirement parties, office meetings, church and club gatherings, and holiday get-togethers.</p>
 
-      <h2>How It Works</h2>
-      <p>1. Call us or send the short form below with your event date and headcount.<br>
-         2. We'll suggest a menu and amount of food based on your group size.<br>
-         3. Pick up your order at the time we agree on — hot, fresh, and ready to serve.</p>
+  <section style="padding-top: clamp(40px, 6vw, 72px);">
 
-      <p>Our Family Style Dinners (see the <a href="#menu" onclick="showPage('menu')">menu</a>) are a great starting point for groups — from $18.25 per person.</p>
+    <div class="wrap">
 
-      <div class="btn-row">
-        <a class="btn btn-primary" href="tel:+15414796532">Call (541) 479-6532 to Talk Through Your Event</a>
+      <div class="hero-grid" style="align-items:start;">
+
+        <div>
+
+          <div class="kicker">Catering</div>
+
+          <h1 style="font-size:clamp(2.2rem,4.6vw,3.6rem); font-weight:560; max-width:14ch;">Feed everyone. Cook nothing.</h1>
+
+          <div class="prose" style="margin-top:22px;">
+
+            <p>Office lunches, birthdays, retirement parties, church and club gatherings, holiday tables. Tell us how many people and what they like — we'll suggest the menu and the amounts, and have it hot and ready at the time we agree on.</p>
+
+            <p><strong>How it works:</strong> call us or send the form. We'll suggest a menu based on your group size. Pick it up at the agreed time — trays ready to serve.</p>
+
+            <p>Our Family Style Dinners are the easy starting point: <strong>$18.25–$20.25 a person</strong>, appetizers included, with a bonus dish for larger parties. See them <a href="#menu" onclick="showPage('menu')">on the menu</a>.</p>
+
+          </div>
+
+          <div class="btn-row">
+
+            <a class="btn btn-solid" href="tel:+15414796532">Call (541) 479-6532</a>
+
+          </div>
+
+        </div>
+
+        <div>
+
+          <form class="catering" onsubmit="return sendCateringRequest(event)">
+
+            <div class="kicker ink" style="margin-bottom:22px;">Catering Request</div>
+
+            <div class="form-row"><label for="c-name">Your name</label><input id="c-name" type="text" required></div>
+
+            <div class="form-row"><label for="c-phone">Phone number</label><input id="c-phone" type="tel" required></div>
+
+            <div class="form-row"><label for="c-date">Event date</label><input id="c-date" type="date" required></div>
+
+            <div class="form-row"><label for="c-guests">Number of guests</label><input id="c-guests" type="number" min="1" required></div>
+
+            <div class="form-row"><label for="c-occasion">What you're celebrating</label><input id="c-occasion" type="text" placeholder="Birthday, office lunch, holiday party…"></div>
+
+            <button class="btn btn-cinnabar" type="submit" style="width:100%">Send request</button>
+
+            <p style="margin-top:14px; font-size:13px; color:var(--ink-soft);">Prefer to talk it through? Call <a href="tel:+15414796532">(541) 479-6532</a>.</p>
+
+          </form>
+
+        </div>
+
       </div>
 
-      <h2>Catering Request</h2>
-      <form onsubmit="return sendCateringRequest(event)">
-        <div class="form-row"><label for="c-name">Your Name</label><input id="c-name" type="text" required></div>
-        <div class="form-row"><label for="c-phone">Phone Number</label><input id="c-phone" type="tel" required></div>
-        <div class="form-row"><label for="c-date">Event Date</label><input id="c-date" type="date" required></div>
-        <div class="form-row"><label for="c-guests">Number of Guests</label><input id="c-guests" type="number" min="1" required></div>
-        <div class="form-row"><label for="c-occasion">What You're Celebrating</label><input id="c-occasion" type="text" placeholder="Birthday, office lunch, holiday party…"></div>
-        <button class="btn btn-gold" type="submit" style="width:100%">Send Catering Request</button>
-        <p style="margin-top:12px; font-size:0.95rem; color:var(--text-light)">Prefer to talk it through? Just call <a href="tel:+15414796532">(541) 479-6532</a>.</p>
-      </form>
     </div>
+
   </section>
+
 </div>
+
+
 
 <!-- ===================== ABOUT ===================== -->
+
 <div class="page" id="page-about">
-  <section>
-    <div class="narrow">
-      <h1 class="center">Our Story</h1>
-      <p>Four Seasons Restaurant has been serving Grants Pass fresh, home-style Chinese food for years. We're a family-run kitchen, and we cook every dish to order — nothing sits under a heat lamp waiting for you.</p>
-      <p>Whether you're picking up dinner on a busy weeknight or ordering trays for a big event, our goal is the same: good food, generous portions, and the kind of service that makes you feel like a regular from your very first visit.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="tel:+15414796532">Call Us</a>
-        <a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&destination=122+SE+K+St,+Grants+Pass,+OR+97526" target="_blank" rel="noopener">Get Directions</a>
+
+  <section style="padding-top: clamp(40px, 6vw, 72px);">
+
+    <div class="wrap">
+
+      <div class="kicker">Our Story</div>
+
+      <h1 style="font-size:clamp(2.2rem,4.6vw,3.6rem); font-weight:560; max-width:18ch;">A family kitchen on K Street.</h1>
+
+      <div class="prose" style="margin-top:26px;">
+
+        <p>Four Seasons has been serving Grants Pass fresh, home-style Chinese food for years. We're a family-run kitchen, and we cook every dish after you order it — <strong>nothing sits under a heat lamp waiting for you</strong>, and there's no MSG in anything we make.</p>
+
+        <p>Whether you're picking up dinner on a busy weeknight or ordering trays for a big event, the goal is the same: good food, generous portions, and the kind of service that makes you feel like a regular from your first visit.</p>
+
       </div>
-      <p class="center"><a href="#reviews" onclick="showPage('reviews')">Read Our Reviews →</a></p>
+
+      <div class="btn-row">
+
+        <a class="btn btn-solid" href="tel:+15414796532">Call us</a>
+
+        <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=122+SE+K+St,+Grants+Pass,+OR+97526" target="_blank" rel="noopener">Get directions</a>
+
+        <a class="arrow-link" href="#reviews" onclick="showPage('reviews')">Read our reviews →</a>
+
+      </div>
+
     </div>
+
   </section>
+
 </div>
+
+
 
 <!-- ===================== REVIEWS ===================== -->
+
 <div class="page" id="page-reviews">
-  <section>
-    <div class="narrow center">
-      <h1>What Grants Pass Is Saying</h1>
-      <p>We're proud of the reputation we've built, one order at a time. Here's what our customers say:</p>
-      <div class="quote-grid">
-        <div class="quote">"Fresh, flavorful, and the portions are so generous."</div>
-        <div class="quote">"Friendly service every single time we come in."</div>
-        <div class="quote">"Our go-to for takeout in Grants Pass."</div>
+
+  <section style="padding-top: clamp(40px, 6vw, 72px);">
+
+    <div class="wrap">
+
+      <div class="kicker">Reviews</div>
+
+      <h1 style="font-size:clamp(2.2rem,4.6vw,3.6rem); font-weight:560; max-width:18ch;">One order at a time.</h1>
+
+      <p class="prose" style="margin-top:18px;">We're proud of the reputation we've built with our neighbors. Here's what customers say:</p>
+
+
+
+      <div class="quote-stack" style="margin-top:34px;">
+
+        <blockquote>Fresh, flavorful, and the portions are so generous.</blockquote>
+
+        <blockquote>Friendly service every single time we come in.</blockquote>
+
+        <blockquote>Our go-to for takeout in Grants Pass.</blockquote>
+
       </div>
-      <div class="btn-row">
-        <a class="btn btn-gold" href="https://www.google.com/search?q=Four+Seasons+Restaurant+Grants+Pass+OR+reviews" target="_blank" rel="noopener">Read All Our Reviews on Google</a>
-        <a class="btn btn-secondary" href="https://www.google.com/search?q=Four+Seasons+Restaurant+Grants+Pass+OR" target="_blank" rel="noopener">Leave Us a Review</a>
+
+
+
+      <div class="btn-row" style="margin-top:40px;">
+
+        <a class="btn btn-solid" href="https://www.google.com/search?q=Four+Seasons+Restaurant+Grants+Pass+OR+reviews" target="_blank" rel="noopener">Read all our reviews on Google</a>
+
+        <a class="btn" href="https://www.google.com/search?q=Four+Seasons+Restaurant+Grants+Pass+OR" target="_blank" rel="noopener">Leave us a review</a>
+
       </div>
+
     </div>
+
   </section>
+
 </div>
+
+
 
 <!-- ===================== CONTACT ===================== -->
+
 <div class="page" id="page-contact">
-  <section>
-    <div class="container">
-      <h1 class="center">Visit Us or Call Ahead</h1>
-      <div class="visit-grid" style="margin-top:1.5em">
-        <iframe class="map-frame" title="Map to Four Seasons Restaurant"
-          src="https://www.google.com/maps?q=122+SE+K+St,+Grants+Pass,+OR+97526&output=embed"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="info-card">
-          <p><span class="info-label">Address:</span><br>122 SE K St, Grants Pass, OR 97526</p>
-          <p><span class="info-label">Phone:</span><br><a href="tel:+15414796532">(541) 479-6532</a></p>
-          <p><span class="info-label">Hours:</span><br>Tuesday–Saturday, 12:00 PM – 9:00 PM<br>Closed Sunday and Monday</p>
-          <div class="btn-row" style="justify-content:flex-start">
-            <a class="btn btn-primary" href="tel:+15414796532">Call (541) 479-6532</a>
-            <a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&destination=122+SE+K+St,+Grants+Pass,+OR+97526" target="_blank" rel="noopener">Get Directions</a>
-            <a class="btn btn-gold" href="#menu" onclick="showPage('menu')">View Menu</a>
+
+  <section style="padding-top: clamp(40px, 6vw, 72px);">
+
+    <div class="wrap">
+
+      <div class="visit-grid">
+
+        <div class="visit-info">
+
+          <div class="kicker">Contact &amp; Directions</div>
+
+          <h1 style="font-size:clamp(2rem,4vw,3rem); font-weight:560; margin-bottom:26px;">Visit us, or call ahead.</h1>
+
+          <div class="row">
+
+            <div class="label">Address</div>
+
+            <div class="value">122 SE K St, Grants Pass, OR 97526</div>
+
           </div>
+
+          <div class="row">
+
+            <div class="label">Phone</div>
+
+            <div class="value"><a href="tel:+15414796532" style="text-decoration:none">(541) 479-6532</a></div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="label">Hours</div>
+
+            <div class="value">Tue–Sat, 12:00 PM – 9:00 PM<br>Closed Sunday &amp; Monday</div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="label">Lunch Menu</div>
+
+            <div class="value">Noon to 4 PM, Tue–Sat</div>
+
+          </div>
+
+          <div class="btn-row">
+
+            <a class="btn btn-solid" href="tel:+15414796532">Call (541) 479-6532</a>
+
+            <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=122+SE+K+St,+Grants+Pass,+OR+97526" target="_blank" rel="noopener">Get directions</a>
+
+            <button class="arrow-link" onclick="showPage('menu')">Start a pickup order →</button>
+
+          </div>
+
         </div>
+
+        <iframe class="map-frame" title="Map to Four Seasons Restaurant"
+
+          src="https://www.google.com/maps?q=122+SE+K+St,+Grants+Pass,+OR+97526&output=embed"
+
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
       </div>
+
     </div>
+
   </section>
+
 </div>
+
 </main>
 
+
+
 <!-- ===================== FOOTER ===================== -->
-<footer>
-  <p class="foot-phone"><a href="tel:+15414796532">📞 (541) 479-6532</a></p>
-  <p>122 SE K St, Grants Pass, OR 97526</p>
-  <p>Tuesday–Saturday, 12:00 PM – 9:00 PM · Closed Sunday and Monday</p>
-  <p><a href="https://www.google.com/search?q=Four+Seasons+Restaurant+Grants+Pass+OR" target="_blank" rel="noopener">Find us on Google</a> · <a href="https://www.google.com/search?q=Four+Seasons+Restaurant+Grants+Pass+OR+reviews" target="_blank" rel="noopener">Leave us a review</a></p>
-  <p style="font-size:0.9rem; margin-top:1em">© <span id="year"></span> Four Seasons Restaurant, Grants Pass, Oregon</p>
+
+<footer class="site">
+
+  <div class="wrap">
+
+    <div class="foot-grid">
+
+      <div>
+
+        <div class="foot-name">Four <em>Seasons</em> Restaurant</div>
+
+        <p style="margin-top:10px; color:#8d8674;">Chinese-American kitchen · No MSG · Cooked to order</p>
+
+        <p class="foot-phone" style="margin-top:14px;"><a href="tel:+15414796532" style="text-decoration:none;">(541) 479-6532</a></p>
+
+      </div>
+
+      <div>
+
+        <div class="foot-label">Find Us</div>
+
+        <p>122 SE K St<br>Grants Pass, OR 97526</p>
+
+        <p>Tue–Sat, Noon–9 PM<br>Closed Sun &amp; Mon</p>
+
+      </div>
+
+      <div>
+
+        <div class="foot-label">Order &amp; Reviews</div>
+
+        <p id="footSiteOrder"><a href="#menu" onclick="showPage('menu')">Order pickup on this site</a></p>
+
+        <p><a href="https://order.online/store/-37535244/?pickup=true&amp;hideModal=true" target="_blank" rel="noopener" id="footDoorDash">Order via DoorDash (backup)</a></p>
+
+        <p><a href="https://www.google.com/search?q=Four+Seasons+Restaurant+Grants+Pass+OR" target="_blank" rel="noopener">Find us on Google</a></p>
+
+        <p><a href="https://www.google.com/search?q=Four+Seasons+Restaurant+Grants+Pass+OR+reviews" target="_blank" rel="noopener">Leave us a review</a></p>
+
+      </div>
+
+    </div>
+
+    <div class="foot-base">
+
+      <span>© <span id="year"></span> Four Seasons Restaurant, Grants Pass, Oregon</span>
+
+      <span>Menu prices current as of July 2026.</span>
+
+    </div>
+
+  </div>
+
 </footer>
 
+
+
+<!-- ===================== CART UI ===================== -->
+
+<button class="cart-fab" id="cartFab" onclick="openCart()">
+
+  Your order <span class="ct" id="fabCount">0</span> <span id="fabTotal">$0.00</span>
+
+</button>
+
+
+
+<div class="scrim" id="scrim" onclick="closeCart()"></div>
+
+<aside class="drawer" id="drawer" aria-label="Your pickup order">
+
+  <div class="drawer-head">
+
+    <h3 id="drawerTitle">Your pickup order</h3>
+
+    <button class="drawer-close" onclick="closeCart()" aria-label="Close">×</button>
+
+  </div>
+
+  <div class="drawer-body" id="drawerBody"></div>
+
+  <div class="drawer-foot" id="drawerFoot"></div>
+
+</aside>
+
+
+
+<div class="cfg-overlay" id="cfgOverlay">
+
+  <div class="cfg" id="cfgBox"></div>
+
+</div>
+
+
+
 <script>
-  // ----- Page navigation (single-file site with 6 "pages") -----
-  function showPage(name) {
-    document.querySelectorAll('.page').forEach(function (p) { p.classList.remove('active'); });
-    var target = document.getElementById('page-' + name);
-    if (target) target.classList.add('active');
-    document.querySelectorAll('nav a').forEach(function (a) {
-      a.classList.toggle('active', a.getAttribute('data-page') === name);
+
+/* =====================================================================
+
+   MENU DATA — single source of truth.
+
+   Every item on the printed menu (July 2026 in-store prices).
+
+   Fields: n name · p price · d description · sp spice-choice ·
+
+   v variants [[label, price]] · o options [{t, c:[[label, +delta]]}] ·
+
+   ad addons [[label, +price]] · pick {n, extra? , choices:[[name, +up]]} ·
+
+   per per-person pricing · min minimum quantity · note
+
+===================================================================== */
+
+const MENU = [
+
+  { id: "appetizers", num: "01", title: "Appetizers", items: [
+
+    { n: "Spring Rolls (3 pc)", p: 9.75 },
+
+    { n: "Fried Wonton", p: 9.75 },
+
+    { n: "Crab Puffs", p: 10.75 },
+
+    { n: "Potstickers (8 pc)", p: 11.75 },
+
+    { n: "Fried Shrimp", v: [["10 pieces", 12.00], ["15 pieces", 14.25]] },
+
+    { n: "BBQ Pork", p: 12.75 },
+
+    { n: "Combo Appetizer", p: 14.25, d: "Fried shrimp, BBQ pork, spring roll & crab puff" },
+
+  ]},
+
+  { id: "dimsum", num: "02", title: "Dim Sum", items: [
+
+    { n: "Sesame Balls (8 pc)", p: 9.75 },
+
+    { n: "Mini Steam Dumplings (6 pc)", p: 10.00 },
+
+    { n: "BBQ Pork Buns (4 pc)", p: 10.25 },
+
+    { n: "Shu Mai (8 pc)", p: 10.25 },
+
+    { n: "Shrimp Dumplings (8 pc)", p: 11.25 },
+
+  ]},
+
+  { id: "soup", num: "03", title: "Soup", items: [
+
+    { n: "Egg Flower Soup", v: [["Cup", 4.50], ["Small", 5.50], ["Large", 8.00]] },
+
+    { n: "Vegetable Soup", p: 10.50 },
+
+    { n: "BBQ Pork Noodle Soup", p: 12.50 },
+
+    { n: "Chicken Noodle Soup", p: 12.50 },
+
+    { n: "Wonton Soup", p: 13.50, d: "Shrimp, BBQ pork & veggies" },
+
+  ]},
+
+  { id: "chef", num: "04", title: "Chef's Specialties", note: "Served with steamed rice, or add pork fried rice for $2.", items: [
+
+    { n: "General Tso's Chicken", p: 18.00, sp: 1, d: "Chunks of chicken fried crispy, cooked in our unique house sauce", o: [RICE_O] },
+
+    { n: "Orange Chicken", p: 18.00, sp: 1, d: "Crispy chicken, chef's hot sauce, a touch of orange peel", o: [RICE_O] },
+
+    { n: "Sesame Chicken", p: 18.25, sp: 1, d: "Mar Far Chicken in our spicy Mandarin sauce", o: [RICE_O] },
+
+    { n: "Orange Shrimp", p: 19.00, sp: 1, o: [RICE_O] },
+
+    { n: "Kung Pao Deluxe", p: 19.25, sp: 1, d: "Shrimp, beef & chicken sautéed with veggies in spicy chef's sauce", o: [RICE_O] },
+
+    { n: "Four Treasure with Garlic Sauce", p: 20.00, sp: 1, d: "Beef, shrimp, BBQ pork & chicken in spicy Szechuan garlic sauce", o: [RICE_O] },
+
+    { n: "Chicken Three Styles", p: 21.00, d: "General Tso's, Sweet & Sour, and Kung Pao chicken on one plate", o: [RICE_O] },
+
+    { n: "Pad Thai", d: "Soft noodles", v: [["Chicken", 16.50], ["Pork", 16.50], ["Beef", 16.50], ["Tofu", 16.50], ["Shrimp", 18.25]] },
+
+  ]},
+
+  { id: "poultry", num: "05", title: "Poultry", note: "Served with steamed rice, or add pork fried rice for $2.", items: [
+
+    { n: "Mar Far Chicken (white meat)", p: 17.00, o: [RICE_O] },
+
+    { n: "Broccoli Chicken", p: 17.25, o: [RICE_O] },
+
+    { n: "Moo Goo Gai Pan", p: 17.25, o: [RICE_O] },
+
+    { n: "Kung Pao Chicken", p: 17.25, sp: 1, o: [RICE_O] },
+
+    { n: "Curry Chicken", p: 17.25, sp: 1, o: [RICE_O] },
+
+    { n: "Mongolian Chicken", p: 17.25, sp: 1, o: [RICE_O] },
+
+    { n: "Lemon Chicken (white meat)", p: 17.75, o: [RICE_O] },
+
+    { n: "Cashew Chicken", p: 17.75, o: [RICE_O] },
+
+    { n: "Chicken with Pea Pods", p: 18.25, o: [RICE_O] },
+
+    { n: "Szechwan Chicken", p: 18.25, sp: 1, o: [RICE_O] },
+
+    { n: "Mandarin Chicken", p: 18.25, sp: 1, o: [RICE_O] },
+
+  ]},
+
+  { id: "beef", num: "06", title: "Beef", note: "Served with steamed rice, or add pork fried rice for $2.", items: [
+
+    { n: "Broccoli Beef", p: 18.00, o: [RICE_O] },
+
+    { n: "Kung Pao Beef", p: 18.00, sp: 1, o: [RICE_O] },
+
+    { n: "Curry Beef", p: 18.00, sp: 1, o: [RICE_O] },
+
+    { n: "Beef with Pea Pods", p: 19.00, o: [RICE_O] },
+
+    { n: "Szechwan Beef", p: 19.00, sp: 1, o: [RICE_O] },
+
+    { n: "Mongolian Beef", p: 19.00, sp: 1, o: [RICE_O] },
+
+  ]},
+
+  { id: "seafood", num: "07", title: "Seafood", note: "Served with steamed rice, or add pork fried rice for $2.", items: [
+
+    { n: "Kung Pao Shrimp", p: 18.75, sp: 1, o: [RICE_O] },
+
+    { n: "Curry Shrimp", p: 18.75, sp: 1, o: [RICE_O] },
+
+    { n: "Shrimp with Pea Pods", p: 18.75, o: [RICE_O] },
+
+    { n: "Szechwan Shrimp", p: 19.75, sp: 1, o: [RICE_O] },
+
+    { n: "Happy Family", p: 19.75, d: "Scallops, shrimp, BBQ pork, chicken & veggies in brown sauce", o: [RICE_O] },
+
+    { n: "Walnut Shrimp", p: 21.50, o: [RICE_O] },
+
+  ]},
+
+  { id: "sweetsour", num: "08", title: "Sweet & Sour", note: "Served with steamed rice, or add pork fried rice for $2.", items: [
+
+    { n: "Sweet & Sour Pork", p: 16.25, o: [RICE_O] },
+
+    { n: "Sweet & Sour Chicken", p: 17.25, o: [RICE_O] },
+
+    { n: "Sweet & Sour Shrimp", p: 18.50, o: [RICE_O] },
+
+    { n: "Sweet & Sour Combo", p: 19.25, d: "Chicken, pork & shrimp", o: [RICE_O] },
+
+  ]},
+
+  { id: "veg", num: "09", title: "Vegetarian", note: "Served with steamed rice, or add pork fried rice for $2.", items: [
+
+    { n: "Sauteed Broccoli", p: 16.25, o: [RICE_O] },
+
+    { n: "Mixed Vegetable Deluxe", p: 16.25, o: [RICE_O] },
+
+    { n: "Sauteed Pea Pods", p: 16.50, o: [RICE_O] },
+
+    { n: "Sesame Tofu with Vegetables", p: 17.25, sp: 1, o: [RICE_O] },
+
+    { n: "Mongolian Tofu with Vegetables", p: 17.25, sp: 1, o: [RICE_O] },
+
+    { n: "Home Style Tofu with Vegetables", p: 17.25, sp: 1, d: "Cooked in black bean sauce", o: [RICE_O] },
+
+    { n: "Vegetable Lo Mein", p: 17.25 },
+
+  ]},
+
+  { id: "chowmein", num: "10", title: "Chow Mein", note: "Served with crunchy noodles — add pan-fried noodles for $2. Crunchy noodles can be swapped for steamed rice.", items: [
+
+    { n: "Vegetable Chow Mein", p: 14.50, ad: [["Pan-fried noodles", 2.00]] },
+
+    { n: "Pork Chow Mein", p: 15.25, ad: [["Pan-fried noodles", 2.00]] },
+
+    { n: "Cashew Chicken Subgum Chow Mein", p: 16.25, ad: [["Pan-fried noodles", 2.00]] },
+
+    { n: "Chicken Chow Mein (white meat)", p: 17.00, ad: [["Pan-fried noodles", 2.00]] },
+
+    { n: "Beef Chow Mein", p: 17.25, ad: [["Pan-fried noodles", 2.00]] },
+
+    { n: "Shrimp Chow Mein", p: 18.00, ad: [["Pan-fried noodles", 2.00]] },
+
+  ]},
+
+  { id: "rice", num: "11", title: "Fried Rice", items: [
+
+    { n: "Egg Fried Rice", p: 13.50 },
+
+    { n: "Pork Fried Rice", p: 14.25 },
+
+    { n: "Vegetable Fried Rice", p: 15.25 },
+
+    { n: "Chicken Fried Rice", p: 15.50 },
+
+    { n: "Beef Fried Rice", p: 16.00 },
+
+    { n: "Shrimp Fried Rice", p: 17.00 },
+
+    { n: "House Special Fried Rice", p: 17.50 },
+
+    { n: "Steamed Rice", v: [["Cup", 5.00], ["Bowl", 6.00]] },
+
+  ]},
+
+  { id: "lomein", num: "12", title: "Lo Mein & Chow Fun", items: [
+
+    { n: "Garlic Pan Fried Noodle", p: 13.50, d: "Onion & bean sprouts, stir-fried" },
+
+    { n: "Lo Mein", d: "Soft noodles", v: [["Beef", 17.50], ["Chicken", 17.50], ["BBQ Pork", 17.50], ["Shrimp", 19.00]] },
+
+    { n: "Beef Chow Fun", p: 18.25 },
+
+    { n: "House Special Lo Mein", p: 19.25, d: "Shrimp, chicken, BBQ pork, veggies & soft noodles" },
+
+    { n: "House Special Chow Mein", p: 19.25, sp: 1, d: "Scallop, shrimp, chicken, BBQ pork & pan-fried noodles in spicy house sauce" },
+
+    { n: "Hong Kong Chow Mai", p: 19.25, d: "Shrimp, chicken, BBQ pork, egg, veggies & rice noodles, Hong Kong style" },
+
+    { n: "Singapore Chow Mai", p: 19.25, sp: 1, d: "Shrimp, BBQ pork, egg, veggies & rice noodles with curry flavor" },
+
+    { n: "Chef's Special Chow Fun", p: 19.25, sp: 1, d: "Beef, shrimp, BBQ pork & rice noodles in the chef's spicy sauce" },
+
+  ]},
+
+  { id: "combos", num: "13", title: "Dinner Special Combos",
+
+    note: "Substitutions welcome — $1.50 each. Removing an item is free.",
+
+    items: [
+
+    { n: "No. 1", p: 16.00, d: "Pork chow mein (crunchy noodles), pork fried rice, sweet & sour pork", parts: ["Pork Chow Mein", "Pork Fried Rice", "Sweet & Sour Pork"] },
+
+    { n: "No. 2", p: 16.75, d: "Fried shrimp, pork fried rice, Mar Far chicken", parts: ["Fried Shrimp", "Pork Fried Rice", "Mar Far Chicken"] },
+
+    { n: "No. 3", p: 18.00, d: "Pork chow mein (crunchy noodles), pork fried rice, fried shrimp, sweet & sour chicken", parts: ["Pork Chow Mein", "Pork Fried Rice", "Fried Shrimp", "Sweet & Sour Chicken"] },
+
+    { n: "No. 4", p: 18.00, d: "Chicken chow mein (crunchy noodles), pork fried rice, fried shrimp, Mar Far chicken", parts: ["Chicken Chow Mein", "Pork Fried Rice", "Fried Shrimp", "Mar Far Chicken"] },
+
+    { n: "No. 5", p: 17.75, d: "Pork fried rice, spring roll, sweet & sour pork, fried shrimp", parts: ["Pork Fried Rice", "Spring Roll", "Sweet & Sour Pork", "Fried Shrimp"] },
+
+    { n: "No. 6", p: 18.25, d: "Broccoli beef, pork fried rice, sweet & sour pork, fried shrimp", parts: ["Broccoli Beef", "Pork Fried Rice", "Sweet & Sour Pork", "Fried Shrimp"] },
+
+    { n: "No. 7", p: 18.25, sp: 1, d: "Kung Pao chicken, pork fried rice, sweet & sour pork, fried shrimp", parts: ["Kung Pao Chicken", "Pork Fried Rice", "Sweet & Sour Pork", "Fried Shrimp"] },
+
+    { n: "No. 8", p: 18.25, d: "Broccoli chicken, pork fried rice, BBQ pork, Mar Far chicken", parts: ["Broccoli Chicken", "Pork Fried Rice", "BBQ Pork", "Mar Far Chicken"] },
+
+    { n: "Deluxe Special", p: 19.00, d: "Fried shrimp, BBQ pork, cashew chicken subgum chow mein (crunchy noodles), spring roll, pork fried rice", parts: ["Fried Shrimp", "BBQ Pork", "Cashew Chicken Subgum Chow Mein", "Spring Roll", "Pork Fried Rice"] },
+
+  ]},
+
+  { id: "choice", num: "14", title: "Choice Combinations",
+
+    note: "Build your own plate. BBQ pork and fried shrimp are $1 extra; pan-fried noodles $2 extra on chow mein.",
+
+    items: [
+
+      { n: "Any 2 Items", p: 13.25, pick: { n: 2 } },
+
+      { n: "Any 3 Items", p: 14.25, pick: { n: 3 } },
+
+      { n: "Any 4 Items", p: 15.25, pick: { n: 4 } },
+
+    ]},
+
+  { id: "family", num: "15", title: "Family Style Dinners",
+
+    note: "Priced per person, minimum two people. Every style starts with spring rolls, BBQ pork & crab puffs. Substitutions $1.50 per person each; removals free.",
+
+    items: [
+
+      { n: "Style A", p: 18.50, per: 1, min: 2, d: "Cashew chicken, pork fried rice, sweet & sour pork, fried shrimp · 4+ people adds General Tso's chicken", parts: ["Cashew Chicken", "Pork Fried Rice", "Sweet & Sour Pork", "Fried Shrimp"] },
+
+      { n: "Style B", p: 19.25, per: 1, min: 2, d: "Broccoli beef, Mar Far chicken, pork fried rice, fried shrimp · 4+ people adds orange chicken", parts: ["Broccoli Beef", "Mar Far Chicken", "Pork Fried Rice", "Fried Shrimp"] },
+
+      { n: "Style C", p: 20.25, per: 1, min: 2, sp: 1, d: "Mongolian chicken, sweet & sour chicken, Szechwan shrimp, pork fried rice · 4+ people adds fried shrimp", parts: ["Mongolian Chicken", "Sweet & Sour Chicken", "Szechwan Shrimp", "Pork Fried Rice"] },
+
+      { n: "Style D", p: 18.25, per: 1, min: 2, d: "Pork fried rice, Mar Far chicken, sweet & sour pork, cashew subgum chicken chow mein with pan-fried noodles · 3+ people adds fried shrimp", parts: ["Pork Fried Rice", "Mar Far Chicken", "Sweet & Sour Pork", "Cashew Subgum Chicken Chow Mein"] },
+
+    ]},
+
+  { id: "lunch", num: "16", title: "Lunch", when: "Noon to 4 PM",
+
+    note: "Lunch specialties come with pork fried rice and your choice of a spring roll (1 pc) or crab puffs (2 pc).",
+
+    items: [
+
+      { n: "L1. Chicken or Beef with Pea Pods", p: 15.25, o: [{ t: "Protein", c: ["Chicken", "Beef"] }, { t: "Side", c: ["Spring Roll (1 pc)", "Crab Puffs (2 pc)"] }] },
+
+      { n: "L2. Broccoli Beef or Chicken", p: 15.00, o: [{ t: "Protein", c: ["Beef", "Chicken"] }, { t: "Side", c: ["Spring Roll (1 pc)", "Crab Puffs (2 pc)"] }] },
+
+      { n: "L3. Moo Goo Gai Pan", p: 15.00, o: [{ t: "Side", c: ["Spring Roll (1 pc)", "Crab Puffs (2 pc)"] }] },
+
+      { n: "L4. Curry Chicken or Beef", p: 15.00, sp: 1, o: [{ t: "Protein", c: ["Chicken", "Beef"] }, { t: "Side", c: ["Spring Roll (1 pc)", "Crab Puffs (2 pc)"] }] },
+
+      { n: "L5. Cashew Chicken", p: 15.00, o: [{ t: "Side", c: ["Spring Roll (1 pc)", "Crab Puffs (2 pc)"] }] },
+
+      { n: "L6. Kung Pao Chicken or Beef", p: 15.00, sp: 1, o: [{ t: "Protein", c: ["Chicken", "Beef"] }, { t: "Side", c: ["Spring Roll (1 pc)", "Crab Puffs (2 pc)"] }] },
+
+      { n: "L7. Chicken or Beef with Garlic Sauce", p: 15.00, sp: 1, o: [{ t: "Protein", c: ["Chicken", "Beef"] }, { t: "Side", c: ["Spring Roll (1 pc)", "Crab Puffs (2 pc)"] }] },
+
+      { n: "L8. Kung Pao Shrimp", p: 16.50, sp: 1, o: [{ t: "Side", c: ["Spring Roll (1 pc)", "Crab Puffs (2 pc)"] }] },
+
+      { n: "L9. Mongolian Beef or Chicken", p: 15.25, sp: 1, o: [{ t: "Protein", c: ["Beef", "Chicken"] }, { t: "Side", c: ["Spring Roll (1 pc)", "Crab Puffs (2 pc)"] }] },
+
+      { n: "L10. Green Pepper Beef or Chicken", p: 15.00, o: [{ t: "Protein", c: ["Beef", "Chicken"] }, { t: "Side", c: ["Spring Roll (1 pc)", "Crab Puffs (2 pc)"] }] },
+
+      { n: "L11. Mandarin Chicken", p: 15.25, sp: 1, o: [{ t: "Side", c: ["Spring Roll (1 pc)", "Crab Puffs (2 pc)"] }] },
+
+      { n: "L12. General Tso's Chicken", p: 15.25, sp: 1, o: [{ t: "Side", c: ["Spring Roll (1 pc)", "Crab Puffs (2 pc)"] }] },
+
+      { n: "L13. Orange Chicken", p: 15.25, sp: 1, o: [{ t: "Side", c: ["Spring Roll (1 pc)", "Crab Puffs (2 pc)"] }] },
+
+      { n: "L14. Sesame Chicken", p: 15.25, sp: 1, o: [{ t: "Side", c: ["Spring Roll (1 pc)", "Crab Puffs (2 pc)"] }] },
+
+      { n: "L15. Mixed Vegetable Deluxe", p: 14.25, o: [{ t: "Side", c: ["Spring Roll (1 pc)", "Crab Puffs (2 pc)"] }] },
+
+      { n: "L16. Sesame Tofu with Vegetable", p: 15.00, sp: 1, o: [{ t: "Side", c: ["Spring Roll (1 pc)", "Crab Puffs (2 pc)"] }] },
+
+      { n: "L17. Mongolian Tofu with Vegetable", p: 15.00, sp: 1, o: [{ t: "Side", c: ["Spring Roll (1 pc)", "Crab Puffs (2 pc)"] }] },
+
+      { n: "L18. Home Style Tofu with Vegetable", p: 15.00, sp: 1, o: [{ t: "Side", c: ["Spring Roll (1 pc)", "Crab Puffs (2 pc)"] }] },
+
+      { n: "Lunch Vegetable Lo Mein", p: 14.50, d: "Soft noodles" },
+
+      { n: "Lunch Lo Mein — Beef, Chicken, or BBQ Pork", p: 15.25, d: "Soft noodles", o: [{ t: "Protein", c: ["Beef", "Chicken", "BBQ Pork"] }] },
+
+      { n: "Lunch House Chow Mein", p: 16.50, sp: 1, d: "Chicken, BBQ pork & shrimp" },
+
+      { n: "Lunch Shrimp Lo Mein", p: 16.75, d: "Soft noodles" },
+
+    ]},
+
+  { id: "drinks", num: "17", title: "Drinks", items: [
+
+    { n: "Hot Tea (per cup)", p: 1.00 },
+
+    { n: "Fountain Drink", p: 3.50, d: "One free refill (dine-in)", o: [{ t: "Flavor", c: ["Pepsi", "Diet Pepsi", "Dr. Pepper", "Mt. Dew", "Starry", "Lemonade", "Iced Tea", "Root Beer"] }] },
+
+    { n: "Beer", p: 5.75, o: [{ t: "Choice", c: ["Budweiser", "Bud Light", "Coors Light"] }] },
+
+    { n: "Imported Beer", p: 6.75, o: [{ t: "Choice", c: ["Heineken", "Corona", "Tsingtao", "Chang"] }] },
+
+    { n: "Wine", o: [{ t: "Variety", c: ["Chardonnay", "Merlot", "Blush", "Burgundy"] }], v: [["Glass", 6.50], ["Half Carafe", 10.50]] },
+
+  ]},
+
+];
+
+
+
+// Choice Combination pick list (shared) — upcharges per printed menu.
+
+const CHOICE_PICKS = [
+
+  ["Pork Fried Rice", 0], ["Pork Chow Mein (crunchy noodles)", 0], ["Spring Roll", 0],
+
+  ["Mar Far Chicken", 0], ["Sweet & Sour Pork", 0], ["Crab Meat Puffs", 0],
+
+  ["Chicken Chow Mein (crunchy noodles)", 0], ["Sweet & Sour Chicken", 0],
+
+  ["Cashew Subgum Chicken Chow Mein (crunchy noodles)", 0],
+
+  ["BBQ Pork", 1.00], ["Fried Shrimp", 1.00],
+
+];
+
+
+
+/* ---------- Square payment config ----------
+
+   Sandbox until go-live. Get these from developer.squareup.com → your app.
+
+   env must match the credentials: "sandbox" or "production".            */
+
+const SQUARE_CFG = {
+
+  env: "sandbox",
+
+  appId: "REPLACE_WITH_SQUARE_APP_ID",
+
+  locationId: "REPLACE_WITH_SQUARE_LOCATION_ID"
+
+};
+
+
+
+/* Master switch for the on-site ordering system (cart, Add buttons, checkout).
+
+   false = menu is browse-only; flip to true when Square goes live. */
+
+const ORDERING_ENABLED = false;
+
+
+
+/* Shared modifier definitions (match the restaurant's POS) */
+
+const RICE_O = { t: "Rice", c: [["Steamed Rice (included)", 0], ["Pork Fried Rice", 2.00]] };
+
+const SPICE_LEVELS = [["No Spice", 0], ["Mild", 0], ["Medium", 0], ["Spicy", 0], ["Extra Spicy", 1.00]];
+
+const SUB_COST = 1.50; // per substitution (per person on family dinners); removals are free
+
+const SUB_CHOICES = ["Fried Shrimp", "Sweet & Sour Pork", "Mar Far Chicken", "Sweet & Sour Chicken",
+
+  "Pork Lo Mein", "Chicken Lo Mein", "Beef Lo Mein", "Vegetable Lo Mein", "BBQ Pork", "Spring Roll", "Steam Rice"];
+
+
+
+const fmt = (x) => "$" + x.toFixed(2);
+
+const priceLabel = (it) => it.v ? it.v.map(v => v[1].toFixed(2)).filter((x, i, a) => a.indexOf(x) === i).join(" / ") : it.p.toFixed(2) + (it.per ? " ea" : "");
+
+
+
+/* ---------- Render menu from data ---------- */
+
+function renderMenu() {
+
+  const root = document.getElementById("menuRoot");
+
+  const idx = document.getElementById("menuIndex");
+
+  MENU.forEach((cat, ci) => {
+
+    const a = document.createElement("a");
+
+    a.href = "#m-" + cat.id;
+
+    a.textContent = cat.title + (cat.when ? " · " + cat.when : "");
+
+    idx.appendChild(a);
+
+
+
+    const sec = document.createElement("div");
+
+    sec.className = "menu-sec"; sec.id = "m-" + cat.id;
+
+    sec.innerHTML = '<h3><span class="sec-num">' + cat.num + '</span>' + cat.title +
+
+      (cat.when ? ' <span class="sec-when">' + cat.when + '</span>' : '') + '</h3>' +
+
+      (cat.note ? '<p class="sec-note">' + cat.note + '</p>' : '');
+
+    cat.items.forEach((it, ii) => {
+
+      it._cat = cat.title; it._id = cat.id + "-" + ii;
+
+      const row = document.createElement("div");
+
+      row.className = "mi";
+
+      row.innerHTML =
+
+        '<span class="nm">' + it.n + (it.sp ? ' <span class="sp">🌶</span>' : '') +
+
+        (it.d ? '<span class="d">' + it.d + '</span>' : '') + '</span>' +
+
+        '<span class="dots"></span><span class="pr">' + priceLabel(it) + '</span>';
+
+      if (ORDERING_ENABLED) {
+
+        const btn = document.createElement("button");
+
+        btn.className = "add-btn"; btn.textContent = "Add"; btn.setAttribute("aria-label", "Add " + it.n + " to order");
+
+        btn.onclick = () => addFlow(ci, ii);
+
+        row.appendChild(btn);
+
+      }
+
+      sec.appendChild(row);
+
     });
-    window.scrollTo({ top: 0 });
-  }
-  // Support back/forward + direct links like site.html#catering
-  window.addEventListener('hashchange', function () {
-    var name = location.hash.replace('#', '') || 'home';
-    if (document.getElementById('page-' + name)) showPage(name);
+
+    root.appendChild(sec);
+
   });
-  if (location.hash) {
-    var initial = location.hash.replace('#', '');
-    if (document.getElementById('page-' + initial)) showPage(initial);
+
+  const foot = document.createElement("div");
+
+  foot.className = "btn-row"; foot.style.marginTop = "40px";
+
+  foot.innerHTML = ORDERING_ENABLED
+
+    ? '<button class="btn btn-solid" onclick="openCart()">View your order</button>' +
+
+      '<a class="btn" href="tel:+15414796532">Call (541) 479-6532</a>'
+
+    : '<a class="btn btn-solid" href="tel:+15414796532">Call (541) 479-6532 to order</a>' +
+
+      '<a class="btn" href="https://order.online/store/-37535244/?pickup=true&hideModal=true" target="_blank" rel="noopener">Order online (DoorDash)</a>';
+
+  root.appendChild(foot);
+
+}
+
+
+
+/* ---------- Browse-only mode (ORDERING_ENABLED = false) ---------- */
+
+function applyOrderingMode() {
+
+  if (ORDERING_ENABLED) return;
+
+  const hero = document.getElementById("heroCta");
+
+  if (hero) hero.textContent = "See the menu & prices";
+
+  const ctas = document.getElementById("menuCtas");
+
+  if (ctas) ctas.innerHTML =
+
+    '<a class="btn btn-solid" href="tel:+15414796532">Call (541) 479-6532 to order</a>' +
+
+    '<a class="btn" href="https://order.online/store/-37535244/?pickup=true&hideModal=true" target="_blank" rel="noopener">Order online (DoorDash)</a>';
+
+  const hint = document.getElementById("orderHint");
+
+  if (hint) hint.textContent = "Call ahead and we'll have it ready for pickup.";
+
+  const foot = document.getElementById("footSiteOrder");
+
+  if (foot) foot.style.display = "none";
+
+  const dd = document.getElementById("footDoorDash");
+
+  if (dd) dd.textContent = "Order online (via DoorDash)";
+
+}
+
+
+
+/* ---------- Cart state ---------- */
+
+let cart = [];
+
+try { cart = JSON.parse(localStorage.getItem("fs_cart") || "[]"); } catch (e) { cart = []; }
+
+let drawerStep = "cart"; // cart | details
+
+
+
+function saveCart() { localStorage.setItem("fs_cart", JSON.stringify(cart)); }
+
+function cartCount() { return cart.reduce((s, l) => s + l.qty, 0); }
+
+function cartTotal() { return cart.reduce((s, l) => s + l.unit * l.qty, 0); }
+
+
+
+function addLine(item, unit, mods, qty, sel) {
+
+  const key = item._id + "|" + mods.join(";");
+
+  const found = cart.find(l => l.key === key);
+
+  if (found) found.qty += qty;
+
+  else cart.push({ key, id: item._id, name: item.n, cat: item._cat, unit, qty, mods, sel: sel || {}, per: !!item.per, min: item.min || 1 });
+
+  saveCart(); syncFab();
+
+  openCart();
+
+}
+
+
+
+/* ---------- Add flow: direct or configure ---------- */
+
+function needsConfig(it) { return !!(it.sp || it.v || it.o || it.ad || it.pick || it.per || it.parts); }
+
+
+
+// option choices may be "Label" (free) or ["Label", +delta]
+
+const oc = (c) => Array.isArray(c) ? c : [c, 0];
+
+
+
+function addFlow(ci, ii) {
+
+  const it = MENU[ci].items[ii];
+
+  if (!needsConfig(it)) { addLine(it, it.p, [], 1, {}); return; }
+
+  openConfig(it);
+
+}
+
+
+
+function openConfig(it) {
+
+  const box = document.getElementById("cfgBox");
+
+  let html = '<h3>' + it.n + (it.sp ? ' <span class="sp">🌶</span>' : '') + '</h3>';
+
+  if (it.d) html += '<p class="base-note">' + it.d + '</p>';
+
+
+
+  if (it.v) {
+
+    html += '<div class="cfg-group"><div class="glabel">' + (it.n === "Pad Thai" || it.n === "Lo Mein" ? "Choice" : "Size") + '</div>';
+
+    it.v.forEach((v, i) => {
+
+      html += '<label class="cfg-opt"><input type="radio" name="cfg-v" value="' + i + '"' + (i === 0 ? ' checked' : '') + '> ' + v[0] + '<span class="up">' + fmt(v[1]) + '</span></label>';
+
+    });
+
+    html += '</div>';
+
   }
 
-  // ----- Open/closed status (Tue–Sat, 12:00 PM – 9:00 PM, Pacific time) -----
-  function updateOpenStatus() {
-    var el = document.getElementById('openStatus');
-    var now = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
-    var day = now.getDay();               // 0=Sun … 6=Sat
-    var mins = now.getHours() * 60 + now.getMinutes();
-    var OPEN = 12 * 60, CLOSE = 21 * 60;
-    var openDays = [2, 3, 4, 5, 6];       // Tue–Sat
+  (it.o || []).forEach((g, gi) => {
 
-    if (openDays.indexOf(day) !== -1 && mins >= OPEN && mins < CLOSE) {
-      el.textContent = 'Open until 9:00 PM';
-      el.className = 'open-status open';
-      return;
+    html += '<div class="cfg-group"><div class="glabel">' + g.t + '</div>';
+
+    g.c.forEach((c, i) => {
+
+      const ch = oc(c);
+
+      html += '<label class="cfg-opt"><input type="radio" name="cfg-o' + gi + '" value="' + i + '"' + (i === 0 ? ' checked' : '') + '> ' + ch[0] +
+
+        (ch[1] ? '<span class="up">+' + fmt(ch[1]) + '</span>' : '') + '</label>';
+
+    });
+
+    html += '</div>';
+
+  });
+
+  if (it.sp) {
+
+    html += '<div class="cfg-group"><div class="glabel">Spice level</div>';
+
+    SPICE_LEVELS.forEach((s, i) => {
+
+      html += '<label class="cfg-opt"><input type="radio" name="cfg-sp" value="' + i + '"' + (i === 2 ? ' checked' : '') + '> ' + s[0] +
+
+        (s[1] ? '<span class="up">+' + fmt(s[1]) + (it.per ? ' / person' : '') + '</span>' : '') + '</label>';
+
+    });
+
+    html += '</div>';
+
+  }
+
+  if (it.parts) {
+
+    html += '<div class="cfg-group"><div class="glabel">Substitutions — ' + fmt(SUB_COST) + (it.per ? ' per person' : '') + ' each · removals free</div>';
+
+    it.parts.forEach((p, pi) => {
+
+      html += '<div class="cfg-opt" style="cursor:default; gap:12px;"><span style="flex:1; font-size:14px;">' + p + '</span>' +
+
+        '<select name="cfg-sub" data-part="' + pi + '" style="width:auto; min-height:38px; padding:6px 8px; font-size:14px;">' +
+
+        '<option value="k">Keep</option>' +
+
+        SUB_CHOICES.map((s, si) => '<option value="' + si + '">→ ' + s + '</option>').join('') +
+
+        '<option value="r">Remove (free)</option>' +
+
+        '</select></div>';
+
+    });
+
+    html += '</div>';
+
+  }
+
+  (it.ad || []).forEach((a, ai) => {
+
+    html += '<div class="cfg-group"><label class="cfg-opt"><input type="checkbox" name="cfg-ad" value="' + ai + '"> ' + a[0] + '<span class="up">+' + fmt(a[1]) + '</span></label></div>';
+
+  });
+
+  if (it.pick) {
+
+    html += '<div class="cfg-group"><div class="glabel">Pick ' + it.pick.n + ' items</div>';
+
+    CHOICE_PICKS.forEach((c, i) => {
+
+      html += '<label class="cfg-opt"><input type="checkbox" name="cfg-pick" value="' + i + '" onchange="pickChanged(' + it.pick.n + ')"> ' + c[0] + (c[1] ? '<span class="up">+' + fmt(c[1]) + '</span>' : '') + '</label>';
+
+    });
+
+    html += '<div class="pick-status bad" id="pickStatus">0 of ' + it.pick.n + ' selected</div></div>';
+
+  }
+
+  html += '<div class="cfg-group"><div class="glabel">' + (it.per ? "How many people? (min " + (it.min || 2) + ")" : "Quantity") + '</div>' +
+
+    '<div class="cfg-qty"><button class="qbtn" onclick="cfgQty(-1)">−</button><span class="qnum" id="cfgQtyN">' + (it.min || 1) + '</span><button class="qbtn" onclick="cfgQty(1)">+</button></div>' +
+
+    (it.per ? '<div class="cfg-note">Priced per person.</div>' : '') + '</div>';
+
+  html += '<div class="cfg-actions"><button class="btn" onclick="closeConfig()">Cancel</button>' +
+
+    '<button class="btn btn-cinnabar" id="cfgAdd">Add — <span id="cfgTotal"></span></button></div>';
+
+
+
+  box.innerHTML = html;
+
+  document.getElementById("cfgOverlay").classList.add("show");
+
+  box.dataset.min = it.min || 1;
+
+
+
+  const recalc = () => {
+
+    const qty = parseInt(document.getElementById("cfgQtyN").textContent, 10);
+
+    let unit = it.v ? it.v[parseInt(box.querySelector('input[name="cfg-v"]:checked').value, 10)][1] : it.p;
+
+    (it.o || []).forEach((g, gi) => {
+
+      const el = box.querySelector('input[name="cfg-o' + gi + '"]:checked');
+
+      if (el) unit += oc(g.c[parseInt(el.value, 10)])[1];
+
+    });
+
+    if (it.sp) {
+
+      const spEl = box.querySelector('input[name="cfg-sp"]:checked');
+
+      if (spEl) unit += SPICE_LEVELS[parseInt(spEl.value, 10)][1];
+
     }
-    // Find the next opening
-    var d = day, daysAhead = 0;
-    if (openDays.indexOf(day) !== -1 && mins < OPEN) {
-      daysAhead = 0;                       // opens later today
-    } else {
-      do { d = (d + 1) % 7; daysAhead++; } while (openDays.indexOf(d) === -1);
+
+    box.querySelectorAll('input[name="cfg-ad"]:checked').forEach(ch => unit += it.ad[parseInt(ch.value, 10)][1]);
+
+    box.querySelectorAll('input[name="cfg-pick"]:checked').forEach(ch => unit += CHOICE_PICKS[parseInt(ch.value, 10)][1]);
+
+    box.querySelectorAll('select[name="cfg-sub"]').forEach(s => { if (s.value !== "k" && s.value !== "r") unit += SUB_COST; });
+
+    document.getElementById("cfgTotal").textContent = fmt(unit * qty);
+
+    return { unit, qty };
+
+  };
+
+  box.addEventListener("change", recalc);
+
+  box._recalc = recalc;
+
+  recalc();
+
+
+
+  document.getElementById("cfgAdd").onclick = () => {
+
+    const { unit, qty } = recalc();
+
+    if (it.pick) {
+
+      const picked = box.querySelectorAll('input[name="cfg-pick"]:checked').length;
+
+      if (picked !== it.pick.n) { document.getElementById("pickStatus").textContent = "Please select exactly " + it.pick.n + " items."; return; }
+
     }
-    var names = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    var when = daysAhead === 0 ? 'today' : (daysAhead === 1 ? 'tomorrow' : names[d]);
-    el.textContent = 'Closed — opens ' + when + ' at 12:00 PM';
-    el.className = 'open-status closed';
-  }
-  updateOpenStatus();
-  setInterval(updateOpenStatus, 60000);
 
-  // ----- Catering form: no server needed — opens the visitor's email app -----
-  function sendCateringRequest(e) {
-    e.preventDefault();
-    var body =
-      'Catering request from the website:\n\n' +
-      'Name: ' + document.getElementById('c-name').value + '\n' +
-      'Phone: ' + document.getElementById('c-phone').value + '\n' +
-      'Event date: ' + document.getElementById('c-date').value + '\n' +
-      'Guests: ' + document.getElementById('c-guests').value + '\n' +
-      'Occasion: ' + (document.getElementById('c-occasion').value || '—');
-    // TODO before launch: replace with the restaurant's real email address
-    location.href = 'mailto:REPLACE_WITH_RESTAURANT_EMAIL@example.com' +
-      '?subject=' + encodeURIComponent('Catering Request — Four Seasons Restaurant') +
-      '&body=' + encodeURIComponent(body);
-    return false;
+    const mods = [], selData = {};
+
+    if (it.v) {
+
+      const vi = parseInt(box.querySelector('input[name="cfg-v"]:checked').value, 10);
+
+      selData.v = vi; mods.push(it.v[vi][0]);
+
+    }
+
+    (it.o || []).forEach((g, gi) => {
+
+      const oEl = box.querySelector('input[name="cfg-o' + gi + '"]:checked');
+
+      const oi = parseInt(oEl.value, 10);
+
+      (selData.o = selData.o || []).push(oi);
+
+      mods.push(g.t + ": " + oc(g.c[oi])[0]);
+
+    });
+
+    if (it.sp) {
+
+      const si = parseInt(box.querySelector('input[name="cfg-sp"]:checked').value, 10);
+
+      selData.sp = SPICE_LEVELS[si][0];
+
+      mods.push(SPICE_LEVELS[si][0]);
+
+    }
+
+    if (it.parts) {
+
+      selData.subs = [];
+
+      box.querySelectorAll('select[name="cfg-sub"]').forEach(s => {
+
+        const pi = parseInt(s.getAttribute('data-part'), 10);
+
+        if (s.value === "k") { selData.subs.push("k"); }
+
+        else if (s.value === "r") { selData.subs.push("r"); mods.push("No " + it.parts[pi]); }
+
+        else { const si2 = parseInt(s.value, 10); selData.subs.push(si2); mods.push(it.parts[pi] + " → " + SUB_CHOICES[si2]); }
+
+      });
+
+    }
+
+    box.querySelectorAll('input[name="cfg-ad"]:checked').forEach(ch => {
+
+      const ai = parseInt(ch.value, 10);
+
+      (selData.ad = selData.ad || []).push(ai);
+
+      mods.push(it.ad[ai][0]);
+
+    });
+
+    box.querySelectorAll('input[name="cfg-pick"]:checked').forEach(ch => {
+
+      const pi = parseInt(ch.value, 10);
+
+      (selData.pick = selData.pick || []).push(pi);
+
+      mods.push(CHOICE_PICKS[pi][0]);
+
+    });
+
+    closeConfig();
+
+    addLine(it, unit, mods, qty, selData);
+
+  };
+
+}
+
+function pickChanged(n) {
+
+  const box = document.getElementById("cfgBox");
+
+  const picked = box.querySelectorAll('input[name="cfg-pick"]:checked').length;
+
+  const st = document.getElementById("pickStatus");
+
+  st.textContent = picked + " of " + n + " selected";
+
+  st.className = "pick-status " + (picked === n ? "ok" : "bad");
+
+}
+
+function cfgQty(d) {
+
+  const el = document.getElementById("cfgQtyN");
+
+  const min = parseInt(document.getElementById("cfgBox").dataset.min, 10);
+
+  el.textContent = Math.max(min, parseInt(el.textContent, 10) + d);
+
+  document.getElementById("cfgBox")._recalc();
+
+}
+
+function closeConfig() { document.getElementById("cfgOverlay").classList.remove("show"); }
+
+
+
+/* ---------- Drawer ---------- */
+
+function syncFab() {
+
+  const fab = document.getElementById("cartFab");
+
+  document.getElementById("fabCount").textContent = cartCount();
+
+  document.getElementById("fabTotal").textContent = fmt(cartTotal());
+
+  fab.classList.toggle("show", ORDERING_ENABLED && cart.length > 0);
+
+}
+
+function openCart() { drawerStep = "cart"; renderDrawer(); document.getElementById("drawer").classList.add("show"); document.getElementById("scrim").classList.add("show"); }
+
+function closeCart() { document.getElementById("drawer").classList.remove("show"); document.getElementById("scrim").classList.remove("show"); }
+
+
+
+function lineQty(i, d) {
+
+  const l = cart[i];
+
+  l.qty += d;
+
+  const min = l.per ? l.min : 1;
+
+  if (l.qty < min) cart.splice(i, 1);
+
+  saveCart(); syncFab(); renderDrawer();
+
+}
+
+function lineRemove(i) { cart.splice(i, 1); saveCart(); syncFab(); renderDrawer(); }
+
+
+
+function renderDrawer() {
+
+  const body = document.getElementById("drawerBody");
+
+  const foot = document.getElementById("drawerFoot");
+
+  const title = document.getElementById("drawerTitle");
+
+
+
+  if (drawerStep === "details") { renderDetails(); return; }
+
+  if (drawerStep === "pay") { renderPay(); return; }
+
+  if (drawerStep === "done") { renderDone(); return; }
+
+  title.textContent = "Your pickup order";
+
+
+
+  if (!cart.length) {
+
+    body.innerHTML = '<p class="cart-empty">Nothing here yet — add dishes from the menu.</p>';
+
+    foot.innerHTML = '<button class="btn" style="width:100%" onclick="closeCart(); showPage(\'menu\')">Browse the menu</button>';
+
+    return;
+
   }
 
-  document.getElementById('year').textContent =
-    new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles', year: 'numeric' });
+  body.innerHTML = cart.map((l, i) =>
+
+    '<div class="cline">' +
+
+      '<div class="cline-top"><span class="nm">' + l.name + (l.per ? " · " + l.qty + " people" : "") + '</span><span class="amt">' + fmt(l.unit * l.qty) + '</span></div>' +
+
+      (l.mods.length ? '<div class="mods">' + l.mods.join(" · ") + '</div>' : '') +
+
+      '<div class="cline-ctl">' +
+
+        '<button class="qbtn" onclick="lineQty(' + i + ',-1)">−</button><span class="qnum">' + l.qty + '</span><button class="qbtn" onclick="lineQty(' + i + ',1)">+</button>' +
+
+        '<span style="font-size:12px;color:var(--ink-soft);">' + (l.per ? "people" : "× " + fmt(l.unit)) + '</span>' +
+
+        '<button class="rm" onclick="lineRemove(' + i + ')">Remove</button>' +
+
+      '</div>' +
+
+    '</div>'
+
+  ).join("");
+
+  foot.innerHTML =
+
+    '<div class="subtotal-row"><span class="lbl">Total</span><span class="val">' + fmt(cartTotal()) + '</span></div>' +
+
+    '<p class="fine">Pickup only · No sales tax in Oregon · Pay by card online (setup in progress) or when you pick up.</p>' +
+
+    '<button class="btn btn-cinnabar" onclick="drawerStep=\'details\'; renderDrawer()">Pickup details →</button>';
+
+}
+
+
+
+/* ---------- Pickup details ---------- */
+
+function pickupSlots() {
+
+  // Open Tue(2)–Sat(6), noon–9. Online pickup slots every 15 min, first ~25 min out, last 8:45 PM.
+
+  const now = new Date(new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
+
+  const slots = [];
+
+  const day = now.getDay();
+
+  const openDays = [2, 3, 4, 5, 6];
+
+  if (openDays.includes(day)) {
+
+    let t = new Date(now.getTime() + 25 * 60000);
+
+    t.setMinutes(Math.ceil(t.getMinutes() / 15) * 15, 0, 0);
+
+    const start = new Date(now); start.setHours(12, 15, 0, 0);
+
+    if (t < start) t = start;
+
+    const end = new Date(now); end.setHours(20, 45, 0, 0);
+
+    if (now.getHours() >= 12 && now < end) slots.push(["ASAP", "ASAP (about 15–20 min)"]);
+
+    while (t <= end) {
+
+      slots.push([t.toTimeString().slice(0, 5), t.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" })]);
+
+      t = new Date(t.getTime() + 15 * 60000);
+
+    }
+
+  }
+
+  return slots;
+
+}
+
+
+
+function renderDetails() {
+
+  const body = document.getElementById("drawerBody");
+
+  const foot = document.getElementById("drawerFoot");
+
+  document.getElementById("drawerTitle").textContent = "Pickup details";
+
+  const slots = pickupSlots();
+
+  const slotHtml = slots.length
+
+    ? '<select id="p-time">' + slots.map(s => '<option value="' + s[0] + '">' + s[1] + '</option>').join("") + '</select>'
+
+    : '<p style="font-size:14px;color:var(--cinnabar);font-weight:600;">We\'re closed right now (Tue–Sat, noon–9 PM). You can still build your order and call it in for our next open day.</p>';
+
+
+
+  body.innerHTML =
+
+    '<div class="pickup-form" style="padding-top:14px;">' +
+
+      '<div class="form-row"><label for="p-name">Your name</label><input id="p-name" type="text" autocomplete="name" value="' + (pickupInfo.name || '') + '" required></div>' +
+
+      '<div class="form-row"><label for="p-phone">Phone number</label><input id="p-phone" type="tel" autocomplete="tel" value="' + (pickupInfo.phone || '') + '" required></div>' +
+
+      '<div class="form-row"><label for="p-time">Pickup time</label>' + slotHtml + '</div>' +
+
+      '<div class="pick-status bad" id="detailsMsg"></div>' +
+
+    '</div>';
+
+  foot.innerHTML =
+
+    '<div class="subtotal-row"><span class="lbl">Total</span><span class="val">' + fmt(cartTotal()) + '</span></div>' +
+
+    '<p class="fine">No sales tax in Oregon. Card is charged when you place the order.</p>' +
+
+    '<button class="btn btn-cinnabar" style="margin-bottom:10px;" onclick="startPayment()">Continue to payment →</button>' +
+
+    '<button class="btn" onclick="location.href=\'tel:+15414796532\'">Or call it in — (541) 479-6532</button>' +
+
+    '<p class="fine" style="margin-top:10px;"><button class="arrow-link" style="font-size:13px;" onclick="drawerStep=\'cart\'; renderDrawer()">← Back to your order</button></p>';
+
+}
+
+
+
+/* ---------- Payment step (Square Web Payments SDK, embedded — no redirect) ---------- */
+
+let pickupInfo = {};
+
+let sqCard = null;
+
+
+
+function startPayment() {
+
+  const msg = document.getElementById("detailsMsg");
+
+  const name = (document.getElementById("p-name").value || "").trim();
+
+  const phone = (document.getElementById("p-phone").value || "").trim();
+
+  const timeEl = document.getElementById("p-time");
+
+  if (!name || !phone) { msg.textContent = "Please enter your name and phone number."; return; }
+
+  if (phone.replace(/\D/g, "").length < 10) { msg.textContent = "Please enter a 10-digit phone number."; return; }
+
+  if (!timeEl) { msg.textContent = "We're closed right now — call (541) 479-6532 to schedule ahead."; return; }
+
+  if (SQUARE_CFG.appId.indexOf("REPLACE_") === 0) {
+
+    msg.textContent = "Online card payment isn't switched on yet — call us and we'll take the order by phone.";
+
+    return;
+
+  }
+
+  pickupInfo = { name, phone, time: timeEl.value };
+
+  drawerStep = "pay"; renderDrawer();
+
+}
+
+
+
+function loadSquareSdk() {
+
+  if (window.Square) return Promise.resolve();
+
+  return new Promise((resolve, reject) => {
+
+    const s = document.createElement("script");
+
+    s.src = SQUARE_CFG.env === "production"
+
+      ? "https://web.squarecdn.com/v1/square.js"
+
+      : "https://sandbox.web.squarecdn.com/v1/square.js";
+
+    s.onload = resolve; s.onerror = () => reject(new Error("Could not load payment form"));
+
+    document.head.appendChild(s);
+
+  });
+
+}
+
+
+
+async function renderPay() {
+
+  const body = document.getElementById("drawerBody");
+
+  const foot = document.getElementById("drawerFoot");
+
+  document.getElementById("drawerTitle").textContent = "Payment";
+
+  body.innerHTML =
+
+    '<div style="padding-top:14px;">' +
+
+      '<p style="font-size:14px;color:var(--ink-soft);">Picking up: <strong style="color:var(--ink)">' + pickupInfo.name + '</strong> · ' +
+
+        (pickupInfo.time === "ASAP" ? "ASAP (about 15–20 min)" : pickupInfo.time) + '</p>' +
+
+      '<div class="form-row" style="margin-top:14px;"><label>Card details</label><div id="card-container"></div></div>' +
+
+      '<div class="pick-status bad" id="payMsg"></div>' +
+
+      '<p class="fine" style="margin-top:10px;">Payments are processed securely by Square. Your card number never touches our site.</p>' +
+
+    '</div>';
+
+  foot.innerHTML =
+
+    '<div class="subtotal-row"><span class="lbl">Total</span><span class="val">' + fmt(cartTotal()) + '</span></div>' +
+
+    '<button class="btn btn-cinnabar" id="payBtn" disabled>Loading secure form…</button>' +
+
+    '<p class="fine" style="margin-top:10px;"><button class="arrow-link" style="font-size:13px;" onclick="drawerStep=\'details\'; renderDrawer()">← Back to pickup details</button></p>';
+
+  try {
+
+    await loadSquareSdk();
+
+    const payments = window.Square.payments(SQUARE_CFG.appId, SQUARE_CFG.locationId);
+
+    sqCard = await payments.card();
+
+    await sqCard.attach("#card-container");
+
+    const btn = document.getElementById("payBtn");
+
+    btn.disabled = false;
+
+    btn.textContent = "Pay " + fmt(cartTotal());
+
+    btn.onclick = paySubmit;
+
+  } catch (e) {
+
+    document.getElementById("payMsg").textContent = "Couldn't load the payment form. You can still call us: (541) 479-6532.";
+
+  }
+
+}
+
+
+
+async function paySubmit() {
+
+  const btn = document.getElementById("payBtn");
+
+  const msg = document.getElementById("payMsg");
+
+  btn.disabled = true; btn.textContent = "Processing…"; msg.textContent = "";
+
+  try {
+
+    const t = await sqCard.tokenize();
+
+    if (t.status !== "OK") throw new Error((t.errors && t.errors[0] && t.errors[0].message) || "Card was not accepted.");
+
+    const res = await fetch("/api/create-payment", {
+
+      method: "POST",
+
+      headers: { "Content-Type": "application/json" },
+
+      body: JSON.stringify({
+
+        token: t.token,
+
+        cart: cart.map(l => ({ id: l.id, qty: l.qty, sel: l.sel, mods: l.mods })),
+
+        customer: pickupInfo
+
+      })
+
+    });
+
+    const data = await res.json().catch(() => ({}));
+
+    if (!res.ok || !data.ok) throw new Error(data.error || "Payment didn't go through.");
+
+    window._receiptUrl = data.receiptUrl || "";
+
+    cart = []; saveCart(); syncFab();
+
+    drawerStep = "done"; renderDrawer();
+
+  } catch (e) {
+
+    msg.textContent = e.message + " No charge was completed — try again or call (541) 479-6532.";
+
+    btn.disabled = false; btn.textContent = "Pay " + fmt(cartTotal());
+
+  }
+
+}
+
+
+
+function renderDone() {
+
+  document.getElementById("drawerTitle").textContent = "Order placed";
+
+  document.getElementById("drawerBody").innerHTML =
+
+    '<div style="padding-top:20px;">' +
+
+      '<h3 style="font-size:1.5rem;">See you soon, ' + (pickupInfo.name || "") + '.</h3>' +
+
+      '<p style="margin-top:10px; color:var(--ink-soft);">Your order is paid and headed to the kitchen. Pickup ' +
+
+        (pickupInfo.time === "ASAP" ? "in about 15–20 minutes" : "at " + pickupInfo.time) + ' at 122 SE K St.</p>' +
+
+      (window._receiptUrl ? '<p><a href="' + window._receiptUrl + '" target="_blank" rel="noopener">View your Square receipt →</a></p>' : '') +
+
+    '</div>';
+
+  document.getElementById("drawerFoot").innerHTML =
+
+    '<button class="btn btn-solid" style="width:100%" onclick="closeCart(); drawerStep=\'cart\'">Done</button>';
+
+}
+
+
+
+/* ---------- Page navigation ---------- */
+
+function showPage(name) {
+
+  document.querySelectorAll('.page').forEach(function (p) { p.classList.remove('active'); });
+
+  var target = document.getElementById('page-' + name);
+
+  if (target) target.classList.add('active');
+
+  document.querySelectorAll('nav.pages a').forEach(function (a) {
+
+    a.classList.toggle('active', a.getAttribute('data-page') === name);
+
+  });
+
+  window.scrollTo({ top: 0 });
+
+}
+
+window.addEventListener('hashchange', function () {
+
+  var name = location.hash.replace('#', '') || 'home';
+
+  if (document.getElementById('page-' + name)) showPage(name);
+
+});
+
+if (location.hash) {
+
+  var initial = location.hash.replace('#', '');
+
+  if (document.getElementById('page-' + initial)) showPage(initial);
+
+}
+
+
+
+/* ---------- Open/closed status (Tue–Sat, noon–9, Pacific) ---------- */
+
+function updateOpenStatus() {
+
+  var el = document.getElementById('openStatus');
+
+  var now = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+
+  var day = now.getDay();
+
+  var mins = now.getHours() * 60 + now.getMinutes();
+
+  var OPEN = 12 * 60, CLOSE = 21 * 60;
+
+  var openDays = [2, 3, 4, 5, 6];
+
+  if (openDays.indexOf(day) !== -1 && mins >= OPEN && mins < CLOSE) {
+
+    el.textContent = '● Open until 9:00 PM';
+
+    el.className = 'status-open';
+
+    return;
+
+  }
+
+  var d = day, daysAhead = 0;
+
+  if (openDays.indexOf(day) !== -1 && mins < OPEN) { daysAhead = 0; }
+
+  else { do { d = (d + 1) % 7; daysAhead++; } while (openDays.indexOf(d) === -1); }
+
+  var names = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+  var when = daysAhead === 0 ? 'today' : (daysAhead === 1 ? 'tomorrow' : names[d]);
+
+  el.textContent = '● Closed — opens ' + when + ' at 12:00 PM';
+
+  el.className = 'status-closed';
+
+}
+
+
+
+/* ---------- Catering form ---------- */
+
+function sendCateringRequest(e) {
+
+  e.preventDefault();
+
+  var body =
+
+    'Catering request from the website:\n\n' +
+
+    'Name: ' + document.getElementById('c-name').value + '\n' +
+
+    'Phone: ' + document.getElementById('c-phone').value + '\n' +
+
+    'Event date: ' + document.getElementById('c-date').value + '\n' +
+
+    'Guests: ' + document.getElementById('c-guests').value + '\n' +
+
+    'Occasion: ' + (document.getElementById('c-occasion').value || '—');
+
+  // TODO before launch: replace with the restaurant's real email address
+
+  location.href = 'mailto:REPLACE_WITH_RESTAURANT_EMAIL@example.com' +
+
+    '?subject=' + encodeURIComponent('Catering Request — Four Seasons Restaurant') +
+
+    '&body=' + encodeURIComponent(body);
+
+  return false;
+
+}
+
+
+
+renderMenu();
+
+applyOrderingMode();
+
+updateOpenStatus();
+
+setInterval(updateOpenStatus, 60000);
+
+syncFab();
+
+document.getElementById('year').textContent =
+
+  new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles', year: 'numeric' });
+
 </script>
+
 </body>
+
 </html>

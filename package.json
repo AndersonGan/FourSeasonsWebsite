@@ -4,7 +4,7 @@
   "private": true,
   "description": "Website for Four Seasons Restaurant, 122 SE K Street, Grants Pass, Oregon.",
   "engines": {
-    "node": ">=20.9.0"
+    "node": "22.x"
   },
   "scripts": {
     "dev": "next dev",

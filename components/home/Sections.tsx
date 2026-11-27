@@ -11,7 +11,6 @@ import { OpenStatus } from "@/components/ui/OpenStatus";
 import { DimSumSteamer, FamilyTable, MarFarPlate, Steam, TakeoutBox } from "@/components/illustrations/Food";
 import { Bamboo, SprigRule } from "@/components/illustrations/Botanical";
 import { Storefront } from "@/components/illustrations/Storefront";
-import { SeasonalArt } from "@/components/seasonal/SeasonalArt";
 import { SeasonShowcase } from "@/components/seasonal/SeasonShowcase";
 import { FortuneCookie } from "@/components/interactive/FortuneCookie";
 import { MapFacade } from "./MapFacade";
@@ -81,7 +80,6 @@ export function Hero() {
           <div className="absolute right-[18%] top-[8%] hidden w-[22%] max-w-[150px] sm:block">
             <DimSumSteamer className="w-full" />
           </div>
-          <div className="absolute bottom-[5%] left-[50%] h-28 w-24 rounded-full bg-paper/95 p-3 sm:h-36 sm:w-32 lg:left-[46%]"><SeasonalArt className="h-full w-full" /></div>
           <p className="seal absolute left-6 top-8 hidden text-2xl text-amber sm:block" aria-hidden lang="zh-Hans">
             四季美食
           </p>

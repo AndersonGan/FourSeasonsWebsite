@@ -3,7 +3,6 @@ import { fullAddress, restaurant } from "@/config/restaurant";
 import { navigation, previewMode } from "@/config/site";
 import { groupedSchedule } from "@/lib/business-hours";
 import { Emblem } from "@/components/illustrations/Emblem";
-import { SeasonalArt } from "@/components/seasonal/SeasonalArt";
 
 export function SiteFooter() {
   const schedule = groupedSchedule();
@@ -70,7 +69,6 @@ export function SiteFooter() {
       </div>
 
       <div className="relative border-t border-paper/15">
-        <SeasonalArt className="pointer-events-none absolute -top-24 right-2 hidden h-28 w-28 opacity-90 md:block" />
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-sm text-paper/75 sm:px-6 md:flex-row md:justify-between">
           <p>© {new Date().getFullYear()} {restaurant.name} · Grants Pass, Oregon</p>
           <p>

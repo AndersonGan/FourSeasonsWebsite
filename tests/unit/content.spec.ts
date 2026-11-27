@@ -40,9 +40,9 @@ test.describe("menu data", () => {
 
 test.describe("menu search", () => {
   test("by item number", () => {
-    expect(searchMenu(allItems, "L3").map((i) => i.name)).toEqual(["Moo Goo Gai Pan"]);
-    expect(searchMenu(allItems, "l12")[0]?.name).toBe("General Tso's Chicken");
-    expect(searchMenu(allItems, "no 4")[0]?.name).toBe("Dinner Combo No. 4");
+    expect(searchMenu(allItems, "no 4").map((i) => i.name)).toEqual(["Dinner Combo No. 4"]);
+    expect(searchMenu(allItems, "#7")[0]?.name).toBe("Dinner Combo No. 7");
+    expect(searchMenu(allItems, "8")[0]?.name).toBe("Dinner Combo No. 8");
   });
   test("by name with punctuation and alternate spellings", () => {
     expect(searchMenu(allItems, "tsos").some((i) => i.id === "general-tsos-chicken")).toBe(true);
@@ -77,7 +77,7 @@ test.describe("seasons", () => {
 test("formatting", () => {
   expect(formatCents(1075)).toBe("$10.75");
   expect(formatCents(450)).toBe("$4.50");
-  expect(priceText({ ...allItems.find((i) => i.id === "egg-flower-soup")! })).toBe("Cup $4.50, Small $5.50, Large $8.00");
+  expect(priceText({ ...allItems.find((i) => i.id === "egg-flower-soup")! })).toBe("Cup $4.00, Small $5.00, Large $7.50");
 });
 
 test("business info matches research seed", () => {

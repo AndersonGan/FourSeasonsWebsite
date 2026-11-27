@@ -4,6 +4,9 @@ The site is built and tested but is in **preview mode** until these are confirme
 Tick each one, then tell the developer which settings to flip.
 
 ## Menu → `approvals.menuApproved`, menu.json `approval`
+
+**Done Nov 27, 2026:** menu re-transcribed from the current printed to-go menu and approved. Open questions in `docs/MENU_UPDATE_2026-11.md`. Items below are kept for the record.
+
 - [ ] Every dish name, number and price matches the current printed to-go menu (use `/menu/print` side by side)
 - [ ] Lunch specials are served noon–4 PM, Tuesday–Saturday
 - [ ] Spice-adjustable dishes and the extra-spicy +$1 charge are correct

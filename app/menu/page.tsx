@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Info, Phone, Printer } from "lucide-react";
+import { Download, Info, Phone, Printer } from "lucide-react";
 import { menu } from "@/data/menu";
 import { restaurant, siteUrl } from "@/config/restaurant";
 import { previewMode } from "@/config/site";
@@ -7,7 +7,6 @@ import { MenuExplorer } from "@/components/menu/MenuExplorer";
 import { OriginalMenuViewer } from "@/components/menu/OriginalMenuViewer";
 import { Bamboo } from "@/components/illustrations/Botanical";
 import { jsonLdScript, pageMetadata } from "@/lib/seo";
-import { formatCents } from "@/lib/format";
 
 export const metadata = pageMetadata({
   title: "To-Go Menu",
@@ -68,6 +67,11 @@ export default function MenuPage() {
             <Link href="/menu/print" className="inline-flex min-h-11 items-center gap-2 rounded-[3px] border-2 border-paper px-4 font-bold">
               <Printer className="h-4 w-4" aria-hidden /> Print-friendly menu
             </Link>
+            {menu.meta.originalDocument ? (
+              <a href={menu.meta.originalDocument} download className="inline-flex min-h-11 items-center gap-2 rounded-[3px] border-2 border-paper px-4 font-bold">
+                <Download className="h-4 w-4" aria-hidden /> Printed menu (PDF)
+              </a>
+            ) : null}
             <a href={restaurant.links.doordash} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center rounded-[3px] border-2 border-paper/60 px-4 font-bold">
               Delivery on DoorDash<span className="sr-only"> (opens in a new tab)</span>
             </a>
@@ -81,7 +85,7 @@ export default function MenuPage() {
             {menu.meta.notes.map((n) => (
               <li key={n} className="flex gap-2">
                 <span aria-hidden className="text-red">✦</span>
-                {n.replace("+$1.00", `+${formatCents(menu.meta.spice.extraSpicyCents)}`)}
+                {n}
               </li>
             ))}
           </ul>

@@ -28,9 +28,12 @@ export function MenuExplorer({ categories }: { categories: MenuCategory[] }) {
   const visibleIds = useMemo(() => {
     let items = searchMenu(flat, deferred);
     if (filter === "spice") items = items.filter((i) => i.spiceAdjustable);
-    if (filter === "lunch") items = items.filter((i) => i.categoryId === "lunch");
+    if (filter === "lunch") {
+      const lunchCats = new Set(categories.filter((c) => c.servedWindow === "lunch").map((c) => c.id));
+      items = items.filter((i) => lunchCats.has(i.categoryId));
+    }
     return new Set(items.map((i) => i.id));
-  }, [flat, deferred, filter]);
+  }, [flat, deferred, filter, categories]);
 
   const filtering = deferred.trim() !== "" || filter !== "all";
   const resultCount = visibleIds.size;
@@ -75,7 +78,7 @@ export function MenuExplorer({ categories }: { categories: MenuCategory[] }) {
 
   const filters: { id: Filter; label: string }[] = [
     { id: "all", label: "Everything" },
-    { id: "spice", label: "Spice adjustable" },
+    { id: "spice", label: "Heat level" },
     { id: "lunch", label: "Lunch (noon–4)" },
   ];
 
@@ -91,7 +94,7 @@ export function MenuExplorer({ categories }: { categories: MenuCategory[] }) {
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search dish or number (e.g. L3)"
+              placeholder="Search dish or combo no. (e.g. 4)"
               className="h-12 w-full rounded-[3px] border-2 border-bamboo bg-white/70 pl-10 pr-10 text-base placeholder:text-ink-soft/80 focus:border-ink focus:outline-none focus-visible:outline-3 focus-visible:outline-bamboo"
               enterKeyHint="search"
               autoComplete="off"
@@ -254,9 +257,9 @@ function MenuRow({ item, hidden }: { item: MenuItem; hidden: boolean }) {
         <h3 className="min-w-0 font-sans text-[1.06rem] font-bold leading-snug">
           {item.name}
           {item.spiceAdjustable ? (
-            <span className="ml-1.5 inline-flex translate-y-[-1px] items-center gap-0.5 align-middle text-xs font-bold text-mandarin-ink" title="Spice level adjustable">
+            <span className="ml-1.5 inline-flex translate-y-[-1px] items-center gap-0.5 align-middle text-xs font-bold text-mandarin-ink" title="Heat level: mild, medium or spicy">
               <Flame className="h-3.5 w-3.5" aria-hidden />
-              <span className="sr-only">(spice level adjustable)</span>
+              <span className="sr-only">(choose mild, medium or spicy)</span>
             </span>
           ) : null}
           {unavailable ? <span className="ml-2 rounded-sm bg-ink/10 px-1.5 text-xs font-bold uppercase">Currently unavailable</span> : null}

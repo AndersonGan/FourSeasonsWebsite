@@ -182,8 +182,8 @@ html[data-season="winter"] .season-label > [data-season-label="winter"] { displa
 
 /* ── Print ── */
 @media print {
-  @page { margin: 0.5in; }
-  body { background: #fff !important; font-size: 10.5pt; }
+  @page { size: letter; margin: 0.4in; }
+  body { background: #fff !important; font-size: 10.5pt; padding-bottom: 0 !important; min-height: 0 !important; }
   .no-print, header[data-site-header], footer[data-site-footer], [data-mobile-bar], [data-announcement] { display: none !important; }
   .print-break-avoid { break-inside: avoid; }
   a { text-decoration: none; }

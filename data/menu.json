@@ -2,25 +2,23 @@
   "$comment": "Four Seasons to-go menu. Prices are integer cents (1075 = $10.75). Edit with care; run `npm run validate:menu` after every change. See docs/MENU_MANAGEMENT.md.",
   "meta": {
     "title": "To-Go Menu",
-    "pricesAsOf": "July 2026",
-    "source": "Transcribed in the earlier site prototype (legacy/index.html), which labels these as in-store prices from the printed menu, July 2026. Not yet checked against the original printed menu by the owner.",
-    "originalDocument": null,
-    "approval": "pending",
+    "pricesAsOf": "November 2026",
+    "source": "Transcribed from the restaurant's current printed to-go menu (two pages), supplied by the owner on November 27, 2026.",
+    "originalDocument": "/menu/four-seasons-to-go-menu.pdf",
+    "approval": "approved",
     "currency": "USD",
     "notes": [
-      "Dishes marked “spice level” can be made no spice, mild, medium, spicy or extra spicy (extra spicy +$1.00).",
+      "Heat indicator (chili): your choice of mild, medium or spicy.",
       "Entrées come with steamed rice unless noted; pork fried rice instead is +$2.00.",
-      "Substitutions on combination plates and family dinners are $1.50 each; removing an item is free."
+      "No MSG."
     ],
     "spice": {
       "levels": [
-        "No spice",
         "Mild",
         "Medium",
-        "Spicy",
-        "Extra spicy"
+        "Spicy"
       ],
-      "extraSpicyCents": 100
+      "extraSpicyCents": 0
     }
   },
   "categories": [
@@ -30,6 +28,32 @@
       "sortOrder": 1,
       "items": [
         {
+          "id": "crab-puffs",
+          "name": "Crab Puffs (8 pc)",
+          "priceCents": 1075,
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": true,
+          "image": null,
+          "sortOrder": 1,
+          "sourcePage": 1,
+          "approval": "approved"
+        },
+        {
+          "id": "bbq-pork",
+          "name": "BBQ Pork",
+          "priceCents": 1275,
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
+          "sortOrder": 2,
+          "sourcePage": 1,
+          "approval": "approved"
+        },
+        {
           "id": "spring-rolls",
           "name": "Spring Rolls (3 pc)",
           "priceCents": 975,
@@ -38,9 +62,9 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 1,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 3,
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "fried-wonton",
@@ -51,35 +75,9 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 2,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "crab-puffs",
-          "name": "Crab Puffs",
-          "priceCents": 1075,
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": true,
-          "image": null,
-          "sortOrder": 3,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "potstickers",
-          "name": "Potstickers (8 pc)",
-          "priceCents": 1175,
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": true,
-          "image": null,
           "sortOrder": 4,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "fried-shrimp",
@@ -100,35 +98,41 @@
           "featured": false,
           "image": null,
           "sortOrder": 5,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
-          "id": "bbq-pork",
-          "name": "BBQ Pork",
-          "priceCents": 1275,
+          "id": "potstickers",
+          "name": "Potstickers (8 pc)",
+          "priceCents": 1175,
           "spiceAdjustable": false,
           "dietary": [],
           "available": true,
-          "featured": false,
+          "featured": true,
           "image": null,
           "sortOrder": 6,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "combo-appetizer",
           "name": "Combo Appetizer",
           "description": "Fried shrimp, BBQ pork, spring roll & crab puff",
           "priceCents": 1425,
+          "components": [
+            "Fried Shrimp",
+            "BBQ Pork",
+            "Spring Roll",
+            "Crab Puff"
+          ],
           "spiceAdjustable": false,
           "dietary": [],
           "available": true,
           "featured": false,
           "image": null,
           "sortOrder": 7,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         }
       ]
     },
@@ -138,32 +142,6 @@
       "sortOrder": 2,
       "items": [
         {
-          "id": "sesame-balls",
-          "name": "Sesame Balls (8 pc)",
-          "priceCents": 975,
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": true,
-          "image": null,
-          "sortOrder": 1,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "mini-steam-dumplings",
-          "name": "Mini Steam Dumplings (6 pc)",
-          "priceCents": 1000,
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": true,
-          "image": null,
-          "sortOrder": 2,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
           "id": "bbq-pork-buns",
           "name": "BBQ Pork Buns (4 pc)",
           "priceCents": 1025,
@@ -172,22 +150,22 @@
           "available": true,
           "featured": true,
           "image": null,
-          "sortOrder": 3,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 1,
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
-          "id": "shu-mai",
-          "name": "Shu Mai (8 pc)",
-          "priceCents": 1025,
+          "id": "sesame-balls",
+          "name": "Sesame Balls (8 pc)",
+          "priceCents": 975,
           "spiceAdjustable": false,
           "dietary": [],
           "available": true,
-          "featured": false,
+          "featured": true,
           "image": null,
-          "sortOrder": 4,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 2,
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
           "id": "shrimp-dumplings",
@@ -198,9 +176,22 @@
           "available": true,
           "featured": true,
           "image": null,
-          "sortOrder": 5,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 3,
+          "sourcePage": 2,
+          "approval": "approved"
+        },
+        {
+          "id": "mini-pork-soup-dumplings",
+          "name": "Mini Pork Soup Dumplings (6 pc)",
+          "priceCents": 1000,
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
+          "sortOrder": 4,
+          "sourcePage": 2,
+          "approval": "approved"
         }
       ]
     },
@@ -215,15 +206,15 @@
           "variants": [
             {
               "label": "Cup",
-              "priceCents": 450
+              "priceCents": 400
             },
             {
               "label": "Small",
-              "priceCents": 550
+              "priceCents": 500
             },
             {
               "label": "Large",
-              "priceCents": 800
+              "priceCents": 750
             }
           ],
           "spiceAdjustable": false,
@@ -232,47 +223,8 @@
           "featured": true,
           "image": null,
           "sortOrder": 1,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "vegetable-soup",
-          "name": "Vegetable Soup",
-          "priceCents": 1050,
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 2,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "bbq-pork-noodle-soup",
-          "name": "BBQ Pork Noodle Soup",
-          "priceCents": 1250,
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 3,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "chicken-noodle-soup",
-          "name": "Chicken Noodle Soup",
-          "priceCents": 1250,
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 4,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "wonton-soup",
@@ -284,9 +236,48 @@
           "available": true,
           "featured": false,
           "image": null,
+          "sortOrder": 2,
+          "sourcePage": 1,
+          "approval": "approved"
+        },
+        {
+          "id": "vegetable-soup",
+          "name": "Vegetable Soup",
+          "priceCents": 1050,
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
+          "sortOrder": 3,
+          "sourcePage": 1,
+          "approval": "approved"
+        },
+        {
+          "id": "bbq-pork-noodle-soup",
+          "name": "BBQ Pork Noodle Soup",
+          "priceCents": 1250,
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
+          "sortOrder": 4,
+          "sourcePage": 1,
+          "approval": "approved"
+        },
+        {
+          "id": "chicken-noodle-soup",
+          "name": "Chicken Noodle Soup",
+          "priceCents": 1250,
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
           "sortOrder": 5,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         }
       ]
     },
@@ -294,12 +285,12 @@
       "id": "chefs-specialties",
       "title": "Chef's Specialties",
       "sortOrder": 4,
-      "note": "Served with steamed rice, or add pork fried rice for $2.",
+      "note": "Served with steamed rice, or add pork fried rice for $2.00.",
       "items": [
         {
           "id": "general-tsos-chicken",
           "name": "General Tso's Chicken",
-          "description": "Chunks of chicken fried crispy, cooked in our unique house sauce",
+          "description": "Crispy chicken fried, then cooked with our special house sauce",
           "priceCents": 1800,
           "spiceAdjustable": true,
           "dietary": [],
@@ -307,13 +298,13 @@
           "featured": true,
           "image": "/images/menu/general-tsos-chicken.webp",
           "sortOrder": 1,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
           "id": "orange-chicken",
           "name": "Orange Chicken",
-          "description": "Crispy chicken, chef's hot sauce, a touch of orange peel",
+          "description": "Crispy fried chicken cooked with the chef's special orange sauce",
           "priceCents": 1800,
           "spiceAdjustable": true,
           "dietary": [],
@@ -321,35 +312,50 @@
           "featured": true,
           "image": "/images/menu/orange-chicken.webp",
           "sortOrder": 2,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "sesame-chicken",
-          "name": "Sesame Chicken",
-          "description": "Mar Far Chicken in our spicy Mandarin sauce",
-          "priceCents": 1825,
-          "spiceAdjustable": true,
-          "dietary": [],
-          "available": true,
-          "featured": true,
-          "image": null,
-          "sortOrder": 3,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
           "id": "orange-shrimp",
           "name": "Orange Shrimp",
+          "description": "Crispy fried shrimp cooked with the chef's special orange sauce",
           "priceCents": 1900,
           "spiceAdjustable": true,
           "dietary": [],
           "available": true,
           "featured": false,
           "image": null,
+          "sortOrder": 3,
+          "sourcePage": 2,
+          "approval": "approved"
+        },
+        {
+          "id": "chicken-three-styles",
+          "name": "Chicken Three Styles",
+          "description": "General Tso's chicken, sweet & sour chicken, and kung pao chicken",
+          "priceCents": 2100,
+          "spiceAdjustable": true,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
           "sortOrder": 4,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
+        },
+        {
+          "id": "sesame-chicken",
+          "name": "Sesame Chicken",
+          "description": "Mar Far chicken cooked in our spicy Mandarin sauce",
+          "priceCents": 1825,
+          "spiceAdjustable": true,
+          "dietary": [],
+          "available": true,
+          "featured": true,
+          "image": null,
+          "sortOrder": 5,
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
           "id": "kung-pao-deluxe",
@@ -361,42 +367,28 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 5,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 6,
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
           "id": "four-treasure-with-garlic-sauce",
           "name": "Four Treasure with Garlic Sauce",
-          "description": "Beef, shrimp, BBQ pork & chicken in spicy Szechuan garlic sauce",
+          "description": "Beef, shrimp, BBQ pork and chicken sautéed with veggies in spicy Szechuan garlic sauce",
           "priceCents": 2000,
           "spiceAdjustable": true,
           "dietary": [],
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 6,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "chicken-three-styles",
-          "name": "Chicken Three Styles",
-          "description": "General Tso's, Sweet & Sour, and Kung Pao chicken on one plate",
-          "priceCents": 2100,
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
           "sortOrder": 7,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
           "id": "pad-thai",
           "name": "Pad Thai",
-          "description": "Soft noodles",
+          "description": "No rice",
           "variants": [
             {
               "label": "Chicken",
@@ -413,10 +405,6 @@
             {
               "label": "Tofu",
               "priceCents": 1650
-            },
-            {
-              "label": "Shrimp",
-              "priceCents": 1825
             }
           ],
           "spiceAdjustable": false,
@@ -425,20 +413,34 @@
           "featured": false,
           "image": null,
           "sortOrder": 8,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
+        },
+        {
+          "id": "shrimp-pad-thai",
+          "name": "Shrimp Pad Thai",
+          "description": "No rice",
+          "priceCents": 1825,
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
+          "sortOrder": 9,
+          "sourcePage": 2,
+          "approval": "approved"
         }
       ]
     },
     {
-      "id": "poultry",
-      "title": "Poultry",
+      "id": "chicken",
+      "title": "Chicken",
       "sortOrder": 5,
-      "note": "Served with steamed rice, or add pork fried rice for $2.",
+      "note": "Served with steamed rice, or add pork fried rice for $2.00.",
       "items": [
         {
           "id": "mar-far-chicken",
-          "name": "Mar Far Chicken (white meat)",
+          "name": "Mar Far Chicken",
           "priceCents": 1700,
           "spiceAdjustable": false,
           "dietary": [],
@@ -446,86 +448,21 @@
           "featured": true,
           "image": "/images/menu/mar-far-chicken.webp",
           "sortOrder": 1,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
-          "id": "broccoli-chicken",
-          "name": "Broccoli Chicken",
-          "priceCents": 1725,
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 2,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "moo-goo-gai-pan",
-          "name": "Moo Goo Gai Pan",
-          "priceCents": 1725,
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 3,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "kung-pao-chicken",
-          "name": "Kung Pao Chicken",
-          "priceCents": 1725,
-          "spiceAdjustable": true,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 4,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "curry-chicken",
-          "name": "Curry Chicken",
-          "priceCents": 1725,
-          "spiceAdjustable": true,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 5,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "mongolian-chicken",
-          "name": "Mongolian Chicken",
-          "priceCents": 1725,
-          "spiceAdjustable": true,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 6,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "lemon-chicken-white-meat",
-          "name": "Lemon Chicken (white meat)",
+          "id": "lemon-chicken",
+          "name": "Lemon Chicken",
           "priceCents": 1775,
           "spiceAdjustable": false,
           "dietary": [],
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 7,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 2,
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
           "id": "cashew-chicken",
@@ -536,9 +473,61 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 8,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 3,
+          "sourcePage": 2,
+          "approval": "approved"
+        },
+        {
+          "id": "moo-goo-gai-pan",
+          "name": "Moo Goo Gai Pan",
+          "priceCents": 1725,
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
+          "sortOrder": 4,
+          "sourcePage": 2,
+          "approval": "approved"
+        },
+        {
+          "id": "broccoli-chicken",
+          "name": "Broccoli Chicken",
+          "priceCents": 1725,
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
+          "sortOrder": 5,
+          "sourcePage": 2,
+          "approval": "approved"
+        },
+        {
+          "id": "kung-pao-chicken",
+          "name": "Kung Pao Chicken",
+          "priceCents": 1725,
+          "spiceAdjustable": true,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
+          "sortOrder": 6,
+          "sourcePage": 2,
+          "approval": "approved"
+        },
+        {
+          "id": "curry-chicken",
+          "name": "Curry Chicken",
+          "priceCents": 1725,
+          "spiceAdjustable": true,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
+          "sortOrder": 7,
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
           "id": "chicken-with-pea-pods",
@@ -549,9 +538,22 @@
           "available": true,
           "featured": false,
           "image": null,
+          "sortOrder": 8,
+          "sourcePage": 2,
+          "approval": "approved"
+        },
+        {
+          "id": "mongolian-chicken",
+          "name": "Mongolian Chicken",
+          "priceCents": 1725,
+          "spiceAdjustable": true,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
           "sortOrder": 9,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
           "id": "szechwan-chicken",
@@ -563,21 +565,8 @@
           "featured": false,
           "image": null,
           "sortOrder": 10,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "mandarin-chicken",
-          "name": "Mandarin Chicken",
-          "priceCents": 1825,
-          "spiceAdjustable": true,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 11,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         }
       ]
     },
@@ -585,85 +574,88 @@
       "id": "beef",
       "title": "Beef",
       "sortOrder": 6,
-      "note": "Served with steamed rice, or add pork fried rice for $2.",
+      "note": "Served with steamed rice, or add pork fried rice for $2.00.",
       "items": [
         {
           "id": "broccoli-beef",
           "name": "Broccoli Beef",
-          "priceCents": 1800,
+          "priceCents": 1850,
           "spiceAdjustable": false,
           "dietary": [],
           "available": true,
           "featured": false,
           "image": "/images/menu/broccoli-beef.webp",
           "sortOrder": 1,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "kung-pao-beef",
           "name": "Kung Pao Beef",
-          "priceCents": 1800,
+          "description": "Peanuts, peas and carrots, onion, celery and zucchini",
+          "priceCents": 1850,
           "spiceAdjustable": true,
           "dietary": [],
           "available": true,
           "featured": false,
           "image": null,
           "sortOrder": 2,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "curry-beef",
           "name": "Curry Beef",
-          "priceCents": 1800,
+          "priceCents": 1850,
           "spiceAdjustable": true,
           "dietary": [],
           "available": true,
           "featured": false,
           "image": null,
           "sortOrder": 3,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "beef-with-pea-pods",
           "name": "Beef with Pea Pods",
-          "priceCents": 1900,
+          "priceCents": 1950,
           "spiceAdjustable": false,
           "dietary": [],
           "available": true,
           "featured": false,
           "image": null,
           "sortOrder": 4,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "szechwan-beef",
           "name": "Szechwan Beef",
-          "priceCents": 1900,
+          "description": "Beef and veggies stir-fried in our slightly sweet brown sauce",
+          "priceCents": 1950,
           "spiceAdjustable": true,
           "dietary": [],
           "available": true,
           "featured": false,
           "image": null,
           "sortOrder": 5,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "mongolian-beef",
           "name": "Mongolian Beef",
-          "priceCents": 1900,
+          "description": "Napa cabbage, onion, zucchini and broccoli with brown sauce",
+          "priceCents": 1950,
           "spiceAdjustable": true,
           "dietary": [],
           "available": true,
           "featured": false,
           "image": null,
           "sortOrder": 6,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         }
       ]
     },
@@ -671,7 +663,7 @@
       "id": "seafood",
       "title": "Seafood",
       "sortOrder": 7,
-      "note": "Served with steamed rice, or add pork fried rice for $2.",
+      "note": "Served with steamed rice, or add pork fried rice for $2.00.",
       "items": [
         {
           "id": "kung-pao-shrimp",
@@ -683,8 +675,8 @@
           "featured": false,
           "image": null,
           "sortOrder": 1,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "curry-shrimp",
@@ -696,21 +688,8 @@
           "featured": false,
           "image": null,
           "sortOrder": 2,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "shrimp-with-pea-pods",
-          "name": "Shrimp with Pea Pods",
-          "priceCents": 1875,
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 3,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "szechwan-shrimp",
@@ -721,23 +700,36 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 4,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 3,
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "happy-family",
           "name": "Happy Family",
-          "description": "Scallops, shrimp, BBQ pork, chicken & veggies in brown sauce",
+          "description": "Scallops, shrimp, BBQ pork and chicken with veggies cooked in brown sauce",
           "priceCents": 1975,
           "spiceAdjustable": false,
           "dietary": [],
           "available": true,
           "featured": false,
           "image": null,
+          "sortOrder": 4,
+          "sourcePage": 1,
+          "approval": "approved"
+        },
+        {
+          "id": "shrimp-with-pea-pods",
+          "name": "Shrimp with Pea Pods",
+          "priceCents": 1875,
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
           "sortOrder": 5,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "walnut-shrimp",
@@ -749,8 +741,8 @@
           "featured": false,
           "image": null,
           "sortOrder": 6,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         }
       ]
     },
@@ -758,7 +750,7 @@
       "id": "sweet-and-sour",
       "title": "Sweet & Sour",
       "sortOrder": 8,
-      "note": "Served with steamed rice, or add pork fried rice for $2.",
+      "note": "Served with steamed rice, or add pork fried rice for $2.00.",
       "items": [
         {
           "id": "sweet-and-sour-pork",
@@ -770,8 +762,8 @@
           "featured": false,
           "image": null,
           "sortOrder": 1,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "sweet-and-sour-chicken",
@@ -783,8 +775,8 @@
           "featured": false,
           "image": "/images/menu/sweet-and-sour-chicken.webp",
           "sortOrder": 2,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "sweet-and-sour-shrimp",
@@ -796,13 +788,12 @@
           "featured": false,
           "image": null,
           "sortOrder": 3,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "sweet-and-sour-combo",
           "name": "Sweet & Sour Combo",
-          "description": "Chicken, pork & shrimp",
           "priceCents": 1925,
           "spiceAdjustable": false,
           "dietary": [],
@@ -810,33 +801,33 @@
           "featured": false,
           "image": null,
           "sortOrder": 4,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         }
       ]
     },
     {
       "id": "vegetarian",
-      "title": "Vegetarian",
+      "title": "Vegetarian Options",
       "sortOrder": 9,
-      "note": "Served with steamed rice, or add pork fried rice for $2.",
+      "note": "Served with steamed rice, or add pork fried rice for $2.00.",
       "items": [
         {
-          "id": "sauteed-broccoli",
-          "name": "Sauteed Broccoli",
-          "priceCents": 1625,
+          "id": "sauteed-pea-pods",
+          "name": "Sautéed Pea Pods",
+          "priceCents": 1650,
           "spiceAdjustable": false,
           "dietary": [],
           "available": true,
           "featured": false,
           "image": null,
           "sortOrder": 1,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
-          "id": "mixed-vegetable-deluxe",
-          "name": "Mixed Vegetable Deluxe",
+          "id": "sauteed-broccoli",
+          "name": "Sautéed Broccoli",
           "priceCents": 1625,
           "spiceAdjustable": false,
           "dietary": [],
@@ -844,25 +835,27 @@
           "featured": false,
           "image": null,
           "sortOrder": 2,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
-          "id": "sauteed-pea-pods",
-          "name": "Sauteed Pea Pods",
-          "priceCents": 1650,
+          "id": "mixed-vegetable-deluxe",
+          "name": "Mixed Vegetable Deluxe",
+          "description": "Bean sprouts, zucchini, onion, broccoli and snow peas in a white sauce",
+          "priceCents": 1625,
           "spiceAdjustable": false,
           "dietary": [],
           "available": true,
           "featured": false,
           "image": null,
           "sortOrder": 3,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "sesame-tofu-with-vegetables",
           "name": "Sesame Tofu with Vegetables",
+          "description": "Napa cabbage, pea pods, onion and zucchini in sesame brown sauce",
           "priceCents": 1725,
           "spiceAdjustable": true,
           "dietary": [],
@@ -870,8 +863,8 @@
           "featured": false,
           "image": null,
           "sortOrder": 4,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "mongolian-tofu-with-vegetables",
@@ -883,8 +876,8 @@
           "featured": false,
           "image": null,
           "sortOrder": 5,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "home-style-tofu-with-vegetables",
@@ -897,12 +890,13 @@
           "featured": false,
           "image": null,
           "sortOrder": 6,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "vegetable-lo-mein",
           "name": "Vegetable Lo Mein",
+          "description": "No rice",
           "priceCents": 1725,
           "spiceAdjustable": false,
           "dietary": [],
@@ -910,8 +904,8 @@
           "featured": false,
           "image": null,
           "sortOrder": 7,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         }
       ]
     },
@@ -919,7 +913,7 @@
       "id": "chow-mein",
       "title": "Chow Mein",
       "sortOrder": 10,
-      "note": "Served with crunchy noodles — add pan-fried noodles for $2. Crunchy noodles can be swapped for steamed rice.",
+      "note": "Served with crunchy noodles. Add pan-fried noodles for $2.00 extra. Steamed rice can be substituted for crunchy noodles.",
       "items": [
         {
           "id": "vegetable-chow-mein",
@@ -931,47 +925,34 @@
           "featured": false,
           "image": null,
           "sortOrder": 1,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "pork-chow-mein",
           "name": "Pork Chow Mein",
-          "priceCents": 1525,
+          "priceCents": 1600,
           "spiceAdjustable": false,
           "dietary": [],
           "available": true,
           "featured": false,
           "image": null,
           "sortOrder": 2,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
-          "id": "cashew-chicken-subgum-chow-mein",
-          "name": "Cashew Chicken Subgum Chow Mein",
-          "priceCents": 1625,
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 3,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "chicken-chow-mein-white-meat",
-          "name": "Chicken Chow Mein (white meat)",
+          "id": "chicken-chow-mein",
+          "name": "Chicken Chow Mein (White Meat)",
           "priceCents": 1700,
           "spiceAdjustable": false,
           "dietary": [],
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 4,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 3,
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "beef-chow-mein",
@@ -982,9 +963,22 @@
           "available": true,
           "featured": false,
           "image": null,
+          "sortOrder": 4,
+          "sourcePage": 1,
+          "approval": "approved"
+        },
+        {
+          "id": "cashew-chicken-subgum-chow-mein",
+          "name": "Cashew Chicken Subgum Chow Mein",
+          "priceCents": 1700,
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
           "sortOrder": 5,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "shrimp-chow-mein",
@@ -996,8 +990,8 @@
           "featured": false,
           "image": null,
           "sortOrder": 6,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         }
       ]
     },
@@ -1016,8 +1010,8 @@
           "featured": false,
           "image": null,
           "sortOrder": 1,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "pork-fried-rice",
@@ -1029,21 +1023,8 @@
           "featured": false,
           "image": null,
           "sortOrder": 2,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "vegetable-fried-rice",
-          "name": "Vegetable Fried Rice",
-          "priceCents": 1525,
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 3,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "chicken-fried-rice",
@@ -1054,9 +1035,9 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 4,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 3,
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "beef-fried-rice",
@@ -1067,9 +1048,9 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 5,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 4,
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "shrimp-fried-rice",
@@ -1080,9 +1061,9 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 6,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 5,
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "house-special-fried-rice",
@@ -1093,9 +1074,22 @@
           "available": true,
           "featured": false,
           "image": null,
+          "sortOrder": 6,
+          "sourcePage": 1,
+          "approval": "approved"
+        },
+        {
+          "id": "vegetable-fried-rice",
+          "name": "Vegetable Fried Rice",
+          "priceCents": 1525,
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
           "sortOrder": 7,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "steamed-rice",
@@ -1103,11 +1097,11 @@
           "variants": [
             {
               "label": "Cup",
-              "priceCents": 500
+              "priceCents": 450
             },
             {
               "label": "Bowl",
-              "priceCents": 600
+              "priceCents": 550
             }
           ],
           "spiceAdjustable": false,
@@ -1116,8 +1110,8 @@
           "featured": false,
           "image": null,
           "sortOrder": 8,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         }
       ]
     },
@@ -1125,11 +1119,12 @@
       "id": "lo-mein-chow-fun",
       "title": "Lo Mein & Chow Fun",
       "sortOrder": 12,
+      "note": "All served with soft noodles.",
       "items": [
         {
           "id": "garlic-pan-fried-noodle",
           "name": "Garlic Pan Fried Noodle",
-          "description": "Onion & bean sprouts, stir-fried",
+          "description": "Yellow onion, bean sprouts and pan-fried noodles, stir-fried",
           "priceCents": 1350,
           "spiceAdjustable": false,
           "dietary": [],
@@ -1137,52 +1132,8 @@
           "featured": false,
           "image": null,
           "sortOrder": 1,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "lo-mein",
-          "name": "Lo Mein",
-          "description": "Soft noodles",
-          "variants": [
-            {
-              "label": "Beef",
-              "priceCents": 1750
-            },
-            {
-              "label": "Chicken",
-              "priceCents": 1750
-            },
-            {
-              "label": "BBQ Pork",
-              "priceCents": 1750
-            },
-            {
-              "label": "Shrimp",
-              "priceCents": 1900
-            }
-          ],
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 2,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "beef-chow-fun",
-          "name": "Beef Chow Fun",
-          "priceCents": 1825,
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 3,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
           "id": "house-special-lo-mein",
@@ -1194,14 +1145,57 @@
           "available": true,
           "featured": false,
           "image": null,
+          "sortOrder": 2,
+          "sourcePage": 2,
+          "approval": "approved"
+        },
+        {
+          "id": "lo-mein",
+          "name": "Lo Mein",
+          "description": "Beef, chicken or BBQ pork",
+          "priceCents": 1750,
+          "options": [
+            {
+              "label": "Choice",
+              "choices": [
+                {
+                  "label": "Beef"
+                },
+                {
+                  "label": "Chicken"
+                },
+                {
+                  "label": "BBQ Pork"
+                }
+              ]
+            }
+          ],
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
+          "sortOrder": 3,
+          "sourcePage": 2,
+          "approval": "approved"
+        },
+        {
+          "id": "shrimp-lo-mein",
+          "name": "Shrimp Lo Mein",
+          "priceCents": 1900,
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
           "sortOrder": 4,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
           "id": "house-special-chow-mein",
           "name": "House Special Chow Mein",
-          "description": "Scallop, shrimp, chicken, BBQ pork & pan-fried noodles in spicy house sauce",
+          "description": "Scallop, shrimp, chicken, BBQ pork, veggies & pan-fried noodles cooked in spicy house sauce",
           "priceCents": 1925,
           "spiceAdjustable": true,
           "dietary": [],
@@ -1209,13 +1203,13 @@
           "featured": false,
           "image": null,
           "sortOrder": 5,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
           "id": "hong-kong-chow-mai",
           "name": "Hong Kong Chow Mai",
-          "description": "Shrimp, chicken, BBQ pork, egg, veggies & rice noodles, Hong Kong style",
+          "description": "Shrimp, chicken, BBQ pork, egg, veggies & rice noodles, stir-fried",
           "priceCents": 1925,
           "spiceAdjustable": false,
           "dietary": [],
@@ -1223,13 +1217,13 @@
           "featured": false,
           "image": null,
           "sortOrder": 6,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
           "id": "singapore-chow-mai",
           "name": "Singapore Chow Mai",
-          "description": "Shrimp, BBQ pork, egg, veggies & rice noodles with curry flavor",
+          "description": "Shrimp, BBQ pork, egg, veggies & rice noodles stir-fried with curry flavor",
           "priceCents": 1925,
           "spiceAdjustable": true,
           "dietary": [],
@@ -1237,22 +1231,35 @@
           "featured": false,
           "image": null,
           "sortOrder": 7,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
+        },
+        {
+          "id": "beef-chow-fun",
+          "name": "Beef Chow Fun",
+          "priceCents": 1825,
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
+          "sortOrder": 8,
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
           "id": "chefs-special-chow-fun",
           "name": "Chef's Special Chow Fun",
-          "description": "Beef, shrimp, BBQ pork & rice noodles in the chef's spicy sauce",
+          "description": "Beef, shrimp, BBQ pork, veggies & rice noodles stir-fried in the chef's special spicy sauce",
           "priceCents": 1925,
           "spiceAdjustable": true,
           "dietary": [],
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 8,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 9,
+          "sourcePage": 2,
+          "approval": "approved"
         }
       ]
     },
@@ -1260,16 +1267,36 @@
       "id": "dinner-combos",
       "title": "Dinner Special Combos",
       "sortOrder": 13,
-      "note": "Substitutions welcome — $1.50 each. Removing an item is free.",
       "items": [
+        {
+          "id": "deluxe-special",
+          "number": "DS",
+          "name": "Deluxe Special",
+          "priceCents": 1900,
+          "components": [
+            "Fried Shrimp",
+            "BBQ Pork",
+            "Cashew Chicken Subgum Chow Mein (crunchy noodles)",
+            "Spring Roll",
+            "Pork Fried Rice"
+          ],
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
+          "sortOrder": 1,
+          "sourcePage": 1,
+          "approval": "approved",
+          "description": "Fried Shrimp, BBQ Pork, Cashew Chicken Subgum Chow Mein (crunchy noodles), Spring Roll, Pork Fried Rice"
+        },
         {
           "id": "dinner-combo-no-1",
           "number": "1",
           "name": "Dinner Combo No. 1",
-          "description": "Pork chow mein (crunchy noodles), pork fried rice, sweet & sour pork",
           "priceCents": 1600,
           "components": [
-            "Pork Chow Mein",
+            "Pork Chow Mein (crunchy noodles)",
             "Pork Fried Rice",
             "Sweet & Sour Pork"
           ],
@@ -1278,15 +1305,15 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 1,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 2,
+          "sourcePage": 1,
+          "approval": "approved",
+          "description": "Pork Chow Mein (crunchy noodles), Pork Fried Rice, Sweet & Sour Pork"
         },
         {
           "id": "dinner-combo-no-2",
           "number": "2",
           "name": "Dinner Combo No. 2",
-          "description": "Fried shrimp, pork fried rice, Mar Far chicken",
           "priceCents": 1675,
           "components": [
             "Fried Shrimp",
@@ -1298,18 +1325,18 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 2,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 3,
+          "sourcePage": 1,
+          "approval": "approved",
+          "description": "Fried Shrimp, Pork Fried Rice, Mar Far Chicken"
         },
         {
           "id": "dinner-combo-no-3",
           "number": "3",
           "name": "Dinner Combo No. 3",
-          "description": "Pork chow mein (crunchy noodles), pork fried rice, fried shrimp, sweet & sour chicken",
           "priceCents": 1800,
           "components": [
-            "Pork Chow Mein",
+            "Pork Chow Mein (crunchy noodles)",
             "Pork Fried Rice",
             "Fried Shrimp",
             "Sweet & Sour Chicken"
@@ -1319,18 +1346,18 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 3,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 4,
+          "sourcePage": 1,
+          "approval": "approved",
+          "description": "Pork Chow Mein (crunchy noodles), Pork Fried Rice, Fried Shrimp, Sweet & Sour Chicken"
         },
         {
           "id": "dinner-combo-no-4",
           "number": "4",
           "name": "Dinner Combo No. 4",
-          "description": "Chicken chow mein (crunchy noodles), pork fried rice, fried shrimp, Mar Far chicken",
           "priceCents": 1800,
           "components": [
-            "Chicken Chow Mein",
+            "Chicken Chow Mein (crunchy noodles)",
             "Pork Fried Rice",
             "Fried Shrimp",
             "Mar Far Chicken"
@@ -1340,15 +1367,15 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 4,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 5,
+          "sourcePage": 1,
+          "approval": "approved",
+          "description": "Chicken Chow Mein (crunchy noodles), Pork Fried Rice, Fried Shrimp, Mar Far Chicken"
         },
         {
           "id": "dinner-combo-no-5",
           "number": "5",
           "name": "Dinner Combo No. 5",
-          "description": "Pork fried rice, spring roll, sweet & sour pork, fried shrimp",
           "priceCents": 1775,
           "components": [
             "Pork Fried Rice",
@@ -1361,15 +1388,15 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 5,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 6,
+          "sourcePage": 1,
+          "approval": "approved",
+          "description": "Pork Fried Rice, Spring Roll, Sweet & Sour Pork, Fried Shrimp"
         },
         {
           "id": "dinner-combo-no-6",
           "number": "6",
           "name": "Dinner Combo No. 6",
-          "description": "Broccoli beef, pork fried rice, sweet & sour pork, fried shrimp",
           "priceCents": 1825,
           "components": [
             "Broccoli Beef",
@@ -1382,15 +1409,15 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 6,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 7,
+          "sourcePage": 1,
+          "approval": "approved",
+          "description": "Broccoli Beef, Pork Fried Rice, Sweet & Sour Pork, Fried Shrimp"
         },
         {
           "id": "dinner-combo-no-7",
           "number": "7",
           "name": "Dinner Combo No. 7",
-          "description": "Kung Pao chicken, pork fried rice, sweet & sour pork, fried shrimp",
           "priceCents": 1825,
           "components": [
             "Kung Pao Chicken",
@@ -1403,15 +1430,15 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 7,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 8,
+          "sourcePage": 1,
+          "approval": "approved",
+          "description": "Kung Pao Chicken, Pork Fried Rice, Sweet & Sour Pork, Fried Shrimp"
         },
         {
           "id": "dinner-combo-no-8",
           "number": "8",
           "name": "Dinner Combo No. 8",
-          "description": "Broccoli chicken, pork fried rice, BBQ pork, Mar Far chicken",
           "priceCents": 1825,
           "components": [
             "Broccoli Chicken",
@@ -1424,92 +1451,24 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 8,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "deluxe-special",
-          "number": "DS",
-          "name": "Deluxe Special",
-          "description": "Fried shrimp, BBQ pork, cashew chicken subgum chow mein (crunchy noodles), spring roll, pork fried rice",
-          "priceCents": 1900,
-          "components": [
-            "Fried Shrimp",
-            "BBQ Pork",
-            "Cashew Chicken Subgum Chow Mein",
-            "Spring Roll",
-            "Pork Fried Rice"
-          ],
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
           "sortOrder": 9,
-          "sourcePage": null,
-          "approval": "pending"
-        }
-      ]
-    },
-    {
-      "id": "choice-combinations",
-      "title": "Choice Combinations",
-      "sortOrder": 14,
-      "note": "Build your own plate. BBQ pork and fried shrimp are $1 extra; pan-fried noodles $2 extra on chow mein.",
-      "items": [
-        {
-          "id": "any-2-items",
-          "name": "Any 2 Items",
-          "priceCents": 1325,
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 1,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "any-3-items",
-          "name": "Any 3 Items",
-          "priceCents": 1425,
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 2,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "any-4-items",
-          "name": "Any 4 Items",
-          "priceCents": 1525,
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 3,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved",
+          "description": "Broccoli Chicken, Pork Fried Rice, BBQ Pork, Mar Far Chicken"
         }
       ]
     },
     {
       "id": "family-dinners",
       "title": "Family Style Dinners",
-      "sortOrder": 15,
-      "note": "Priced per person, minimum two people. Every style starts with spring rolls, BBQ pork & crab puffs. Substitutions $1.50 per person each; removals free.",
+      "sortOrder": 14,
+      "note": "For two or more people, priced per person. Every style starts with spring rolls, BBQ pork & crab puffs.",
       "items": [
         {
           "id": "family-style-a",
           "name": "Family Dinner Style A",
-          "description": "Cashew chicken, pork fried rice, sweet & sour pork, fried shrimp · 4+ people adds General Tso's chicken",
-          "priceCents": 1850,
+          "description": "Appetizers: spring rolls, BBQ pork & crab puffs · 4+ people also includes General Tso's chicken",
+          "priceCents": 1875,
           "perPerson": true,
           "minQuantity": 2,
           "components": [
@@ -1524,13 +1483,13 @@
           "featured": true,
           "image": null,
           "sortOrder": 1,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "family-style-b",
           "name": "Family Dinner Style B",
-          "description": "Broccoli beef, Mar Far chicken, pork fried rice, fried shrimp · 4+ people adds orange chicken",
+          "description": "Appetizers: spring rolls, BBQ pork & crab puffs · 4+ people also includes orange chicken",
           "priceCents": 1925,
           "perPerson": true,
           "minQuantity": 2,
@@ -1546,13 +1505,13 @@
           "featured": true,
           "image": null,
           "sortOrder": 2,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "family-style-c",
           "name": "Family Dinner Style C",
-          "description": "Mongolian chicken, sweet & sour chicken, Szechwan shrimp, pork fried rice · 4+ people adds fried shrimp",
+          "description": "Appetizers: spring rolls, BBQ pork & crab puffs · 4+ people also includes fried shrimp",
           "priceCents": 2025,
           "perPerson": true,
           "minQuantity": 2,
@@ -1568,21 +1527,21 @@
           "featured": true,
           "image": null,
           "sortOrder": 3,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         },
         {
           "id": "family-style-d",
           "name": "Family Dinner Style D",
-          "description": "Pork fried rice, Mar Far chicken, sweet & sour pork, cashew subgum chicken chow mein with pan-fried noodles · 3+ people adds fried shrimp",
-          "priceCents": 1825,
+          "description": "Appetizers: spring rolls, BBQ pork & crab puffs · 3+ people also includes fried shrimp",
+          "priceCents": 1850,
           "perPerson": true,
           "minQuantity": 2,
           "components": [
             "Pork Fried Rice",
             "Mar Far Chicken",
             "Sweet & Sour Pork",
-            "Cashew Subgum Chicken Chow Mein"
+            "Cashew Subgum Chicken Chow Mein with pan-fried noodles"
           ],
           "spiceAdjustable": false,
           "dietary": [],
@@ -1590,26 +1549,25 @@
           "featured": true,
           "image": null,
           "sortOrder": 4,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 1,
+          "approval": "approved"
         }
       ]
     },
     {
       "id": "lunch",
-      "title": "Lunch",
-      "sortOrder": 16,
-      "note": "Lunch specialties come with pork fried rice and your choice of a spring roll (1 pc) or crab puffs (2 pc).",
+      "title": "Lunch Specialty",
+      "sortOrder": 15,
+      "note": "Served noon – 4 PM with pork fried rice and your choice of a spring roll (1 pc) or crab puffs (2 pc).",
       "servedWindow": "lunch",
       "items": [
         {
-          "id": "lunch-l1",
-          "number": "L1",
+          "id": "lunch-pea-pods",
           "name": "Chicken or Beef with Pea Pods",
           "priceCents": 1525,
           "options": [
             {
-              "label": "Protein",
+              "label": "Choice",
               "choices": [
                 {
                   "label": "Chicken"
@@ -1637,17 +1595,16 @@
           "featured": false,
           "image": null,
           "sortOrder": 1,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
-          "id": "lunch-l2",
-          "number": "L2",
+          "id": "lunch-broccoli",
           "name": "Broccoli Beef or Chicken",
           "priceCents": 1500,
           "options": [
             {
-              "label": "Protein",
+              "label": "Choice",
               "choices": [
                 {
                   "label": "Beef"
@@ -1675,12 +1632,11 @@
           "featured": false,
           "image": null,
           "sortOrder": 2,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
-          "id": "lunch-l3",
-          "number": "L3",
+          "id": "lunch-moo-goo-gai-pan",
           "name": "Moo Goo Gai Pan",
           "priceCents": 1500,
           "options": [
@@ -1702,17 +1658,16 @@
           "featured": false,
           "image": null,
           "sortOrder": 3,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
-          "id": "lunch-l4",
-          "number": "L4",
+          "id": "lunch-curry",
           "name": "Curry Chicken or Beef",
           "priceCents": 1500,
           "options": [
             {
-              "label": "Protein",
+              "label": "Choice",
               "choices": [
                 {
                   "label": "Chicken"
@@ -1740,12 +1695,11 @@
           "featured": false,
           "image": null,
           "sortOrder": 4,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
-          "id": "lunch-l5",
-          "number": "L5",
+          "id": "lunch-cashew-chicken",
           "name": "Cashew Chicken",
           "priceCents": 1500,
           "options": [
@@ -1767,17 +1721,16 @@
           "featured": false,
           "image": null,
           "sortOrder": 5,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
-          "id": "lunch-l6",
-          "number": "L6",
+          "id": "lunch-kung-pao",
           "name": "Kung Pao Chicken or Beef",
           "priceCents": 1500,
           "options": [
             {
-              "label": "Protein",
+              "label": "Choice",
               "choices": [
                 {
                   "label": "Chicken"
@@ -1805,17 +1758,42 @@
           "featured": false,
           "image": null,
           "sortOrder": 6,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
-          "id": "lunch-l7",
-          "number": "L7",
+          "id": "lunch-kung-pao-shrimp",
+          "name": "Kung Pao Shrimp",
+          "priceCents": 1650,
+          "options": [
+            {
+              "label": "Side",
+              "choices": [
+                {
+                  "label": "Spring Roll (1 pc)"
+                },
+                {
+                  "label": "Crab Puffs (2 pc)"
+                }
+              ]
+            }
+          ],
+          "spiceAdjustable": true,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
+          "sortOrder": 7,
+          "sourcePage": 2,
+          "approval": "approved"
+        },
+        {
+          "id": "lunch-garlic-sauce",
           "name": "Chicken or Beef with Garlic Sauce",
           "priceCents": 1500,
           "options": [
             {
-              "label": "Protein",
+              "label": "Choice",
               "choices": [
                 {
                   "label": "Chicken"
@@ -1842,45 +1820,17 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 7,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "lunch-l8",
-          "number": "L8",
-          "name": "Kung Pao Shrimp",
-          "priceCents": 1650,
-          "options": [
-            {
-              "label": "Side",
-              "choices": [
-                {
-                  "label": "Spring Roll (1 pc)"
-                },
-                {
-                  "label": "Crab Puffs (2 pc)"
-                }
-              ]
-            }
-          ],
-          "spiceAdjustable": true,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
           "sortOrder": 8,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
-          "id": "lunch-l9",
-          "number": "L9",
+          "id": "lunch-mongolian",
           "name": "Mongolian Beef or Chicken",
           "priceCents": 1525,
           "options": [
             {
-              "label": "Protein",
+              "label": "Choice",
               "choices": [
                 {
                   "label": "Beef"
@@ -1908,26 +1858,14 @@
           "featured": false,
           "image": null,
           "sortOrder": 9,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
-          "id": "lunch-l10",
-          "number": "L10",
-          "name": "Green Pepper Beef or Chicken",
-          "priceCents": 1500,
+          "id": "lunch-general-tsos",
+          "name": "General Tso's Chicken",
+          "priceCents": 1525,
           "options": [
-            {
-              "label": "Protein",
-              "choices": [
-                {
-                  "label": "Beef"
-                },
-                {
-                  "label": "Chicken"
-                }
-              ]
-            },
             {
               "label": "Side",
               "choices": [
@@ -1940,19 +1878,18 @@
               ]
             }
           ],
-          "spiceAdjustable": false,
+          "spiceAdjustable": true,
           "dietary": [],
           "available": true,
           "featured": false,
           "image": null,
           "sortOrder": 10,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
-          "id": "lunch-l11",
-          "number": "L11",
-          "name": "Mandarin Chicken",
+          "id": "lunch-orange-chicken",
+          "name": "Orange Chicken",
           "priceCents": 1525,
           "options": [
             {
@@ -1973,13 +1910,12 @@
           "featured": false,
           "image": null,
           "sortOrder": 11,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
-          "id": "lunch-l12",
-          "number": "L12",
-          "name": "General Tso's Chicken",
+          "id": "lunch-sesame-chicken",
+          "name": "Sesame Chicken",
           "priceCents": 1525,
           "options": [
             {
@@ -2000,66 +1936,11 @@
           "featured": false,
           "image": null,
           "sortOrder": 12,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
-          "id": "lunch-l13",
-          "number": "L13",
-          "name": "Orange Chicken",
-          "priceCents": 1525,
-          "options": [
-            {
-              "label": "Side",
-              "choices": [
-                {
-                  "label": "Spring Roll (1 pc)"
-                },
-                {
-                  "label": "Crab Puffs (2 pc)"
-                }
-              ]
-            }
-          ],
-          "spiceAdjustable": true,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 13,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "lunch-l14",
-          "number": "L14",
-          "name": "Sesame Chicken",
-          "priceCents": 1525,
-          "options": [
-            {
-              "label": "Side",
-              "choices": [
-                {
-                  "label": "Spring Roll (1 pc)"
-                },
-                {
-                  "label": "Crab Puffs (2 pc)"
-                }
-              ]
-            }
-          ],
-          "spiceAdjustable": true,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 14,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "lunch-l15",
-          "number": "L15",
+          "id": "lunch-mixed-vegetable",
           "name": "Mixed Vegetable Deluxe",
           "priceCents": 1425,
           "options": [
@@ -2080,14 +1961,65 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 15,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 13,
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
-          "id": "lunch-l16",
-          "number": "L16",
-          "name": "Sesame Tofu with Vegetable",
+          "id": "lunch-sesame-tofu",
+          "name": "Sesame Tofu with Vegetables",
+          "priceCents": 1500,
+          "options": [
+            {
+              "label": "Side",
+              "choices": [
+                {
+                  "label": "Spring Roll (1 pc)"
+                },
+                {
+                  "label": "Crab Puffs (2 pc)"
+                }
+              ]
+            }
+          ],
+          "spiceAdjustable": true,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
+          "sortOrder": 14,
+          "sourcePage": 2,
+          "approval": "approved"
+        },
+        {
+          "id": "lunch-mongolian-tofu",
+          "name": "Mongolian Tofu with Vegetables",
+          "priceCents": 1500,
+          "options": [
+            {
+              "label": "Side",
+              "choices": [
+                {
+                  "label": "Spring Roll (1 pc)"
+                },
+                {
+                  "label": "Crab Puffs (2 pc)"
+                }
+              ]
+            }
+          ],
+          "spiceAdjustable": true,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
+          "sortOrder": 15,
+          "sourcePage": 2,
+          "approval": "approved"
+        },
+        {
+          "id": "lunch-home-style-tofu",
+          "name": "Home Style Tofu with Vegetables",
           "priceCents": 1500,
           "options": [
             {
@@ -2108,85 +2040,212 @@
           "featured": false,
           "image": null,
           "sortOrder": 16,
-          "sourcePage": null,
-          "approval": "pending"
-        },
+          "sourcePage": 2,
+          "approval": "approved"
+        }
+      ]
+    },
+    {
+      "id": "choice-combinations",
+      "title": "Choice Combinations",
+      "sortOrder": 16,
+      "note": "Served noon – 4 PM. BBQ pork and fried shrimp are $1.00 extra. Pan-fried noodles are $2.00 extra on chow mein dishes.",
+      "servedWindow": "lunch",
+      "items": [
         {
-          "id": "lunch-l17",
-          "number": "L17",
-          "name": "Mongolian Tofu with Vegetable",
-          "priceCents": 1500,
+          "id": "any-2-items",
+          "name": "Any 2 Items",
+          "priceCents": 1325,
           "options": [
             {
-              "label": "Side",
+              "label": "Choose from",
               "choices": [
                 {
-                  "label": "Spring Roll (1 pc)"
+                  "label": "Pork Fried Rice"
                 },
                 {
-                  "label": "Crab Puffs (2 pc)"
+                  "label": "Pork Chow Mein (crunchy noodles)"
+                },
+                {
+                  "label": "Spring Roll"
+                },
+                {
+                  "label": "Mar Far Chicken"
+                },
+                {
+                  "label": "Sweet & Sour Pork"
+                },
+                {
+                  "label": "Crab Meat Puffs"
+                },
+                {
+                  "label": "Chicken Chow Mein (crunchy noodles)"
+                },
+                {
+                  "label": "Sweet & Sour Chicken"
+                },
+                {
+                  "label": "Cashew Subgum Chicken Chow Mein (crunchy noodles)"
+                },
+                {
+                  "label": "BBQ Pork",
+                  "deltaCents": 100
+                },
+                {
+                  "label": "Fried Shrimp",
+                  "deltaCents": 100
                 }
               ]
             }
           ],
-          "spiceAdjustable": true,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 17,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "lunch-l18",
-          "number": "L18",
-          "name": "Home Style Tofu with Vegetable",
-          "priceCents": 1500,
-          "options": [
-            {
-              "label": "Side",
-              "choices": [
-                {
-                  "label": "Spring Roll (1 pc)"
-                },
-                {
-                  "label": "Crab Puffs (2 pc)"
-                }
-              ]
-            }
-          ],
-          "spiceAdjustable": true,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 18,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "lunch-lunch-vegetable-lo-mein",
-          "name": "Lunch Vegetable Lo Mein",
-          "description": "Soft noodles",
-          "priceCents": 1450,
           "spiceAdjustable": false,
           "dietary": [],
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 19,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 1,
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
-          "id": "lunch-lunch-lo-mein-beef-chicken-or-bbq-pork",
-          "name": "Lunch Lo Mein — Beef, Chicken, or BBQ Pork",
-          "description": "Soft noodles",
+          "id": "any-3-items",
+          "name": "Any 3 Items",
+          "priceCents": 1425,
+          "options": [
+            {
+              "label": "Choose from",
+              "choices": [
+                {
+                  "label": "Pork Fried Rice"
+                },
+                {
+                  "label": "Pork Chow Mein (crunchy noodles)"
+                },
+                {
+                  "label": "Spring Roll"
+                },
+                {
+                  "label": "Mar Far Chicken"
+                },
+                {
+                  "label": "Sweet & Sour Pork"
+                },
+                {
+                  "label": "Crab Meat Puffs"
+                },
+                {
+                  "label": "Chicken Chow Mein (crunchy noodles)"
+                },
+                {
+                  "label": "Sweet & Sour Chicken"
+                },
+                {
+                  "label": "Cashew Subgum Chicken Chow Mein (crunchy noodles)"
+                },
+                {
+                  "label": "BBQ Pork",
+                  "deltaCents": 100
+                },
+                {
+                  "label": "Fried Shrimp",
+                  "deltaCents": 100
+                }
+              ]
+            }
+          ],
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
+          "sortOrder": 2,
+          "sourcePage": 2,
+          "approval": "approved"
+        },
+        {
+          "id": "any-4-items",
+          "name": "Any 4 Items",
           "priceCents": 1525,
           "options": [
             {
-              "label": "Protein",
+              "label": "Choose from",
+              "choices": [
+                {
+                  "label": "Pork Fried Rice"
+                },
+                {
+                  "label": "Pork Chow Mein (crunchy noodles)"
+                },
+                {
+                  "label": "Spring Roll"
+                },
+                {
+                  "label": "Mar Far Chicken"
+                },
+                {
+                  "label": "Sweet & Sour Pork"
+                },
+                {
+                  "label": "Crab Meat Puffs"
+                },
+                {
+                  "label": "Chicken Chow Mein (crunchy noodles)"
+                },
+                {
+                  "label": "Sweet & Sour Chicken"
+                },
+                {
+                  "label": "Cashew Subgum Chicken Chow Mein (crunchy noodles)"
+                },
+                {
+                  "label": "BBQ Pork",
+                  "deltaCents": 100
+                },
+                {
+                  "label": "Fried Shrimp",
+                  "deltaCents": 100
+                }
+              ]
+            }
+          ],
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
+          "sortOrder": 3,
+          "sourcePage": 2,
+          "approval": "approved"
+        }
+      ]
+    },
+    {
+      "id": "lunch-lo-mein",
+      "title": "Lunch Lo Mein",
+      "sortOrder": 17,
+      "note": "Served noon – 4 PM, with soft noodles.",
+      "servedWindow": "lunch",
+      "items": [
+        {
+          "id": "lunch-shrimp-lo-mein",
+          "name": "Shrimp Lo Mein",
+          "priceCents": 1675,
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
+          "sortOrder": 1,
+          "sourcePage": 2,
+          "approval": "approved"
+        },
+        {
+          "id": "lunch-lo-mein",
+          "name": "Beef, Chicken or BBQ Pork Lo Mein",
+          "priceCents": 1525,
+          "options": [
+            {
+              "label": "Choice",
               "choices": [
                 {
                   "label": "Beef"
@@ -2205,13 +2264,26 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 20,
-          "sourcePage": null,
-          "approval": "pending"
+          "sortOrder": 2,
+          "sourcePage": 2,
+          "approval": "approved"
         },
         {
-          "id": "lunch-lunch-house-chow-mein",
-          "name": "Lunch House Chow Mein",
+          "id": "lunch-vegetable-lo-mein",
+          "name": "Vegetable Lo Mein",
+          "priceCents": 1450,
+          "spiceAdjustable": false,
+          "dietary": [],
+          "available": true,
+          "featured": false,
+          "image": null,
+          "sortOrder": 3,
+          "sourcePage": 2,
+          "approval": "approved"
+        },
+        {
+          "id": "lunch-house-chow-mein",
+          "name": "House Chow Mein",
           "description": "Chicken, BBQ pork & shrimp",
           "priceCents": 1650,
           "spiceAdjustable": true,
@@ -2219,190 +2291,9 @@
           "available": true,
           "featured": false,
           "image": null,
-          "sortOrder": 21,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "lunch-lunch-shrimp-lo-mein",
-          "name": "Lunch Shrimp Lo Mein",
-          "description": "Soft noodles",
-          "priceCents": 1675,
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 22,
-          "sourcePage": null,
-          "approval": "pending"
-        }
-      ]
-    },
-    {
-      "id": "drinks",
-      "title": "Drinks",
-      "sortOrder": 17,
-      "items": [
-        {
-          "id": "hot-tea-per-cup",
-          "name": "Hot Tea (per cup)",
-          "priceCents": 100,
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 1,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "fountain-drink",
-          "name": "Fountain Drink",
-          "description": "One free refill (dine-in)",
-          "priceCents": 350,
-          "options": [
-            {
-              "label": "Flavor",
-              "choices": [
-                {
-                  "label": "Pepsi"
-                },
-                {
-                  "label": "Diet Pepsi"
-                },
-                {
-                  "label": "Dr. Pepper"
-                },
-                {
-                  "label": "Mt. Dew"
-                },
-                {
-                  "label": "Starry"
-                },
-                {
-                  "label": "Lemonade"
-                },
-                {
-                  "label": "Iced Tea"
-                },
-                {
-                  "label": "Root Beer"
-                }
-              ]
-            }
-          ],
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 2,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "beer",
-          "name": "Beer",
-          "priceCents": 575,
-          "options": [
-            {
-              "label": "Choice",
-              "choices": [
-                {
-                  "label": "Budweiser"
-                },
-                {
-                  "label": "Bud Light"
-                },
-                {
-                  "label": "Coors Light"
-                }
-              ]
-            }
-          ],
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 3,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "imported-beer",
-          "name": "Imported Beer",
-          "priceCents": 675,
-          "options": [
-            {
-              "label": "Choice",
-              "choices": [
-                {
-                  "label": "Heineken"
-                },
-                {
-                  "label": "Corona"
-                },
-                {
-                  "label": "Tsingtao"
-                },
-                {
-                  "label": "Chang"
-                }
-              ]
-            }
-          ],
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
           "sortOrder": 4,
-          "sourcePage": null,
-          "approval": "pending"
-        },
-        {
-          "id": "wine",
-          "name": "Wine",
-          "variants": [
-            {
-              "label": "Glass",
-              "priceCents": 650
-            },
-            {
-              "label": "Half Carafe",
-              "priceCents": 1050
-            }
-          ],
-          "options": [
-            {
-              "label": "Variety",
-              "choices": [
-                {
-                  "label": "Chardonnay"
-                },
-                {
-                  "label": "Merlot"
-                },
-                {
-                  "label": "Blush"
-                },
-                {
-                  "label": "Burgundy"
-                }
-              ]
-            }
-          ],
-          "spiceAdjustable": false,
-          "dietary": [],
-          "available": true,
-          "featured": false,
-          "image": null,
-          "sortOrder": 5,
-          "sourcePage": null,
-          "approval": "pending"
+          "sourcePage": 2,
+          "approval": "approved"
         }
       ]
     }

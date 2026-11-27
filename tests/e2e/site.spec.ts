@@ -85,8 +85,8 @@ test.describe("menu", () => {
     await search.fill("orange chicken");
     await expect(page.locator("#orange-chicken")).toBeVisible();
     await expect(page.locator("#broccoli-beef")).toBeHidden();
-    await search.fill("L3");
-    await expect(page.locator("#lunch-l3")).toBeVisible();
+    await search.fill("no 4");
+    await expect(page.locator("#dinner-combo-no-4")).toBeVisible();
     await expect(page.getByTestId("result-count")).toHaveText("1 dish");
     await search.fill("pizza");
     await expect(page.getByTestId("no-results")).toBeVisible();
@@ -116,19 +116,19 @@ test.describe("menu", () => {
       if (r.method() !== "GET" || !(u.pathname.startsWith("/_next") || u.searchParams.has("_rsc") || r.resourceType() === "document")) sent.push(`${r.method()} ${r.url()}`);
     });
     await page.goto("/menu");
-    await page.getByRole("button", { name: "Add Crab Puffs to my takeout list" }).click();
-    await page.getByRole("button", { name: "Add Crab Puffs to my takeout list" }).click();
+    await page.getByRole("button", { name: "Add Crab Puffs (8 pc) to my takeout list" }).click();
+    await page.getByRole("button", { name: "Add Crab Puffs (8 pc) to my takeout list" }).click();
     await page.getByRole("button", { name: "Add Egg Flower Soup, Large to my takeout list" }).click();
     await page.getByTestId("open-list").click();
     const dialog = page.getByRole("dialog", { name: "My takeout list" });
     await expect(dialog).toBeVisible();
     await expect(dialog.getByText("not an order")).toBeVisible();
-    await expect(page.getByTestId("takeout-subtotal")).toHaveText("$29.50"); // 2×10.75 + 8.00
+    await expect(page.getByTestId("takeout-subtotal")).toHaveText("$29.00"); // 2×10.75 + 7.50
     await page.keyboard.press("Escape");
     await expect(dialog).toBeHidden();
     await page.reload();
     await page.getByTestId("open-list").click();
-    await expect(page.getByTestId("takeout-subtotal")).toHaveText("$29.50");
+    await expect(page.getByTestId("takeout-subtotal")).toHaveText("$29.00");
     await page.getByRole("button", { name: "Clear" }).click();
     await expect(page.getByTestId("takeout-subtotal")).toHaveText("$0.00");
     // Nothing about the list is sent anywhere
@@ -139,12 +139,12 @@ test.describe("menu", () => {
     await page.goto("/menu");
     await page.getByRole("button", { name: "Add Family Dinner Style A to my takeout list" }).click();
     await page.getByTestId("open-list").click();
-    await expect(page.getByTestId("takeout-subtotal")).toHaveText("$37.00");
+    await expect(page.getByTestId("takeout-subtotal")).toHaveText("$37.50");
   });
 
   test("price note and allergy guidance are visible", async ({ page }) => {
     await page.goto("/menu");
-    await expect(page.getByTestId("price-note")).toContainText("as of July 2026");
+    await expect(page.getByTestId("price-note")).toContainText("as of November 2026");
     await expect(page.getByText("Food allergies?")).toBeVisible();
     await expect(page.getByRole("link", { name: "Print-friendly menu" }).first()).toHaveAttribute("href", "/menu/print");
   });

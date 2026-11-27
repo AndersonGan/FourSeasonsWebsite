@@ -6,7 +6,7 @@
  */
 export const approvals = {
   /** Owner has compared every menu name and price with the printed to-go menu. */
-  menuApproved: false,
+  menuApproved: true,
   /** Owner confirmed ordinary hours, phone, address and DoorDash link. */
   businessInfoApproved: false,
   /** Owner approved history and recognition wording on /about. */

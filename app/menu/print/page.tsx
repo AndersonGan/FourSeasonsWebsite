@@ -24,31 +24,31 @@ export default function PrintMenuPage() {
         <PrintButton />
       </div>
       <header className="flex items-center gap-4 border-b-[3px] border-double border-red pb-4">
-        <Emblem className="h-16 w-16 shrink-0" />
+        <Emblem className="h-16 w-16 shrink-0 print:h-12 print:w-12" />
         <div className="flex-1">
-          <h1 className="font-display text-4xl font-semibold text-red print:text-3xl">Four Seasons Restaurant</h1>
+          <h1 className="font-display text-4xl font-semibold text-red print:text-[22pt]">Four Seasons Restaurant</h1>
           <p className="font-semibold">
             {fullAddress} · {restaurant.phone.display}
           </p>
           <p className="text-sm text-ink-soft">{hours} · Closed Sunday & Monday</p>
         </div>
       </header>
-      <p className="mt-3 text-sm text-ink-soft">
-        Prices as of {menu.meta.pricesAsOf} and subject to change. {menu.meta.notes.join(" ")} Food allergies? Please call before ordering.
+      <p className="mt-3 text-sm text-ink-soft print:mt-2 print:text-[7.5pt]">
+        Prices as of {menu.meta.pricesAsOf} and subject to change. <strong className="text-mandarin-ink">*</strong> = heat level: your choice of mild, medium or spicy. Entrées come with steamed rice unless noted; pork fried rice instead is +$2.00. No MSG. Food allergies? Please call before ordering.
       </p>
-      <div className="mt-6 gap-8 sm:columns-2 print:columns-2 print:gap-6">
+      <div className="mt-6 gap-8 sm:columns-2 print:mt-3 print:columns-3 print:gap-5">
         {menu.categories.map((c) => (
-          <section key={c.id} className="mb-6 break-inside-avoid-column">
-            <h2 className="border-b-2 border-red font-display text-2xl font-semibold text-red print:text-xl">
+          <section key={c.id} className="mb-6 break-inside-avoid-column print:mb-3">
+            <h2 className="border-b-2 border-red font-display text-2xl font-semibold text-red print:text-[13pt]">
               {c.title}
               {c.servedWindow === "lunch" ? <span className="ml-2 font-sans text-sm font-bold text-bamboo">noon – 4 PM</span> : null}
             </h2>
-            {c.note ? <p className="mt-1 text-xs italic text-ink-soft">{c.note}</p> : null}
-            <ul className="mt-1 text-[0.92rem] print:text-[9.5pt]">
+            {c.note ? <p className="mt-1 text-xs italic text-ink-soft print:text-[7pt] print:leading-tight">{c.note}</p> : null}
+            <ul className="mt-1 text-[0.92rem] print:text-[8.3pt] print:leading-tight">
               {c.items.map((i) => (
-                <li key={i.id} className="break-inside-avoid py-1">
+                <li key={i.id} className="break-inside-avoid py-1 print:py-[1.5pt]">
                   <div className="flex items-baseline gap-2">
-                    {i.number ? <span className="w-7 shrink-0 text-xs font-bold text-red">{i.number}</span> : null}
+                    {i.number ? <span className="w-7 shrink-0 text-xs font-bold text-red print:w-5 print:text-[7.5pt]">{i.number}</span> : null}
                     <span className="font-semibold">
                       {i.name}
                       {i.spiceAdjustable ? <span className="text-mandarin-ink"> *</span> : null}
@@ -63,9 +63,9 @@ export default function PrintMenuPage() {
                       </>
                     ) : null}
                   </div>
-                  {i.description ? <p className={`text-xs text-ink-soft ${i.number ? "pl-9" : ""}`}>{i.description}</p> : null}
+                  {i.description ? <p className={`text-xs text-ink-soft print:text-[7pt] ${i.number ? "pl-9 print:pl-6" : ""}`}>{i.description}</p> : null}
                   {i.variants?.length ? (
-                    <p className={`text-xs ${i.number ? "pl-9" : ""}`}>{i.variants.map((v) => `${v.label} ${formatCents(v.priceCents)}`).join(" · ")}</p>
+                    <p className={`text-xs print:text-[7.5pt] ${i.number ? "pl-9 print:pl-6" : ""}`}>{i.variants.map((v) => `${v.label} ${formatCents(v.priceCents)}`).join(" · ")}</p>
                   ) : null}
                 </li>
               ))}
@@ -73,7 +73,6 @@ export default function PrintMenuPage() {
           </section>
         ))}
       </div>
-      <p className="mt-4 border-t border-ink/30 pt-2 text-xs text-ink-soft">* Spice level adjustable: no spice, mild, medium, spicy or extra spicy.</p>
     </article>
   );
 }

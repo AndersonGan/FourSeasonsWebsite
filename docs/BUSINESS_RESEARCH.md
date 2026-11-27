@@ -18,7 +18,12 @@ published without owner confirmation.
 
 ## 2. Owner-approved facts
 
-**None yet.** Every item in `docs/OWNER_CHECKLIST.md` is open. The site runs with
+- **Menu & prices** — current printed to-go menu supplied Nov 27, 2026 (`docs/MENU_UPDATE_2026-11.md`).
+- **No MSG** — stated on the printed menu.
+- **Hours** — printed menu: open 5 days a week, Tuesday–Saturday, noon–9:00 PM.
+- Printed menu name reads "Four Season Restaurant" (singular) — to confirm.
+
+Other items: Every item in `docs/OWNER_CHECKLIST.md` is open. The site runs with
 `previewMode = true` and all `approvals.*` flags false in `config/site.ts`.
 
 ## 3. Research-supported assumptions (used on the site, pending approval)

@@ -49,7 +49,7 @@ export const restaurant = {
 
   tagline: "Four Seasons. Endless Flavor.",
   description:
-    "A neighborhood Chinese-American kitchen on SE K Street in downtown Grants Pass, Oregon — dine-in, takeout and delivery.",
+    "A neighborhood Chinese-American kitchen on SE K Street in downtown Grants Pass, Oregon — dine-in, takeout and delivery. No MSG.",
 
   address: {
     street: "122 SE K Street",

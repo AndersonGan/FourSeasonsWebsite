@@ -305,7 +305,7 @@
           "dietary": [],
           "available": true,
           "featured": true,
-          "image": null,
+          "image": "/images/menu/general-tsos-chicken.webp",
           "sortOrder": 1,
           "sourcePage": null,
           "approval": "pending"
@@ -319,7 +319,7 @@
           "dietary": [],
           "available": true,
           "featured": true,
-          "image": null,
+          "image": "/images/menu/orange-chicken.webp",
           "sortOrder": 2,
           "sourcePage": null,
           "approval": "pending"
@@ -595,7 +595,7 @@
           "dietary": [],
           "available": true,
           "featured": false,
-          "image": null,
+          "image": "/images/menu/broccoli-beef.webp",
           "sortOrder": 1,
           "sourcePage": null,
           "approval": "pending"
@@ -781,7 +781,7 @@
           "dietary": [],
           "available": true,
           "featured": false,
-          "image": null,
+          "image": "/images/menu/sweet-and-sour-chicken.webp",
           "sortOrder": 2,
           "sourcePage": null,
           "approval": "pending"

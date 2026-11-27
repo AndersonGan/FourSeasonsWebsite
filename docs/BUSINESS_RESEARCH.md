@@ -48,7 +48,7 @@ published without owner confirmation.
 - **Chinese name / characters:** `四季` stored with `chineseNameApproved: false`. The hero seal `四季美食` ("four seasons · delicious food") is decorative and marked `aria-hidden`; it is not presented as signage.
 - **Bottled teas** (Kang Shi Fu honey jasmine, lemon iced black tea, jasmine green, Walovi herbal) — named in the brief "to confirm"; not in the transcribed menu, so not shown.
 - **Pink sauce:** the site describes pink sauce as a Southern Oregon Mar Far tradition and asks customers to "ask about sauces." It does not claim Four Seasons serves, makes, or invented a pink sauce.
-- **DoorDash photography** used by the legacy prototype — third-party/uncleared; **removed**.
+- **DoorDash photography:** four of the restaurant's DoorDash listing photos were re-imported on the owner's request (Nov 27, 2026); see `ASSET_MANIFEST.md`. A customer-uploaded photo was excluded.
 - **Old domain** `fourseasonschineserestaurantgp.com` — ownership unverified; not linked.
 - **Facebook page** — not confirmed; `links.facebook` is `null`.
 

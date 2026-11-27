@@ -14,7 +14,7 @@ export default function GalleryPage() {
     <>
       <PageIntro eyebrow="Gallery" title={<>Drawn from <span className="italic text-red">the kitchen.</span></>}>
         {hasApprovedPhotos
-          ? "Photographs from the restaurant alongside our illustrated series."
+          ? "Real plates from our kitchen, alongside our illustrated series: favorite dishes, the takeout box and the four seasons that give us our name."
           : "Our illustrated series: favorite dishes, the takeout box and the four seasons that give us our name. These are original artwork, not photos of our food — restaurant photography is on the way."}
       </PageIntro>
       <div className="mx-auto max-w-7xl px-4 pb-24 sm:px-6">

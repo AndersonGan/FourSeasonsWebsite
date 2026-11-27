@@ -46,9 +46,9 @@ without breaking anything.
 
 ## Decisions worth recording
 
-- **No food photography yet.** No owner-approved photos exist; the legacy site's DoorDash
-  photos were removed. All food imagery is original SVG illustration, labelled as such in the
-  footer and gallery. Photo slots are built (`data/gallery.ts`) for the shoot.
+- **Photos + illustration.** Four real dish photos from the restaurant's DoorDash listing (owner
+  request) are cut out from their white backgrounds so plates sit directly on the rice-paper page.
+  Illustration still carries the identity and covers dishes without photos (e.g. Mar Far).
 - **Find Your Flavor** (brief §14) was *not* built: it would require tagging dishes "crispy",
   "sweet/tangy" etc. — editorial claims the owner hasn't approved. The menu instead offers a
   verified-only "Spice adjustable" filter.

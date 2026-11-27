@@ -29,6 +29,10 @@ Tick each one, then tell the developer which settings to flip.
 - [ ] Ratings (DoorDash 4.8, Restaurantji 4.2, Nov 2026) — show them? (currently hidden)
 - [ ] Earlier prototype said "family-run", "no MSG", "cooked to order" — are these true and do you want them back?
 
+## Photos
+- [ ] Confirm the four DoorDash photos (Orange Chicken, General Tso's, Broccoli Beef, Sweet & Sour Chicken) were supplied by the restaurant and may be used on the website
+- [ ] Send any other dish photos you have (especially **Mar Far Chicken**) — DoorDash blocks automated access, so they can't be pulled from the listing
+
 ## Brand → `approvals.brandApproved`
 - [ ] Do you have a logo file? If not, approve or reject the proposed four-petal "4S" emblem
 - [ ] Your official Chinese name / characters (the site does not use any as official text)

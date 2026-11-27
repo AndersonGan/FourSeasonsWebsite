@@ -74,7 +74,7 @@ export function SiteFooter() {
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-sm text-paper/75 sm:px-6 md:flex-row md:justify-between">
           <p>© {new Date().getFullYear()} {restaurant.name} · Grants Pass, Oregon</p>
           <p>
-            Illustrations are original artwork, not photographs of our dishes.
+            Food photos: Four Seasons Restaurant. Illustrations are original artwork.
             {previewMode ? <span className="ml-2 rounded-sm bg-amber px-1.5 py-0.5 font-bold text-ink">Preview build</span> : null}
           </p>
         </div>

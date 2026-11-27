@@ -6,6 +6,8 @@ import type { MenuCategory, MenuItem } from "@/data/menu-schema";
 import { searchMenu, type SearchableItem } from "@/lib/menu-search";
 import { formatCents } from "@/lib/format";
 import { useTakeoutList } from "@/components/interactive/TakeoutList";
+import Image from "next/image";
+import { photoByItem } from "@/data/photos";
 
 type Filter = "all" | "spice" | "lunch";
 
@@ -227,15 +229,29 @@ function MenuRow({ item, hidden }: { item: MenuItem; hidden: boolean }) {
   };
 
   const unavailable = !item.available;
+  const photo = item.image ? photoByItem[item.id] : undefined;
   return (
     <li id={item.id} hidden={hidden} className="print-break-avoid scroll-mt-24 border-b lg:scroll-mt-12 border-ink/15 py-4 target:bg-pink-soft/60">
+      <div className={photo ? "flex items-start gap-3 sm:gap-4" : ""}>
+      {photo ? (
+        <span className={`no-print relative block h-16 w-16 shrink-0 overflow-hidden max-[359px]:hidden sm:h-24 sm:w-24 ${photo.cutout ? "" : "rounded-[3px] ring-1 ring-ink/15"}`}>
+          <Image
+            src={photo.src}
+            alt={photo.alt}
+            fill
+            sizes="(min-width: 640px) 96px, 64px"
+            className={photo.cutout ? "object-contain drop-shadow-[0_4px_6px_rgba(36,33,29,.18)]" : "object-cover"}
+          />
+        </span>
+      ) : null}
+      <div className={photo ? "min-w-0 flex-1" : ""}>
       <div className="flex items-baseline gap-3">
         {item.number ? (
           <span className="w-9 shrink-0 font-display text-sm font-semibold italic text-red" aria-label={`Item ${item.number}`}>
             {/^\d+$/.test(item.number) ? `№${item.number}` : item.number}
           </span>
         ) : null}
-        <h3 className="font-sans text-[1.06rem] font-bold leading-snug">
+        <h3 className="min-w-0 font-sans text-[1.06rem] font-bold leading-snug">
           {item.name}
           {item.spiceAdjustable ? (
             <span className="ml-1.5 inline-flex translate-y-[-1px] items-center gap-0.5 align-middle text-xs font-bold text-mandarin-ink" title="Spice level adjustable">
@@ -284,6 +300,8 @@ function MenuRow({ item, hidden }: { item: MenuItem; hidden: boolean }) {
             })}
           </ul>
         ) : null}
+      </div>
+      </div>
       </div>
     </li>
   );

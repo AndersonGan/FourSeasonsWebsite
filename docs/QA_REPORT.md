@@ -13,11 +13,11 @@ or on physical phones — see "Not done" below.
 | Lint | `npm run lint` | **Pass**, 0 warnings |
 | Production build | `npm run build` | **Pass** — 15 routes, all static |
 | Unit tests | `--project=unit` | **24 / 24 pass** |
-| E2E desktop (1440px) | `--project=desktop` | **24 / 24 pass** |
-| E2E mobile (Pixel 7) | `--project=mobile` | **24 / 24 pass** |
+| E2E desktop (1440px) | `--project=desktop` | **25 / 25 pass** |
+| E2E mobile (Pixel 7) | `--project=mobile` | **25 / 25 pass** |
 | Launch gate | `npm run check:launch` | **Fails as intended** — lists 8 owner/launch blockers |
 
-Total: **72 / 72 tests passing** in `npm run verify`.
+Total: **74 / 74 tests passing** in `npm run verify`.
 
 ### What the tests cover (brief §26)
 

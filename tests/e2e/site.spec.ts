@@ -170,7 +170,7 @@ test("fortune cookie opens to a fortune", async ({ page }) => {
 
 test("gallery lightbox: keyboard, Escape and focus return", async ({ page }) => {
   await page.goto("/gallery");
-  const first = page.getByRole("button", { name: /View larger: Mar Far/ });
+  const first = page.getByRole("button", { name: /View larger: Orange Chicken/ });
   await first.click();
   const dlg = page.getByRole("dialog");
   await expect(dlg).toBeVisible();
@@ -209,4 +209,17 @@ test("SEO basics", async ({ request }) => {
   expect((await request.get("/sitemap.xml")).status()).toBe(200);
   expect((await request.get("/robots.txt")).status()).toBe(200);
   expect((await request.get("/opengraph-image")).headers()["content-type"]).toContain("image/png");
+});
+
+test("restaurant food photos load on home, menu and gallery", async ({ page }) => {
+  for (const [route, min] of [["/", 4], ["/menu", 4], ["/gallery", 4]] as const) {
+    await page.goto(route);
+    const imgs = page.locator('img[src*="images%2Fmenu"], img[src*="/images/menu/"]');
+    expect(await imgs.count(), route).toBeGreaterThanOrEqual(min);
+    for (const img of await imgs.all()) {
+      await img.scrollIntoViewIfNeeded();
+      await expect.poll(() => img.evaluate((e) => (e as HTMLImageElement).complete && (e as HTMLImageElement).naturalWidth > 0), { message: route }).toBe(true);
+      expect((await img.getAttribute("alt"))?.length ?? 0).toBeGreaterThan(10);
+    }
+  }
 });

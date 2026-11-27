@@ -1,4 +1,4 @@
-import { DimSum, Essentials, FamilyDinners, Favorites, Hero, LocalStory, MarFarFeature, Ratings, Seasons, Takeout, Visit } from "@/components/home/Sections";
+import { DimSum, Essentials, FamilyDinners, Favorites, Hero, LocalStory, MarFarFeature, Ratings, RealPlates, Seasons, Takeout, Visit } from "@/components/home/Sections";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -12,6 +12,7 @@ export default function HomePage() {
     <>
       <Hero />
       <Essentials />
+      <RealPlates />
       <Favorites />
       <MarFarFeature />
       <FamilyDinners />

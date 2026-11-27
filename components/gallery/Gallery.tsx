@@ -22,6 +22,20 @@ const ART: Record<IllustrationKey, (p: { className?: string }) => React.ReactNod
 
 function Visual({ entry, large = false }: { entry: GalleryEntry; large?: boolean }) {
   if (entry.kind === "photo") {
+    if (entry.cutout) {
+      return (
+        <div className={`flex items-center justify-center bg-paper-deep ${large ? "max-h-[78vh] w-[min(90vw,1100px)] p-6" : "h-full w-full p-5"}`}>
+          <Image
+            src={entry.src}
+            width={entry.width}
+            height={entry.height}
+            alt={entry.alt}
+            sizes={large ? "90vw" : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"}
+            className={`${large ? "max-h-[70vh]" : "max-h-full"} h-auto w-auto max-w-full object-contain drop-shadow-[0_14px_18px_rgba(36,33,29,.22)]`}
+          />
+        </div>
+      );
+    }
     return (
       <Image
         src={entry.src}

@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import { photos, type Photo } from "@/data/photos";
 import { ArrowRight, Clock, MapPin, Phone, Truck } from "lucide-react";
 import { fullAddress, restaurant } from "@/config/restaurant";
 import { getCategory, getItem, pickItems, type MenuItem } from "@/data/menu";
@@ -6,7 +8,7 @@ import { formatCents, lowestPrice } from "@/lib/format";
 import { groupedSchedule } from "@/lib/business-hours";
 import { ButtonLink, Eyebrow } from "@/components/ui/Button";
 import { OpenStatus } from "@/components/ui/OpenStatus";
-import { DimSumSteamer, FamilyTable, MarFarPlate, SauceBowl, Steam, TakeoutBox } from "@/components/illustrations/Food";
+import { DimSumSteamer, FamilyTable, MarFarPlate, Steam, TakeoutBox } from "@/components/illustrations/Food";
 import { Bamboo, SprigRule } from "@/components/illustrations/Botanical";
 import { Storefront } from "@/components/illustrations/Storefront";
 import { SeasonalArt } from "@/components/seasonal/SeasonalArt";
@@ -139,6 +141,82 @@ export function Essentials() {
   );
 }
 
+/* ───────────── 2b. Real plates (photos) ───────────── */
+function PlateFigure({ photo, big = false }: { photo: Photo; big?: boolean }) {
+  const item = photo.itemId ? getItem(photo.itemId) : undefined;
+  return (
+    <figure className="group flex h-full flex-col">
+      <Link href={item ? `/menu#${item.id}` : "/menu"} className="flex flex-1 flex-col">
+        <span
+          className={`relative block w-full ${big ? "aspect-[1/1]" : photo.cutout ? "aspect-[5/4]" : "aspect-[16/9]"} ${photo.cutout ? "" : "menu-frame overflow-hidden bg-paper text-ink"}`}
+        >
+          <Image
+            src={photo.src}
+            alt={photo.alt}
+            fill
+            sizes={big ? "(min-width: 1024px) 40vw, 100vw" : "(min-width: 1024px) 20vw, 50vw"}
+            className={`${photo.cutout ? "object-contain drop-shadow-[0_18px_22px_rgba(36,33,29,.22)]" : "object-cover p-[7px]"} transition-transform duration-500 ease-[var(--ease-soft)] group-hover:-translate-y-1 group-hover:rotate-[-1deg]`}
+          />
+        </span>
+        <figcaption className="mt-3 flex items-baseline gap-3 border-t-2 border-ink pt-2">
+          <span className={`font-display font-medium leading-tight group-hover:text-red ${big ? "text-3xl" : "text-xl"}`}>{item?.name ?? ""}</span>
+          <span className="leader" aria-hidden />
+          {item ? (
+            <span className={`font-display tabular-nums ${big ? "text-2xl" : "text-lg"}`}>
+              <Price item={item} />
+            </span>
+          ) : null}
+        </figcaption>
+      </Link>
+    </figure>
+  );
+}
+
+export function RealPlates() {
+  return (
+    <section aria-labelledby="plates-title" className="relative overflow-x-clip">
+      <div className="mx-auto max-w-7xl px-4 pb-6 pt-20 sm:px-6 lg:pt-24">
+        <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-end">
+          <div>
+            <Eyebrow className="text-red">Real plates, real portions</Eyebrow>
+            <h2 id="plates-title" className="mt-4 text-5xl font-semibold sm:text-6xl">
+              Straight from <span className="italic text-bamboo">our kitchen.</span>
+            </h2>
+          </div>
+          <p className="max-w-md text-lg text-ink-soft lg:justify-self-end">
+            What you see is what comes out of the wok on K Street — generous, glossy and hot. Tap a plate to find it on the menu.
+          </p>
+        </div>
+        <div className="mt-12 grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-12 lg:gap-x-8">
+          <div className="col-span-2 lg:col-span-5">
+            <PlateFigure photo={photos.orangeChicken} big />
+          </div>
+          <div className="lg:col-span-4">
+            <PlateFigure photo={photos.generalTso} />
+          </div>
+          <div className="lg:col-span-3 lg:pt-16">
+            <PlateFigure photo={photos.broccoliBeef} />
+          </div>
+          <div className="col-span-2 hidden flex-col justify-end lg:col-span-5 lg:flex">
+            <p className="font-display text-3xl leading-tight">
+              Ordered by the plate, <span className="italic text-red">shared by the table.</span>
+            </p>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <ButtonLink href="/menu">See the full menu</ButtonLink>
+              <ButtonLink href={`tel:${restaurant.phone.tel}`} variant="outline">
+                <Phone className="h-4 w-4" aria-hidden /> Call to order
+              </ButtonLink>
+            </div>
+          </div>
+          <div className="col-span-2 lg:col-span-7">
+            <PlateFigure photo={photos.sweetSour} />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ───────────── 3. Favorites ───────────── */
 const FAVORITES = ["mar-far-chicken", "orange-chicken", "general-tsos-chicken", "potstickers", "crab-puffs", "egg-flower-soup", "bbq-pork-buns"] as const;
 
@@ -194,8 +272,7 @@ export function MarFarFeature() {
     <section aria-labelledby="marfar-title" className="relative overflow-hidden bg-pink">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:py-24">
         <div className="relative order-2 lg:order-1">
-          <MarFarPlate className="w-full max-w-xl" />
-          <SauceBowl className="absolute -bottom-4 left-4 w-28 rotate-[-8deg] sm:w-36" />
+          <MarFarPlate className="w-full max-w-xl drop-shadow-[0_14px_18px_rgba(120,40,50,.18)]" />
         </div>
         <div className="order-1 lg:order-2">
           <p className="eyebrow text-red-deep">A Southern Oregon favorite</p>

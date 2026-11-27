@@ -188,3 +188,28 @@ html[data-season="winter"] .season-label > [data-season-label="winter"] { displa
   .print-break-avoid { break-inside: avoid; }
   a { text-decoration: none; }
 }
+
+/* ── Mar Far plate animation (see components/illustrations/Food.tsx) ── */
+@keyframes mf-drop {
+  0% { transform: translateY(-46px) rotate(-14deg) scale(0.9); opacity: 0; }
+  55% { opacity: 1; }
+  75% { transform: translateY(3px) rotate(2deg) scale(1.02); }
+  100% { transform: none; opacity: 1; }
+}
+@keyframes mf-twinkle {
+  0%, 70%, 100% { opacity: 0; transform: scale(0.3); }
+  80% { opacity: 1; transform: scale(1.1) rotate(20deg); }
+  90% { opacity: 0.4; transform: scale(0.7); }
+}
+@keyframes mf-shine {
+  0%, 100% { opacity: 0.75; }
+  50% { opacity: 0.35; }
+}
+.mf-art .mf-drop { transform-box: fill-box; transform-origin: 50% 100%; }
+.mf-art .mf-glint { transform-box: fill-box; transform-origin: center; opacity: 0; animation: mf-twinkle 3.6s ease-in-out infinite; animation-delay: var(--d); }
+.mf-art .mf-shine { animation: mf-shine 4s ease-in-out infinite; }
+.anim-armed:not(.anim-play) .mf-drop { opacity: 0; }
+.anim-play .mf-drop { animation: mf-drop 0.75s cubic-bezier(0.3, 1.25, 0.55, 1) both; animation-delay: var(--d); }
+@media (prefers-reduced-motion: reduce) {
+  .mf-art .mf-glint { display: none; }
+}

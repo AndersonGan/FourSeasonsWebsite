@@ -1,8 +1,9 @@
 /**
  * Food photography used on the site. One entry per file in /public/images.
  *
- * Source: the restaurant's own DoorDash store listing (merchant-provided photos),
- * imported November 2026 at the owner's request. Replace with photos from the
+ * Sources: the restaurant's own DoorDash store listing (merchant-provided photos),
+ * imported November 2026 at the owner's request, and the Mar Far photo supplied
+ * directly by the owner. Replace with photos from the
  * planned shoot (docs/PHOTO_SHOT_LIST.md) when available.
  *
  * `cutout: true` = background removed, so the plate sits directly on the page.
@@ -21,6 +22,15 @@ export interface Photo {
 const CREDIT = "Four Seasons Restaurant (DoorDash store photo)";
 
 export const photos = {
+  marFar: {
+    src: "/images/menu/mar-far-chicken.webp",
+    width: 1200,
+    height: 823,
+    alt: "Mar Far Chicken from Four Seasons: golden battered chicken pieces piled on a square white plate",
+    itemId: "mar-far-chicken",
+    cutout: true,
+    credit: "Four Seasons Restaurant (owner photo)",
+  },
   orangeChicken: {
     src: "/images/menu/orange-chicken.webp",
     width: 1193,

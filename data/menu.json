@@ -444,7 +444,7 @@
           "dietary": [],
           "available": true,
           "featured": true,
-          "image": null,
+          "image": "/images/menu/mar-far-chicken.webp",
           "sortOrder": 1,
           "sourcePage": null,
           "approval": "pending"

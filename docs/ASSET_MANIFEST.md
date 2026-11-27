@@ -6,7 +6,8 @@ Every visual on the site, where it came from, its licence, and its approval stat
 |---|---|---|---|---|
 | Four-petal emblem & wordmark | `components/illustrations/Emblem.tsx`, `app/icon.svg` | Original, created for this project | Owned by the restaurant on handover | **Proposed** — replace with official logo if one exists; owner approval needed |
 | Food photos: Orange Chicken, General Tso's Chicken, Broccoli Beef (background removed), Sweet & Sour Chicken (in-restaurant) | `public/images/menu/*.webp`, registered in `data/photos.ts` | Restaurant's own DoorDash store listing (merchant photos), imported Nov 2026 **at the owner's request** | Owner to confirm the restaurant supplied/owns these photos | In use on home, menu rows, gallery |
-| Takeout box, Mar Far plate, dim sum steamer, family table, sauce bowl, tea cup, steam | `components/illustrations/Food.tsx` | Original | Owned on handover | Approved for use as **illustration**; never as dish photos |
+| Mar Far Chicken photo (background removed) | `public/images/menu/mar-far-chicken.webp` | Supplied directly by the owner (Nov 2026) | Owner's photo | In use: menu row, gallery |
+| Takeout box, Mar Far plate (animated; drawn from the owner's photo), dim sum steamer, family table, sauce bowl, tea cup, steam | `components/illustrations/Food.tsx` | Original | Owned on handover | Approved for use as **illustration**; never as dish photos |
 | Bamboo, plum branch, lotus, harvest moon, winter pines, sprig rule | `components/illustrations/Botanical.tsx` | Original | Owned on handover | In use |
 | Storefront illustration | `components/illustrations/Storefront.tsx` | Original interpretation of the publicly described storefront (red awning, bamboo) | Owned on handover | In use; replace with approved exterior photo |
 | Rice-paper texture | inline SVG noise in `app/globals.css` | Original (generated `feTurbulence`) | — | In use |

@@ -38,6 +38,7 @@ const photoEntry = (id: string, p: Photo, caption: string): GalleryEntry => ({
 });
 
 export const gallery: GalleryEntry[] = [
+  photoEntry("photo-marfar", photos.marFar, "Mar Far Chicken"),
   photoEntry("photo-orange", photos.orangeChicken, "Orange Chicken"),
   photoEntry("photo-sweet-sour", photos.sweetSour, "Sweet & Sour Chicken"),
   photoEntry("photo-tso", photos.generalTso, "General Tso's Chicken"),

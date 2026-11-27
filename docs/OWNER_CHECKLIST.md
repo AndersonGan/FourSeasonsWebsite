@@ -31,7 +31,8 @@ Tick each one, then tell the developer which settings to flip.
 
 ## Photos
 - [ ] Confirm the four DoorDash photos (Orange Chicken, General Tso's, Broccoli Beef, Sweet & Sour Chicken) were supplied by the restaurant and may be used on the website
-- [ ] Send any other dish photos you have (especially **Mar Far Chicken**) — DoorDash blocks automated access, so they can't be pulled from the listing
+- [x] Mar Far Chicken photo supplied (now on the menu and in the gallery)
+- [ ] Send any other dish photos you have — DoorDash blocks automated access, so they can't be pulled from the listing
 
 ## Brand → `approvals.brandApproved`
 - [ ] Do you have a logo file? If not, approve or reject the proposed four-petal "4S" emblem

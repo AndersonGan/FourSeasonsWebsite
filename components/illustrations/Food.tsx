@@ -58,124 +58,166 @@ function seeded(seed: number) {
 
 const r1 = (n: number) => Math.round(n * 10) / 10;
 
+/** Smooth closed blob through points (midpoint quadratic curves). */
+function blobPath(pts: [number, number][]): string {
+  const n = pts.length;
+  const mid = (a: [number, number], b: [number, number]) => [r1((a[0] + b[0]) / 2), r1((a[1] + b[1]) / 2)] as const;
+  const m0 = mid(pts[n - 1]!, pts[0]!);
+  let d = `M${m0[0]} ${m0[1]}`;
+  for (let i = 0; i < n; i++) {
+    const p = pts[i]!;
+    const m = mid(p, pts[(i + 1) % n]!);
+    d += `Q${r1(p[0])} ${r1(p[1])} ${m[0]} ${m[1]}`;
+  }
+  return d + "Z";
+}
+
+interface Nugget {
+  x: number;
+  y: number;
+  body: string;
+  bits: { d: string }[];
+  hl: { x: number; y: number; rx: number; ry: number; rot: number };
+  pale: boolean;
+  delay: number;
+}
+
+function makeNuggets(): Nugget[] {
+  const rnd = seeded(29);
+  const out: Nugget[] = [];
+  let tries = 0;
+  // Pile centred on the plate; denser and higher in the middle.
+  while (out.length < 44 && tries < 2000) {
+    tries++;
+    const a = rnd() * Math.PI * 2;
+    const rr = Math.sqrt(rnd());
+    const x = 136 + Math.cos(a) * rr * 84;
+    const yBase = 124 + Math.sin(a) * rr * 44;
+    if (out.some((o) => Math.hypot(o.x - x, (o.y + (1 - rr) * 16 - yBase) * 1.25) < 13.5)) continue;
+    const lift = (1 - rr) * 16; // centre pieces sit higher on the heap
+    const y = yBase - lift;
+    const size = 10 + rnd() * 5 + (yBase - 80) * 0.045; // nearer = a touch bigger
+    const pts: [number, number][] = [];
+    const n = 9;
+    const rot = rnd() * Math.PI;
+    for (let i = 0; i < n; i++) {
+      const t = rot + (i / n) * Math.PI * 2;
+      const rad = size * (0.72 + rnd() * 0.42);
+      pts.push([x + Math.cos(t) * rad * 1.12, y + Math.sin(t) * rad * 0.82]);
+    }
+    // occasional batter "tail"
+    if (rnd() > 0.55) {
+      const k = Math.floor(rnd() * n);
+      const t = rot + (k / n) * Math.PI * 2;
+      pts[k] = [x + Math.cos(t) * size * 1.55, y + Math.sin(t) * size * 1.15];
+    }
+    const bits = Array.from({ length: 1 + Math.floor(rnd() * 3) }, () => {
+      const t = Math.PI * (0.15 + rnd() * 0.7); // lower half: browned edges
+      const bx = x + Math.cos(t) * size * 0.7;
+      const by = y + Math.sin(t) * size * 0.55;
+      const bs = 1.2 + rnd() * 2;
+      const bp: [number, number][] = Array.from({ length: 6 }, (_, j) => {
+        const u = (j / 6) * Math.PI * 2;
+        return [bx + Math.cos(u) * bs * (0.7 + rnd() * 0.6), by + Math.sin(u) * bs * (0.6 + rnd() * 0.5)];
+      });
+      return { d: blobPath(bp) };
+    });
+    out.push({
+      x,
+      y,
+      body: blobPath(pts),
+      bits,
+      hl: { x: r1(x - size * 0.3), y: r1(y - size * 0.32), rx: r1(size * 0.38), ry: r1(size * 0.2), rot: r1(-20 + rnd() * 20) },
+      pale: rnd() > 0.6,
+      delay: 0,
+    });
+  }
+  // Paint back-to-front; drop order roughly bottom layer first.
+  out.sort((a, b) => a.y - b.y);
+  out.forEach((o, i) => (o.delay = Math.round(80 + i * 28)));
+  return out;
+}
+
+const NUGGETS = makeNuggets();
+
 /**
- * Mar Far chicken: one breaded, fried chicken cutlet sliced into strips and
- * laid over shredded lettuce, with a ramekin of pink sauce. Same 280×240
- * frame as before so existing layouts keep working.
+ * Mar Far Chicken as served at Four Seasons: golden battered chicken pieces
+ * heaped on a square white plate, with pink sauce. Animated when wrapped in
+ * <AnimateOnView> (pieces tumble onto the plate; steam and glints loop).
+ * Static and complete without JavaScript or with reduced motion.
  */
 export function MarFarPlate({ className }: P) {
-  const rnd = seeded(11);
-  // Lettuce shreds radiating under the cutlet.
-  const shreds = Array.from({ length: 120 }, () => {
-    const a = rnd() * Math.PI * 2;
-    const d = 6 + Math.sqrt(rnd()) * 60;
-    const x = 122 + Math.cos(a) * d * 1.05;
-    const y = 128 + Math.sin(a) * d * 0.82;
-    const len = 7 + rnd() * 12;
-    const ang = a + (rnd() - 0.5) * 1.2;
-    const bend = (rnd() - 0.5) * 7;
-    const x2 = x + Math.cos(ang) * len;
-    const y2 = y + Math.sin(ang) * len;
-    const color = ["#B8D594", "#D3E6B0", "#A3C77F", "#E4F0CC", "#C7DE9F"][Math.floor(rnd() * 5)];
-    return { d: `M${r1(x)} ${r1(y)}Q${r1((x + x2) / 2 + bend)} ${r1((y + y2) / 2 - bend)} ${r1(x2)} ${r1(y2)}`, color, w: r1(1.4 + rnd() * 1.6) };
-  });
-  // Seven strips of one cutlet, fanned slightly, each with its own jitter.
-  const strips = Array.from({ length: 7 }, (_, i) => ({
-    x: -66 + i * 19.5 + (rnd() - 0.5) * 2,
-    y: (rnd() - 0.5) * 5 - Math.abs(i - 3) * 1.6,
-    rot: (i - 3) * 2.4 + (rnd() - 0.5) * 2,
-    h: 66 - Math.abs(i - 3) * 5 + rnd() * 3,
-  }));
-  const crumbs = Array.from({ length: 140 }, () => ({ x: r1(rnd() * 18), y: r1(rnd() * 70), r: r1(0.35 + rnd() * 0.75), dark: rnd() > 0.5 }));
-
   return (
-    <svg viewBox="0 0 280 240" className={className} aria-hidden>
+    <svg viewBox="0 0 280 240" className={`mf-art ${className ?? ""}`} aria-hidden>
       <defs>
-        <radialGradient id="mf-plate" cx="45%" cy="40%" r="70%">
-          <stop offset="0" stopColor="#FFFDF7" />
-          <stop offset="1" stopColor="#F3E7CF" />
+        <linearGradient id="mf-plate-top" x1="0" y1="0" x2="0.2" y2="1">
+          <stop offset="0" stopColor="#FFFFFF" />
+          <stop offset="1" stopColor="#F1ECE3" />
+        </linearGradient>
+        <radialGradient id="mf-batter" cx="38%" cy="32%" r="75%">
+          <stop offset="0" stopColor="#F8DC9A" />
+          <stop offset="0.55" stopColor="#E8AE55" />
+          <stop offset="1" stopColor="#BD772B" />
         </radialGradient>
-        <linearGradient id="mf-crust" x1="0" y1="0" x2="0.35" y2="1">
-          <stop offset="0" stopColor="#F6CB6E" />
-          <stop offset="0.45" stopColor="#E2A443" />
-          <stop offset="1" stopColor="#B8742A" />
-        </linearGradient>
-        <linearGradient id="mf-crust-dark" x1="0" y1="0" x2="0.35" y2="1">
-          <stop offset="0" stopColor="#EDB95A" />
-          <stop offset="1" stopColor="#A9661F" />
-        </linearGradient>
+        <radialGradient id="mf-batter-pale" cx="38%" cy="32%" r="75%">
+          <stop offset="0" stopColor="#FAE6B3" />
+          <stop offset="0.6" stopColor="#EFC170" />
+          <stop offset="1" stopColor="#C98739" />
+        </radialGradient>
         <radialGradient id="mf-sauce" cx="38%" cy="35%" r="75%">
           <stop offset="0" stopColor="#FAD0D6" />
           <stop offset="0.6" stopColor="#EFA2AF" />
           <stop offset="1" stopColor="#DD8291" />
         </radialGradient>
-        <radialGradient id="mf-shadow" cx="50%" cy="50%" r="50%">
-          <stop offset="0.6" stopColor="#24211D" stopOpacity=".22" />
-          <stop offset="1" stopColor="#24211D" stopOpacity="0" />
-        </radialGradient>
+        <filter id="mf-soft" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="5" />
+        </filter>
       </defs>
 
-      {/* soft shadows */}
-      <ellipse cx="130" cy="142" rx="112" ry="100" fill="url(#mf-shadow)" />
-      <ellipse cx="236" cy="196" rx="44" ry="38" fill="url(#mf-shadow)" />
+      {/* shadow */}
+      <path d="M30 200 L250 190 L262 206 L22 214Z" fill="#24211D" opacity=".18" filter="url(#mf-soft)" />
 
-      {/* plate */}
-      <ellipse cx="124" cy="130" rx="104" ry="98" fill="#FFFBF2" stroke="#24211D" strokeWidth="2.6" />
-      <ellipse cx="124" cy="130" rx="96" ry="90" fill="none" stroke="#246B54" strokeWidth="1.4" />
-      <ellipse cx="124" cy="130" rx="92" ry="86" fill="none" stroke="#246B54" strokeWidth="0.8" strokeDasharray="1.5 4" />
-      <ellipse cx="124" cy="131" rx="80" ry="74" fill="url(#mf-plate)" />
+      {/* square plate in perspective: rim thickness, top, inner well */}
+      <path d="M44 62Q134 52 226 54Q232 54 234 60L258 182Q260 190 252 191Q136 202 22 196Q14 196 15 188L36 66Q38 62 44 62Z" transform="translate(0 7)" fill="#DCD5C8" stroke="#24211D" strokeWidth="2.4" strokeLinejoin="round" />
+      <path d="M44 62Q134 52 226 54Q232 54 234 60L258 182Q260 190 252 191Q136 202 22 196Q14 196 15 188L36 66Q38 62 44 62Z" fill="url(#mf-plate-top)" stroke="#24211D" strokeWidth="2.4" strokeLinejoin="round" />
+      <path d="M58 74Q134 66 214 67L236 174Q136 184 38 179Z" fill="#F4EFE6" opacity=".9" />
+      <path d="M58 74Q134 66 214 67" stroke="#FFFFFF" strokeWidth="2" fill="none" opacity=".9" />
 
-      {/* shredded lettuce */}
-      <g strokeLinecap="round" fill="none">
-        {shreds.map((sh, i) => (
-          <path key={i} d={sh.d} stroke={sh.color} strokeWidth={sh.w} />
-        ))}
-      </g>
-
-      {/* sliced cutlet */}
-      <g transform="translate(122 126) rotate(-16)">
-        {/* shadow beneath the cutlet */}
-        <rect x="-64" y="-28" width="134" height="58" rx="18" fill="#7A4A16" opacity=".14" transform="translate(2 4)" />
-        {strips.map((st, i) => (
-          <g key={i} transform={`translate(${r1(st.x)} ${r1(st.y)}) rotate(${r1(st.rot)})`}>
-            {/* crust */}
-            <rect x="0" y={r1(-st.h / 2)} width="18" height={r1(st.h)} rx="6" fill={`url(#${i % 3 === 1 ? "mf-crust-dark" : "mf-crust"})`} stroke="#8A5418" strokeWidth="1.3" />
-            {/* crumb texture */}
-            <g clipPath={`url(#mf-clip-${i})`}>
-              {crumbs
-                .filter((c) => c.y < st.h)
-                .map((c, k) => (
-                  <circle key={k} cx={c.x} cy={r1(c.y - st.h / 2)} r={c.r} fill={c.dark ? "#9A5A1C" : "#FBE3A6"} opacity={c.dark ? 0.45 : 0.7} />
-                ))}
-            </g>
-            <clipPath id={`mf-clip-${i}`}>
-              <rect x="0" y={r1(-st.h / 2)} width="18" height={r1(st.h)} rx="6" />
-            </clipPath>
-            {/* white-meat cut edge */}
-            <rect x="14.6" y={r1(-st.h / 2 + 6)} width="2.4" height={r1(st.h - 12)} rx="1.2" fill="#F6E4BF" opacity=".9" />
-            {/* highlight */}
-            <path d={`M4 ${r1(-st.h / 2 + 8)}q2 ${r1(st.h * 0.25)} 0 ${r1(st.h * 0.5)}`} stroke="#FFF3CF" strokeWidth="1.4" fill="none" strokeLinecap="round" opacity=".6" />
+      {/* the heap */}
+      <g className="mf-heap">
+        {NUGGETS.map((n, i) => (
+          <g key={i} className="mf-drop" style={{ ["--d" as string]: `${n.delay}ms` }}>
+            <path d={n.body} fill="#8A5418" opacity=".22" transform="translate(1.5 3)" />
+            <path d={n.body} fill={`url(#${n.pale ? "mf-batter-pale" : "mf-batter"})`} stroke="#A8692A" strokeWidth="1.1" strokeLinejoin="round" />
+            {n.bits.map((b, k) => (
+              <path key={k} d={b.d} fill="#B9702A" opacity=".42" />
+            ))}
+            <ellipse cx={n.hl.x} cy={n.hl.y} rx={n.hl.rx} ry={n.hl.ry} transform={`rotate(${n.hl.rot} ${n.hl.x} ${n.hl.y})`} fill="#FFF6DC" opacity=".7" />
           </g>
         ))}
       </g>
 
-      {/* pink sauce ramekin */}
-      <g transform="translate(232 186)">
-        <ellipse rx="40" ry="35" fill="#FFFBF2" stroke="#24211D" strokeWidth="2.6" />
-        <ellipse rx="34" ry="29" fill="none" stroke="#246B54" strokeWidth="1" strokeDasharray="1.5 4" />
-        <ellipse rx="29" ry="24" fill="url(#mf-sauce)" stroke="#C9707F" strokeWidth="1" />
-        <path d="M-17-9c7-7 20-8 29-2" stroke="#FFF" strokeWidth="3" fill="none" strokeLinecap="round" opacity=".75" />
-        <circle cx="12" cy="8" r="2.4" fill="#FFF" opacity=".55" />
-        <path d="M-8 6c4 3 10 3 14 0" stroke="#D27586" strokeWidth="1.2" fill="none" opacity=".6" />
+      {/* glints on the crispy batter */}
+      <g fill="#FFFBEA">
+        {([[104, 98], [158, 92], [182, 128], [122, 138]] as const).map(([x, y], i) => (
+          <path key={i} className="mf-glint" style={{ ["--d" as string]: `${i * 900}ms` }} d={`M${x} ${y - 5}L${x + 1.3} ${y - 1.3}L${x + 5} ${y}L${x + 1.3} ${y + 1.3}L${x} ${y + 5}L${x - 1.3} ${y + 1.3}L${x - 5} ${y}L${x - 1.3} ${y - 1.3}Z`} />
+        ))}
       </g>
 
-      {/* chopsticks resting across the plate rim */}
-      <g strokeLinecap="round">
-        <path d="M206 34 262 112" stroke="#9A5A1C" strokeWidth="5.2" />
-        <path d="M206 34 262 112" stroke="#E8B64B" strokeWidth="3.6" />
-        <path d="M194 40 252 120" stroke="#9A5A1C" strokeWidth="5.2" />
-        <path d="M194 40 252 120" stroke="#E8B64B" strokeWidth="3.6" />
-        <path d="M206 34 216 48M194 40 204 54" stroke="#B82025" strokeWidth="4" />
+      {/* steam */}
+      <g className="steam" fill="none" stroke="#FFFFFF" strokeWidth="2.6" strokeLinecap="round" opacity=".85">
+        <path d="M112 70c-6-7 6-11 0-19s5-12 2-20" />
+        <path d="M136 64c-6-7 6-11 0-19s5-12 2-20" />
+        <path d="M160 70c-6-7 6-11 0-19s5-12 2-20" />
+      </g>
+
+      {/* pink sauce ramekin */}
+      <g transform="translate(238 198)">
+        <ellipse rx="36" ry="27" fill="#24211D" opacity=".15" transform="translate(3 6)" />
+        <ellipse rx="36" ry="27" fill="#FFFBF2" stroke="#24211D" strokeWidth="2.4" />
+        <ellipse rx="26" ry="18" fill="url(#mf-sauce)" stroke="#C9707F" strokeWidth="1" />
+        <path className="mf-shine" d="M-15-6c7-6 18-7 26-2" stroke="#FFF" strokeWidth="2.6" fill="none" strokeLinecap="round" opacity=".75" />
+        <circle cx="10" cy="6" r="2" fill="#FFF" opacity=".55" />
       </g>
     </svg>
   );

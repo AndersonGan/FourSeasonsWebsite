@@ -9,6 +9,7 @@ import { groupedSchedule } from "@/lib/business-hours";
 import { ButtonLink, Eyebrow } from "@/components/ui/Button";
 import { OpenStatus } from "@/components/ui/OpenStatus";
 import { DimSumSteamer, FamilyTable, MarFarPlate, Steam, TakeoutBox } from "@/components/illustrations/Food";
+import { AnimateOnView } from "@/components/illustrations/AnimateOnView";
 import { Bamboo, SprigRule } from "@/components/illustrations/Botanical";
 import { Storefront } from "@/components/illustrations/Storefront";
 import { SeasonShowcase } from "@/components/seasonal/SeasonShowcase";
@@ -71,7 +72,9 @@ export function Hero() {
           <div className="absolute inset-[18px] border border-paper/30 sm:inset-[26px]" aria-hidden />
           <Bamboo className="absolute -right-6 bottom-0 h-[78%] w-auto opacity-95" color="#E8B64B" />
           <div className="absolute left-[8%] top-[10%] w-[66%] max-w-[420px]">
-            <MarFarPlate className="w-full drop-shadow-[0_10px_0_rgba(0,0,0,.12)]" />
+            <AnimateOnView>
+              <MarFarPlate className="w-full drop-shadow-[0_10px_0_rgba(0,0,0,.12)]" />
+            </AnimateOnView>
           </div>
           <div className="absolute bottom-[6%] left-[6%] w-[38%] max-w-[230px]">
             <Steam className="mx-auto -mb-3 h-14 w-20 text-paper/80" color="#FFF2DB" />
@@ -270,7 +273,9 @@ export function MarFarFeature() {
     <section aria-labelledby="marfar-title" className="relative overflow-hidden bg-pink">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:py-24">
         <div className="relative order-2 lg:order-1">
-          <MarFarPlate className="w-full max-w-xl drop-shadow-[0_14px_18px_rgba(120,40,50,.18)]" />
+          <AnimateOnView>
+            <MarFarPlate className="w-full max-w-xl drop-shadow-[0_14px_18px_rgba(120,40,50,.18)]" />
+          </AnimateOnView>
         </div>
         <div className="order-1 lg:order-2">
           <p className="eyebrow text-red-deep">A Southern Oregon favorite</p>
@@ -279,7 +284,7 @@ export function MarFarFeature() {
             <span className="block italic text-red-deep">& the pink stuff.</span>
           </h2>
           <p className="mt-6 max-w-lg text-lg leading-relaxed">
-            Around Southern Oregon, Mar Far chicken comes golden and crisp, sliced for sharing — and everyone has an opinion about the pink sauce. Ours is
+            Around Southern Oregon, Mar Far chicken comes battered, golden and crisp, piled high for sharing — and everyone has an opinion about the pink sauce. Ours is
             white-meat chicken served with steamed rice{marFar?.priceCents ? <>, <strong>{formatCents(marFar.priceCents)}</strong> on the to-go menu</> : null}.
           </p>
           {sesame?.description ? (

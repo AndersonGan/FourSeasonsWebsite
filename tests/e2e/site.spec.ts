@@ -170,7 +170,7 @@ test("fortune cookie opens to a fortune", async ({ page }) => {
 
 test("gallery lightbox: keyboard, Escape and focus return", async ({ page }) => {
   await page.goto("/gallery");
-  const first = page.getByRole("button", { name: /View larger: Orange Chicken/ });
+  const first = page.getByRole("button", { name: /View larger: Mar Far Chicken/ });
   await first.click();
   const dlg = page.getByRole("dialog");
   await expect(dlg).toBeVisible();

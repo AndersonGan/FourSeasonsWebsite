@@ -9,7 +9,7 @@ import { Bamboo, SprigRule } from "@/components/illustrations/Botanical";
 export const metadata = pageMetadata({
   title: "Our Story",
   description:
-    "Four Seasons Restaurant has been part of the Grants Pass dining community since at least 2011 — a neighborhood Chinese-American kitchen on SE K Street downtown.",
+    "Four Seasons Restaurant has been part of the Grants Pass dining community since at least 2011 — a neighborhood Chinese kitchen on SE K Street downtown.",
   path: "/about",
 });
 
@@ -25,7 +25,7 @@ export default function AboutPage() {
         <div className="space-y-5 text-lg leading-relaxed">
           <h2 className="text-4xl font-semibold">What we&rsquo;re about</h2>
           <p>
-            Chinese-American comfort food, made for sharing: crispy Mar Far chicken, orange and General Tso&rsquo;s chicken, potstickers and crab puffs, dim sum, chow mein,
+            Chinese comfort food, made for sharing: crispy Mar Far chicken, orange and General Tso&rsquo;s chicken, potstickers and crab puffs, dim sum, chow mein,
             and family dinners that put a little of everything on the table.
           </p>
           <p>

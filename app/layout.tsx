@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s | Four Seasons Restaurant Grants Pass",
   },
   description:
-    "Four Seasons Restaurant at 122 SE K Street in downtown Grants Pass, Oregon: Chinese-American favorites, dim sum and family dinners for dine-in, takeout and delivery. Call (541) 479-6532.",
+    "Four Seasons Restaurant at 122 SE K Street in downtown Grants Pass, Oregon: Chinese favorites, dim sum and family dinners for dine-in, takeout and delivery. Call (541) 479-6532.",
   applicationName: restaurant.name,
   formatDetection: { telephone: false },
   robots: previewMode ? { index: false, follow: false } : undefined,

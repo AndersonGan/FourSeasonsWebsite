@@ -1,7 +1,7 @@
 # Four Seasons Restaurant — website
 
 Production website for **Four Seasons Restaurant**, 122 SE K Street, Grants Pass, Oregon.
-A Chinese-American neighborhood kitchen: Mar Far chicken, dim sum, family dinners, takeout.
+A neighborhood Chinese kitchen: Mar Far chicken, dim sum, family dinners, takeout.
 
 > **Status: preview.** Built and tested, not deployed. The site is set to `noindex` and shows a
 > "Preview build" tag until the owner confirms the menu and business details —

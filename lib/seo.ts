@@ -52,7 +52,7 @@ export function restaurantJsonLd() {
     url: base,
     telephone: restaurant.phone.tel,
     image: `${base}/opengraph-image`,
-    servesCuisine: ["Chinese", "Chinese-American", "Dim Sum"],
+    servesCuisine: ["Chinese", "Dim Sum"],
     acceptsReservations: false,
     hasMenu: `${base}/menu`,
     address: {

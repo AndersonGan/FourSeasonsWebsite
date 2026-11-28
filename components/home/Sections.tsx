@@ -40,7 +40,7 @@ export function Hero() {
     <section aria-labelledby="hero-title" className="relative overflow-hidden">
       <div className="mx-auto grid max-w-7xl lg:grid-cols-[1.05fr_1fr]">
         <div className="relative z-10 px-4 pb-12 pt-10 sm:px-6 sm:pt-14 lg:pb-20 lg:pr-10 lg:pt-20">
-          <Eyebrow className="text-bamboo">Chinese-American kitchen · SE K Street · Grants Pass</Eyebrow>
+          <Eyebrow className="text-bamboo">Chinese kitchen · SE K Street · Grants Pass</Eyebrow>
           <h1 id="hero-title" className="rise-in mt-5 text-[clamp(3.1rem,10.5vw,7.4rem)] font-semibold leading-[0.9] tracking-[-0.03em] text-red">
             Four Seasons.
             <span className="block italic text-ink">
